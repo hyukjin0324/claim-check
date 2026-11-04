@@ -1,0 +1,109 @@
+{
+  "case_id": "case_15",
+  "category": "combined",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "여러 날 진료를 한 번에 청구, 합계로 금액 판단",
+  "claim_type": "outpatient",
+  "department": "정형외과",
+  "capture": "깨끗한 이미지",
+  "note": "같은 환자·기관이지만 날짜와 번호가 달라 중복이 아님",
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_15_doc1_receipt",
+      "patient_name": "장민재",
+      "provider_name": "가상정형외과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-21",
+      "visit_end": "2026-10-21",
+      "receipt_no": "2610-00115",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "재활 및 물리치료료",
+          "copay": 12000,
+          "insurer": 28000,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 16200,
+      "insurer_total": 37800,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 54000,
+      "cap_excess": 0,
+      "insurer_grand_total": 37800,
+      "patient_total": 16200,
+      "prepaid": 0,
+      "due": 16200,
+      "paid_card": 16200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 16200,
+      "unpaid": 0
+    },
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_15_doc2_receipt",
+      "patient_name": "장민재",
+      "provider_name": "가상정형외과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-23",
+      "visit_end": "2026-10-23",
+      "receipt_no": "2610-00116",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 3000,
+          "insurer": 7000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "재활 및 물리치료료",
+          "copay": 12000,
+          "insurer": 28000,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 15000,
+      "insurer_total": 35000,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 50000,
+      "cap_excess": 0,
+      "insurer_grand_total": 35000,
+      "patient_total": 15000,
+      "prepaid": 0,
+      "due": 15000,
+      "paid_card": 15000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 15000,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_15_doc3_prescription",
+      "patient_name": "장민재",
+      "provider_name": "가상정형외과의원",
+      "issue_date": "2026-10-21",
+      "disease_code": "M54",
+      "visit_start": "2026-10-21",
+      "visit_end": "2026-10-21"
+    }
+  ],
+  "issues": []
+}

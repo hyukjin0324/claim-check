@@ -1,0 +1,124 @@
+{
+  "case_id": "case_29",
+  "category": "trap",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "헷갈리지만 정상: 상한액 초과금이 있어 환자부담 총액이 작음",
+  "claim_type": "inpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": "⑧ = (① − ⑤) + ③ + ④. 오탐하면 안 됨",
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_29_doc1_receipt",
+      "patient_name": "민서준",
+      "provider_name": "가상병원",
+      "visit_type": "입원",
+      "visit_start": "2026-09-10",
+      "visit_end": "2026-09-25",
+      "receipt_no": "2609-00129",
+      "rows": [
+        {
+          "name": "입원료 4인실 이상",
+          "copay": 400000,
+          "insurer": 1600000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "처치 및 수술료",
+          "copay": 200000,
+          "insurer": 800000,
+          "full_copay": 0,
+          "noncovered": 100000
+        }
+      ],
+      "copay_total": 600000,
+      "insurer_total": 2400000,
+      "full_copay_total": 0,
+      "noncovered_total": 100000,
+      "bill_total": 3100000,
+      "cap_excess": 200000,
+      "insurer_grand_total": 2600000,
+      "patient_total": 500000,
+      "prepaid": 0,
+      "due": 500000,
+      "paid_card": 500000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 500000,
+      "unpaid": 0
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_29_doc2_itemized_bill",
+      "patient_name": "민서준",
+      "provider_name": "가상병원",
+      "visit_start": "2026-09-10",
+      "visit_end": "2026-09-25",
+      "lines": [
+        {
+          "item": "입원료 4인실 이상",
+          "date": "2026-09-10",
+          "code": "V001",
+          "name": "가상 입원료 4인실 이상",
+          "count": 1,
+          "days": 1,
+          "total": 2000000,
+          "copay": 400000,
+          "insurer": 1600000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "처치 및 수술료",
+          "date": "2026-09-10",
+          "code": "V002",
+          "name": "가상 처치 및 수술료",
+          "count": 1,
+          "days": 1,
+          "total": 1100000,
+          "copay": 200000,
+          "insurer": 800000,
+          "full_copay": 0,
+          "noncovered": 100000
+        }
+      ],
+      "subtotal": {
+        "copay": 600000,
+        "insurer": 2400000,
+        "full_copay": 0,
+        "noncovered": 100000,
+        "total": 3100000
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 600000,
+        "insurer": 2400000,
+        "full_copay": 0,
+        "noncovered": 100000,
+        "total": 3100000
+      }
+    },
+    {
+      "type": "diagnosis",
+      "file_name": "case_29_doc3_diagnosis",
+      "patient_name": "민서준",
+      "provider_name": "가상병원",
+      "disease_name": "가상 진단명",
+      "visit_start": "2026-09-10",
+      "visit_end": "2026-09-25"
+    }
+  ],
+  "issues": []
+}

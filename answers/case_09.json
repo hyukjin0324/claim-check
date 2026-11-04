@@ -1,0 +1,57 @@
+{
+  "case_id": "case_09",
+  "category": "variety",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "한방 괄호 칸 양식",
+  "claim_type": "outpatient",
+  "department": "한방",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "9",
+      "file_name": "case_09_doc1_receipt",
+      "patient_name": "오시우",
+      "provider_name": "가상한방병원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-15",
+      "visit_end": "2026-10-15",
+      "receipt_no": "2610-00109",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4800,
+          "insurer": 11200,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "한약(첩약)",
+          "copay": 0,
+          "insurer": 0,
+          "full_copay": 0,
+          "noncovered": 20000
+        }
+      ],
+      "copay_total": 4800,
+      "insurer_total": 11200,
+      "full_copay_total": 0,
+      "noncovered_total": 20000,
+      "bill_total": 36000,
+      "cap_excess": 0,
+      "insurer_grand_total": 11200,
+      "patient_total": 24800,
+      "prepaid": 0,
+      "due": 24800,
+      "paid_card": 24800,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 24800,
+      "unpaid": 0
+    }
+  ],
+  "issues": []
+}

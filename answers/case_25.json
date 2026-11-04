@@ -1,0 +1,130 @@
+{
+  "case_id": "case_25",
+  "category": "trap",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "세부내역서 환자 이름이 다름",
+  "claim_type": "outpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "request_supplement",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_25_doc1_receipt",
+      "patient_name": "안소율",
+      "provider_name": "가상내과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-11-02",
+      "visit_end": "2026-11-02",
+      "receipt_no": "2611-00126",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "검사료",
+          "copay": 5800,
+          "insurer": 13500,
+          "full_copay": 0,
+          "noncovered": 25000
+        }
+      ],
+      "copay_total": 10000,
+      "insurer_total": 23300,
+      "full_copay_total": 0,
+      "noncovered_total": 25000,
+      "bill_total": 58300,
+      "cap_excess": 0,
+      "insurer_grand_total": 23300,
+      "patient_total": 35000,
+      "prepaid": 0,
+      "due": 35000,
+      "paid_card": 35000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 35000,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_25_doc2_prescription",
+      "patient_name": "안소율",
+      "provider_name": "가상내과의원",
+      "issue_date": "2026-11-02",
+      "disease_code": "J00",
+      "visit_start": "2026-11-02",
+      "visit_end": "2026-11-02"
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_25_doc3_itemized_bill",
+      "patient_name": "안소연",
+      "provider_name": "가상내과의원",
+      "visit_start": "2026-11-02",
+      "visit_end": "2026-11-02",
+      "lines": [
+        {
+          "item": "진찰료",
+          "date": "2026-11-02",
+          "code": "V001",
+          "name": "가상 진찰료",
+          "count": 1,
+          "days": 1,
+          "total": 14000,
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "검사료",
+          "date": "2026-11-02",
+          "code": "V002",
+          "name": "가상 검사료",
+          "count": 1,
+          "days": 1,
+          "total": 44300,
+          "copay": 5800,
+          "insurer": 13500,
+          "full_copay": 0,
+          "noncovered": 25000
+        }
+      ],
+      "subtotal": {
+        "copay": 10000,
+        "insurer": 23300,
+        "full_copay": 0,
+        "noncovered": 25000,
+        "total": 58300
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 10000,
+        "insurer": 23300,
+        "full_copay": 0,
+        "noncovered": 25000,
+        "total": 58300
+      }
+    }
+  ],
+  "issues": [
+    {
+      "cause": "DOC_MISMATCH",
+      "rule": "X3"
+    }
+  ]
+}

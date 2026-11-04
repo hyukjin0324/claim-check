@@ -1,0 +1,96 @@
+{
+  "case_id": "case_14",
+  "category": "combined",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "같은 날 병원 + 약국, 처방전 조제일 일치",
+  "claim_type": "outpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_14_doc1_receipt",
+      "patient_name": "조은별",
+      "provider_name": "가상내과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-20",
+      "visit_end": "2026-10-20",
+      "receipt_no": "2610-00113",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "검사료",
+          "copay": 3000,
+          "insurer": 7000,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 7200,
+      "insurer_total": 16800,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 24000,
+      "cap_excess": 0,
+      "insurer_grand_total": 16800,
+      "patient_total": 7200,
+      "prepaid": 0,
+      "due": 7200,
+      "paid_card": 7200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 7200,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_14_doc2_prescription",
+      "patient_name": "조은별",
+      "provider_name": "가상내과의원",
+      "issue_date": "2026-10-20",
+      "disease_code": "J00",
+      "visit_start": "2026-10-20",
+      "visit_end": "2026-10-20"
+    },
+    {
+      "type": "pharmacy_receipt",
+      "form_no": "10",
+      "file_name": "case_14_doc3_pharmacy_receipt",
+      "patient_name": "조은별",
+      "provider_name": "가상약국",
+      "issue_date": "2026-10-20",
+      "receipt_no": "2610-00114",
+      "rows": [
+        {
+          "name": "약품비",
+          "copay": 2700,
+          "insurer": 6300,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 2700,
+      "insurer_total": 6300,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 9000,
+      "patient_total": 2700,
+      "due": 2700,
+      "paid_card": 2700,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 2700
+    }
+  ],
+  "issues": []
+}

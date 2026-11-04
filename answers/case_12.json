@@ -1,0 +1,72 @@
+{
+  "case_id": "case_12",
+  "category": "variety",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "납입 확인서 함께 제출. ①공단 ②본인 번호에 주의",
+  "claim_type": "outpatient",
+  "department": "소아과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_12_doc1_receipt",
+      "patient_name": "신유나",
+      "provider_name": "가상소아과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-18",
+      "visit_end": "2026-10-18",
+      "receipt_no": "2610-00111",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 3000,
+          "insurer": 7000,
+          "full_copay": 0,
+          "noncovered": 5000
+        }
+      ],
+      "copay_total": 3000,
+      "insurer_total": 7000,
+      "full_copay_total": 0,
+      "noncovered_total": 5000,
+      "bill_total": 15000,
+      "cap_excess": 0,
+      "insurer_grand_total": 7000,
+      "patient_total": 8000,
+      "prepaid": 0,
+      "due": 8000,
+      "paid_card": 8000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 8000,
+      "unpaid": 0
+    },
+    {
+      "type": "payment_cert",
+      "form_no": "12-2",
+      "patient_name": "신유나",
+      "provider_name": "가상소아과의원",
+      "lines": [
+        {
+          "date": "2026-10-18",
+          "visit_type": "외래",
+          "insurer": 7000,
+          "copay": 3000,
+          "full_copay": 0,
+          "noncovered": 5000,
+          "total": 15000,
+          "patient_total": 8000,
+          "card": 8000,
+          "cash_receipt": 0,
+          "cash": 0
+        }
+      ],
+      "file_name": "case_12_doc2_payment_cert"
+    }
+  ],
+  "issues": []
+}

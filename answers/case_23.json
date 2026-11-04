@@ -1,0 +1,55 @@
+{
+  "case_id": "case_23",
+  "category": "low_quality",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "아래쪽 금액 칸이 잘린 사진",
+  "claim_type": "outpatient",
+  "department": "내과",
+  "capture": "합계 행 아래가 안 나오게 잘라 촬영",
+  "note": "값은 제작 기준이고, 잘린 칸은 사람도 읽을 수 없음",
+  "conclusion": "needs_review",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_23_doc1_receipt",
+      "patient_name": "전우빈",
+      "provider_name": "가상의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-30",
+      "visit_end": "2026-10-30",
+      "receipt_no": "2610-00124",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 5000
+        }
+      ],
+      "copay_total": 4200,
+      "insurer_total": 9800,
+      "full_copay_total": 0,
+      "noncovered_total": 5000,
+      "bill_total": 19000,
+      "cap_excess": 0,
+      "insurer_grand_total": 9800,
+      "patient_total": 9200,
+      "prepaid": 0,
+      "due": 9200,
+      "paid_card": 9200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 9200,
+      "unpaid": 0
+    }
+  ],
+  "issues": [
+    {
+      "cause": "NEEDS_REVIEW",
+      "review_code": "CROPPED"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "case_id": "case_08",
+  "category": "variety",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "한방 표 양식",
+  "claim_type": "outpatient",
+  "department": "한방",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "8",
+      "file_name": "case_08_doc1_receipt",
+      "patient_name": "강도윤",
+      "provider_name": "가상한의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-14",
+      "visit_end": "2026-10-14",
+      "receipt_no": "2610-00108",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 3600,
+          "insurer": 8400,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "시술 및 처치료",
+          "copay": 1500,
+          "insurer": 3500,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "한방물리요법료",
+          "copay": 0,
+          "insurer": 0,
+          "full_copay": 0,
+          "noncovered": 10000
+        }
+      ],
+      "copay_total": 5100,
+      "insurer_total": 11900,
+      "full_copay_total": 0,
+      "noncovered_total": 10000,
+      "bill_total": 27000,
+      "cap_excess": 0,
+      "insurer_grand_total": 11900,
+      "patient_total": 15100,
+      "prepaid": 0,
+      "due": 15100,
+      "paid_card": 15100,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 15100,
+      "unpaid": 0
+    }
+  ],
+  "issues": []
+}

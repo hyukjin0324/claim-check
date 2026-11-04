@@ -1,0 +1,67 @@
+{
+  "case_id": "case_03",
+  "category": "simple",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "3만 원 초과 통원, 처방전 있음",
+  "claim_type": "outpatient",
+  "department": "정형외과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_03_doc1_receipt",
+      "patient_name": "박나래",
+      "provider_name": "가상정형외과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-07",
+      "visit_end": "2026-10-07",
+      "receipt_no": "2610-00103",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "재활 및 물리치료료",
+          "copay": 5800,
+          "insurer": 13500,
+          "full_copay": 0,
+          "noncovered": 40000
+        }
+      ],
+      "copay_total": 10000,
+      "insurer_total": 23300,
+      "full_copay_total": 0,
+      "noncovered_total": 40000,
+      "bill_total": 73300,
+      "cap_excess": 0,
+      "insurer_grand_total": 23300,
+      "patient_total": 50000,
+      "prepaid": 0,
+      "due": 50000,
+      "paid_card": 50000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 50000,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_03_doc2_prescription",
+      "patient_name": "박나래",
+      "provider_name": "가상정형외과의원",
+      "issue_date": "2026-10-07",
+      "disease_code": "M54",
+      "visit_start": "2026-10-07",
+      "visit_end": "2026-10-07"
+    }
+  ],
+  "issues": []
+}

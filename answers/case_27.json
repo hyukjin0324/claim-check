@@ -1,0 +1,89 @@
+{
+  "case_id": "case_27",
+  "category": "trap",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "같은 영수증의 재발행본이 함께 들어옴",
+  "claim_type": "outpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": "재발행본은 발행일만 다르게 인쇄. 영수증 번호로 판단",
+  "conclusion": "request_supplement",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_27_doc1_receipt",
+      "patient_name": "구하람",
+      "provider_name": "가상의원",
+      "visit_type": "외래",
+      "visit_start": "2026-11-04",
+      "visit_end": "2026-11-04",
+      "receipt_no": "2611-00128",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 4200,
+      "insurer_total": 9800,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 14000,
+      "cap_excess": 0,
+      "insurer_grand_total": 9800,
+      "patient_total": 4200,
+      "prepaid": 0,
+      "due": 4200,
+      "paid_card": 4200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 4200,
+      "unpaid": 0
+    },
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_27_doc2_receipt",
+      "patient_name": "구하람",
+      "provider_name": "가상의원",
+      "visit_type": "외래",
+      "visit_start": "2026-11-04",
+      "visit_end": "2026-11-04",
+      "receipt_no": "2611-00128",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        }
+      ],
+      "copay_total": 4200,
+      "insurer_total": 9800,
+      "full_copay_total": 0,
+      "noncovered_total": 0,
+      "bill_total": 14000,
+      "cap_excess": 0,
+      "insurer_grand_total": 9800,
+      "patient_total": 4200,
+      "prepaid": 0,
+      "due": 4200,
+      "paid_card": 4200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 4200,
+      "unpaid": 0
+    }
+  ],
+  "issues": [
+    {
+      "cause": "DUPLICATE"
+    }
+  ]
+}

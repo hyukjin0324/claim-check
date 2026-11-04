@@ -1,0 +1,145 @@
+{
+  "case_id": "case_24",
+  "category": "trap",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "세부내역서 비급여가 42,000원 적음",
+  "claim_type": "outpatient",
+  "department": "정형외과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "request_supplement",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_24_doc1_receipt",
+      "patient_name": "황도현",
+      "provider_name": "가상정형외과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-11-01",
+      "visit_end": "2026-11-01",
+      "receipt_no": "2611-00125",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 15000,
+          "insurer": 35000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "재활 및 물리치료료",
+          "copay": 20000,
+          "insurer": 30000,
+          "full_copay": 0,
+          "noncovered": 150000
+        }
+      ],
+      "copay_total": 35000,
+      "insurer_total": 65000,
+      "full_copay_total": 0,
+      "noncovered_total": 150000,
+      "bill_total": 250000,
+      "cap_excess": 0,
+      "insurer_grand_total": 65000,
+      "patient_total": 185000,
+      "prepaid": 0,
+      "due": 185000,
+      "paid_card": 185000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 185000,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_24_doc2_prescription",
+      "patient_name": "황도현",
+      "provider_name": "가상정형외과의원",
+      "issue_date": "2026-11-01",
+      "disease_code": "M54",
+      "visit_start": "2026-11-01",
+      "visit_end": "2026-11-01"
+    },
+    {
+      "type": "visit_cert",
+      "file_name": "case_24_doc3_visit_cert",
+      "patient_name": "황도현",
+      "provider_name": "가상정형외과의원",
+      "disease_name": "가상 진단명",
+      "visit_start": "2026-11-01",
+      "visit_end": "2026-11-01"
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_24_doc4_itemized_bill",
+      "patient_name": "황도현",
+      "provider_name": "가상정형외과의원",
+      "visit_start": "2026-11-01",
+      "visit_end": "2026-11-01",
+      "lines": [
+        {
+          "item": "진찰료",
+          "date": "2026-11-01",
+          "code": "V001",
+          "name": "가상 진찰료",
+          "count": 1,
+          "days": 1,
+          "total": 50000,
+          "copay": 15000,
+          "insurer": 35000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "재활 및 물리치료료",
+          "date": "2026-11-01",
+          "code": "V002",
+          "name": "가상 재활 및 물리치료료",
+          "count": 1,
+          "days": 1,
+          "total": 158000,
+          "copay": 20000,
+          "insurer": 30000,
+          "full_copay": 0,
+          "noncovered": 108000
+        }
+      ],
+      "subtotal": {
+        "copay": 35000,
+        "insurer": 65000,
+        "full_copay": 0,
+        "noncovered": 108000,
+        "total": 208000
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 35000,
+        "insurer": 65000,
+        "full_copay": 0,
+        "noncovered": 108000,
+        "total": 208000
+      }
+    }
+  ],
+  "issues": [
+    {
+      "cause": "DOC_MISMATCH",
+      "rule": "X1",
+      "amount_diff": 42000
+    },
+    {
+      "cause": "DOC_MISMATCH",
+      "rule": "X2",
+      "amount_diff": 42000
+    }
+  ]
+}

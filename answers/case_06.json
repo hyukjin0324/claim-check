@@ -1,0 +1,124 @@
+{
+  "case_id": "case_06",
+  "category": "simple",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "50만 원 이하 입원, 입퇴원확인서로 대체",
+  "claim_type": "inpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_06_doc1_receipt",
+      "patient_name": "한우주",
+      "provider_name": "가상병원",
+      "visit_type": "입원",
+      "visit_start": "2026-10-10",
+      "visit_end": "2026-10-12",
+      "receipt_no": "2610-00106",
+      "rows": [
+        {
+          "name": "입원료 4인실 이상",
+          "copay": 40000,
+          "insurer": 160000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "검사료",
+          "copay": 20000,
+          "insurer": 80000,
+          "full_copay": 0,
+          "noncovered": 60000
+        }
+      ],
+      "copay_total": 60000,
+      "insurer_total": 240000,
+      "full_copay_total": 0,
+      "noncovered_total": 60000,
+      "bill_total": 360000,
+      "cap_excess": 0,
+      "insurer_grand_total": 240000,
+      "patient_total": 120000,
+      "prepaid": 0,
+      "due": 120000,
+      "paid_card": 120000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 120000,
+      "unpaid": 0
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_06_doc2_itemized_bill",
+      "patient_name": "한우주",
+      "provider_name": "가상병원",
+      "visit_start": "2026-10-10",
+      "visit_end": "2026-10-12",
+      "lines": [
+        {
+          "item": "입원료 4인실 이상",
+          "date": "2026-10-10",
+          "code": "V001",
+          "name": "가상 입원료 4인실 이상",
+          "count": 1,
+          "days": 1,
+          "total": 200000,
+          "copay": 40000,
+          "insurer": 160000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "검사료",
+          "date": "2026-10-10",
+          "code": "V002",
+          "name": "가상 검사료",
+          "count": 1,
+          "days": 1,
+          "total": 160000,
+          "copay": 20000,
+          "insurer": 80000,
+          "full_copay": 0,
+          "noncovered": 60000
+        }
+      ],
+      "subtotal": {
+        "copay": 60000,
+        "insurer": 240000,
+        "full_copay": 0,
+        "noncovered": 60000,
+        "total": 360000
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 60000,
+        "insurer": 240000,
+        "full_copay": 0,
+        "noncovered": 60000,
+        "total": 360000
+      }
+    },
+    {
+      "type": "visit_cert",
+      "file_name": "case_06_doc3_visit_cert",
+      "patient_name": "한우주",
+      "provider_name": "가상병원",
+      "disease_name": "가상 진단명",
+      "visit_start": "2026-10-10",
+      "visit_end": "2026-10-12"
+    }
+  ],
+  "issues": []
+}

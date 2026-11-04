@@ -1,0 +1,74 @@
+{
+  "case_id": "case_07",
+  "category": "variety",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "괄호 칸 양식, 선택항목 포함",
+  "claim_type": "outpatient",
+  "department": "내과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "7",
+      "file_name": "case_07_doc1_receipt",
+      "patient_name": "윤세아",
+      "provider_name": "가상내과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-13",
+      "visit_end": "2026-10-13",
+      "receipt_no": "2610-00107",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "초음파 진단료",
+          "copay": 0,
+          "insurer": 0,
+          "full_copay": 0,
+          "noncovered": 50000
+        },
+        {
+          "name": "제증명수수료",
+          "copay": 0,
+          "insurer": 0,
+          "full_copay": 0,
+          "noncovered": 3000
+        }
+      ],
+      "copay_total": 4200,
+      "insurer_total": 9800,
+      "full_copay_total": 0,
+      "noncovered_total": 53000,
+      "bill_total": 67000,
+      "cap_excess": 0,
+      "insurer_grand_total": 9800,
+      "patient_total": 57200,
+      "prepaid": 0,
+      "due": 57200,
+      "paid_card": 57200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 57200,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_07_doc2_prescription",
+      "patient_name": "윤세아",
+      "provider_name": "가상내과의원",
+      "issue_date": "2026-10-13",
+      "disease_code": "J00",
+      "visit_start": "2026-10-13",
+      "visit_end": "2026-10-13"
+    }
+  ],
+  "issues": []
+}

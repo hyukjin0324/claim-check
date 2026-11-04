@@ -1,0 +1,134 @@
+{
+  "case_id": "case_17",
+  "category": "combined",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "10만 원 초과 통원, 처방전 + 통원확인서",
+  "claim_type": "outpatient",
+  "department": "정형외과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_17_doc1_receipt",
+      "patient_name": "홍지호",
+      "provider_name": "가상정형외과의원",
+      "visit_type": "외래",
+      "visit_start": "2026-10-24",
+      "visit_end": "2026-10-24",
+      "receipt_no": "2610-00118",
+      "rows": [
+        {
+          "name": "진찰료",
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "재활 및 물리치료료",
+          "copay": 8000,
+          "insurer": 18700,
+          "full_copay": 0,
+          "noncovered": 110000
+        }
+      ],
+      "copay_total": 12200,
+      "insurer_total": 28500,
+      "full_copay_total": 0,
+      "noncovered_total": 110000,
+      "bill_total": 150700,
+      "cap_excess": 0,
+      "insurer_grand_total": 28500,
+      "patient_total": 122200,
+      "prepaid": 0,
+      "due": 122200,
+      "paid_card": 122200,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 122200,
+      "unpaid": 0
+    },
+    {
+      "type": "prescription",
+      "file_name": "case_17_doc2_prescription",
+      "patient_name": "홍지호",
+      "provider_name": "가상정형외과의원",
+      "issue_date": "2026-10-24",
+      "disease_code": "M54",
+      "visit_start": "2026-10-24",
+      "visit_end": "2026-10-24"
+    },
+    {
+      "type": "visit_cert",
+      "file_name": "case_17_doc3_visit_cert",
+      "patient_name": "홍지호",
+      "provider_name": "가상정형외과의원",
+      "disease_name": "가상 진단명",
+      "visit_start": "2026-10-24",
+      "visit_end": "2026-10-24"
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_17_doc4_itemized_bill",
+      "patient_name": "홍지호",
+      "provider_name": "가상정형외과의원",
+      "visit_start": "2026-10-24",
+      "visit_end": "2026-10-24",
+      "lines": [
+        {
+          "item": "진찰료",
+          "date": "2026-10-24",
+          "code": "V001",
+          "name": "가상 진찰료",
+          "count": 1,
+          "days": 1,
+          "total": 14000,
+          "copay": 4200,
+          "insurer": 9800,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "재활 및 물리치료료",
+          "date": "2026-10-24",
+          "code": "V002",
+          "name": "가상 재활 및 물리치료료",
+          "count": 1,
+          "days": 1,
+          "total": 136700,
+          "copay": 8000,
+          "insurer": 18700,
+          "full_copay": 0,
+          "noncovered": 110000
+        }
+      ],
+      "subtotal": {
+        "copay": 12200,
+        "insurer": 28500,
+        "full_copay": 0,
+        "noncovered": 110000,
+        "total": 150700
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 12200,
+        "insurer": 28500,
+        "full_copay": 0,
+        "noncovered": 110000,
+        "total": 150700
+      }
+    }
+  ],
+  "issues": []
+}

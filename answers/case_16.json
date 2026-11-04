@@ -1,0 +1,124 @@
+{
+  "case_id": "case_16",
+  "category": "combined",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "50만 원 초과 입원, 진단서 있음",
+  "claim_type": "inpatient",
+  "department": "외과",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "type": "receipt",
+      "form_no": "6",
+      "file_name": "case_16_doc1_receipt",
+      "patient_name": "배서윤",
+      "provider_name": "가상종합병원",
+      "visit_type": "입원",
+      "visit_start": "2026-09-01",
+      "visit_end": "2026-09-05",
+      "receipt_no": "2609-00117",
+      "rows": [
+        {
+          "name": "입원료 4인실 이상",
+          "copay": 80000,
+          "insurer": 320000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "name": "처치 및 수술료",
+          "copay": 150000,
+          "insurer": 600000,
+          "full_copay": 0,
+          "noncovered": 320000
+        }
+      ],
+      "copay_total": 230000,
+      "insurer_total": 920000,
+      "full_copay_total": 0,
+      "noncovered_total": 320000,
+      "bill_total": 1470000,
+      "cap_excess": 0,
+      "insurer_grand_total": 920000,
+      "patient_total": 550000,
+      "prepaid": 0,
+      "due": 550000,
+      "paid_card": 550000,
+      "paid_cash_receipt": 0,
+      "paid_cash": 0,
+      "paid_total": 550000,
+      "unpaid": 0
+    },
+    {
+      "type": "itemized_bill",
+      "form_no": "itemized",
+      "file_name": "case_16_doc2_itemized_bill",
+      "patient_name": "배서윤",
+      "provider_name": "가상종합병원",
+      "visit_start": "2026-09-01",
+      "visit_end": "2026-09-05",
+      "lines": [
+        {
+          "item": "입원료 4인실 이상",
+          "date": "2026-09-01",
+          "code": "V001",
+          "name": "가상 입원료 4인실 이상",
+          "count": 1,
+          "days": 1,
+          "total": 400000,
+          "copay": 80000,
+          "insurer": 320000,
+          "full_copay": 0,
+          "noncovered": 0
+        },
+        {
+          "item": "처치 및 수술료",
+          "date": "2026-09-01",
+          "code": "V002",
+          "name": "가상 처치 및 수술료",
+          "count": 1,
+          "days": 1,
+          "total": 1070000,
+          "copay": 150000,
+          "insurer": 600000,
+          "full_copay": 0,
+          "noncovered": 320000
+        }
+      ],
+      "subtotal": {
+        "copay": 230000,
+        "insurer": 920000,
+        "full_copay": 0,
+        "noncovered": 320000,
+        "total": 1470000
+      },
+      "adjustment": {
+        "copay": 0,
+        "insurer": 0,
+        "full_copay": 0,
+        "noncovered": 0,
+        "total": 0
+      },
+      "grand_total": {
+        "copay": 230000,
+        "insurer": 920000,
+        "full_copay": 0,
+        "noncovered": 320000,
+        "total": 1470000
+      }
+    },
+    {
+      "type": "diagnosis",
+      "file_name": "case_16_doc3_diagnosis",
+      "patient_name": "배서윤",
+      "provider_name": "가상종합병원",
+      "disease_name": "가상 진단명",
+      "visit_start": "2026-09-01",
+      "visit_end": "2026-09-05"
+    }
+  ],
+  "issues": []
+}
