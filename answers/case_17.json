@@ -54,11 +54,24 @@
     },
     {
       "type": "prescription",
+      "form_no": "md-9",
       "file_name": "case_17_doc2_prescription",
       "patient_name": "홍지호",
       "provider_name": "가상정형외과의원",
+      "insurance_type": "건강보험",
       "issue_date": "2026-10-24",
+      "issue_no": "20261024-001",
       "disease_code": "M54",
+      "valid_days": 3,
+      "drugs": [
+        {
+          "name": "가상의약품정",
+          "code": "V900",
+          "dose": 1,
+          "daily": 3,
+          "days": 3
+        }
+      ],
       "visit_start": "2026-10-24",
       "visit_end": "2026-10-24"
     },
@@ -68,6 +81,7 @@
       "patient_name": "홍지호",
       "provider_name": "가상정형외과의원",
       "disease_name": "가상 진단명",
+      "disease_code": "Z00",
       "visit_start": "2026-10-24",
       "visit_end": "2026-10-24"
     },

@@ -96,11 +96,24 @@
     },
     {
       "type": "prescription",
+      "form_no": "md-9",
       "file_name": "case_15_doc3_prescription",
       "patient_name": "장민재",
       "provider_name": "가상정형외과의원",
+      "insurance_type": "건강보험",
       "issue_date": "2026-10-21",
+      "issue_no": "20261021-001",
       "disease_code": "M54",
+      "valid_days": 3,
+      "drugs": [
+        {
+          "name": "가상의약품정",
+          "code": "V900",
+          "dose": 1,
+          "daily": 3,
+          "days": 3
+        }
+      ],
       "visit_start": "2026-10-21",
       "visit_end": "2026-10-21"
     }

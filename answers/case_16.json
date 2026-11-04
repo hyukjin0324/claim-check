@@ -116,8 +116,15 @@
       "patient_name": "배서윤",
       "provider_name": "가상종합병원",
       "disease_name": "가상 진단명",
+      "disease_code": "Z00",
       "visit_start": "2026-09-01",
-      "visit_end": "2026-09-05"
+      "visit_end": "2026-09-05",
+      "form_no": "md-5-2",
+      "diagnosis_type": "최종 진단",
+      "diagnosis_date": "2026-09-01",
+      "admission_date": "2026-09-01",
+      "discharge_date": "2026-09-05",
+      "issue_date": "2026-09-05"
     }
   ],
   "issues": []

@@ -13,7 +13,7 @@ PLAN = ROOT / "docs" / "case-plan.md"
 FORM_NAMES = {
     "6": "제6호", "7": "제7호", "8": "제8호", "9": "제9호", "10": "제10호",
     "11": "제11호", "12": "제12호", "12-2": "제12호의2", "13": "제13호",
-    "itemized": "세부산정내역",
+    "itemized": "세부산정내역", "md-9": "처방전", "md-5-2": "진단서",
 }
 
 
@@ -85,13 +85,22 @@ def itemized(base, name=None, noncovered_diff=0, adjust=(0, 0, 0, 0), file_name=
 
 
 def rx(name, provider, date, code="J00", file_name=None):
-    return {"type": "prescription", "file_name": file_name, "patient_name": name,
-            "provider_name": provider, "issue_date": date, "disease_code": code, "visit_start": date, "visit_end": date}
+    """의료법 시행규칙 별지 제9호서식. 환자가 요구하면 질병분류기호가 비어 있을 수 있다."""
+    return {"type": "prescription", "form_no": "md-9", "file_name": file_name, "patient_name": name,
+            "provider_name": provider, "insurance_type": "건강보험", "issue_date": date,
+            "issue_no": f"{date.replace('-', '')}-001", "disease_code": code, "valid_days": 3,
+            "drugs": [{"name": "가상의약품정", "code": "V900", "dose": 1, "daily": 3, "days": 3}],
+            "visit_start": date, "visit_end": date}
 
 
 def cert(kind, name, provider, start, end=None, file_name=None):
-    return {"type": kind, "file_name": file_name, "patient_name": name, "provider_name": provider,
-            "disease_name": "가상 진단명", "visit_start": start, "visit_end": end or start}
+    doc = {"type": kind, "file_name": file_name, "patient_name": name, "provider_name": provider,
+           "disease_name": "가상 진단명", "disease_code": "Z00", "visit_start": start, "visit_end": end or start}
+    if kind == "diagnosis":
+        # 의료법 시행규칙 별지 제5호의2서식
+        doc.update(form_no="md-5-2", diagnosis_type="최종 진단", diagnosis_date=start,
+                   admission_date=start, discharge_date=end or start, issue_date=end or start)
+    return doc
 
 
 def other(desc, form=None, file_name=None):
@@ -293,7 +302,7 @@ def derive_issues(case):
     if duplicate:
         total = sum(d["patient_total"] for d in {d["receipt_no"]: d for d in receipts}.values())
     if case["claim_type"] == "outpatient" and receipts:
-        if total > 30000 and not has("prescription"):
+        if total > 30000 and not any(d["type"] == "prescription" and d.get("disease_code") for d in docs):
             found.add("D2")
         if total > 100000 and not has("diagnosis", "visit_cert"):
             found.add("D3")

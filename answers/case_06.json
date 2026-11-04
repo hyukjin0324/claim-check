@@ -116,6 +116,7 @@
       "patient_name": "한우주",
       "provider_name": "가상병원",
       "disease_name": "가상 진단명",
+      "disease_code": "Z00",
       "visit_start": "2026-10-10",
       "visit_end": "2026-10-12"
     }
