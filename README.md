@@ -38,6 +38,21 @@ outputs/judge/     ③ 판정 결과 (실행하면 다시 만들어져서 올리
 reports/           ④ 점수 리포트
 ```
 
+## CI와 제출 묶음
+
+| 동작 | 언제 | 하는 일 |
+| --- | --- | --- |
+| CI (`.github/workflows/ci.yml`) | PR, `main` 푸시 | 저장소 규칙, 테스트, 정답지 일치, 규칙 점수 |
+| 제출 묶음 (`.github/workflows/package.yml`) | `submit`으로 시작하는 태그, 수동 실행 | 검사 후 저장소를 압축해 Actions 아티팩트로 저장 |
+
+CI에 올리기 전에 같은 검사를 돌릴 수 있다.
+
+```bash
+python3 scripts/check_repo.py
+```
+
+제출 묶음에는 Git에 올린 파일만 들어간다. `private/`의 실제 서류는 들어가지 않으니 따로 제출한다.
+
 ## 지킬 것
 
 - **API 키는 올리지 않는다.** `.env.example`을 `.env`로 복사해서 쓴다. `.env`는 `.gitignore`로 막혀 있다.

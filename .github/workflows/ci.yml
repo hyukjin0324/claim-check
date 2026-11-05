@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 의존성 설치
+        run: pip install -r requirements-dev.txt
+      - name: 저장소 규칙 검사
+        run: python scripts/check_repo.py
+      - name: 테스트
+        run: python -m unittest discover tests
+      - name: 정답지가 생성 스크립트와 같은지 확인
+        run: |
+          python scripts/generate_case_drafts.py
+          git diff --exit-code -- answers docs/case-plan.md
+      - name: 규칙 점수
+        run: python scripts/score_rules.py

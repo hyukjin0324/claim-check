@@ -1,0 +1,33 @@
+name: 제출 묶음
+
+# 배포할 서버가 없어서, 태그를 달면 검사를 거친 제출용 압축 파일을 만든다.
+on:
+  push:
+    tags: ["submit*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 의존성 설치
+        run: pip install -r requirements-dev.txt
+      - name: 검사
+        run: |
+          python scripts/check_repo.py
+          python -m unittest discover tests
+          python scripts/score_rules.py
+      - name: 압축
+        run: git archive --format=zip --output=claim-check-${{ github.ref_name }}.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: claim-check-${{ github.ref_name }}
+          path: claim-check-${{ github.ref_name }}.zip
+          retention-days: 30
