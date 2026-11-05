@@ -30,8 +30,6 @@ RECEIPT_EQUATIONS = {
     "C5": {"paid_total": 1, "paid_card": -1, "paid_cash_receipt": -1, "paid_cash": -1},
     "C6": {"unpaid": 1, "due": -1, "paid_total": 1},
 }
-# 납부할 금액은 끝수를 버려 적는 서류가 있다. 식의 값이 이 범위면 통과로 본다.
-ALLOWED_DIFFERENCE = {"C4": (-99, 0)}
 SIMPLE_EQUATIONS = {
     "P1": {"bill_total": 1, "copay_total": -1, "insurer_total": -1, "full_copay_total": -1, "noncovered_total": -1},
     "P2": {"patient_total": 1, "bill_total": -1, "insurer_total": 1},
@@ -39,9 +37,13 @@ SIMPLE_EQUATIONS = {
 }
 
 
-def holds(name, difference):
-    low, high = ALLOWED_DIFFERENCE.get(name, (0, 0))
-    return low <= difference <= high
+def holds(name, difference, due=None):
+    """검산식 통과 여부. 납부할 금액은 10원이나 100원 단위로 끝수를 버려 적는 서류가 있다."""
+    if difference == 0:
+        return True
+    if name != "C4" or due is None:
+        return False
+    return (-9 <= difference < 0 and due % 10 == 0) or (-99 <= difference < 0 and due % 100 == 0)
 
 
 def equations_for(doc, keys):
@@ -129,7 +131,8 @@ def confirm_document(doc, low_ocr_threshold):
                 if key in eq and all(k == key or k in stable for k in eq)}
 
     def passes(key, value, eqs):
-        return all(holds(name, sum(c * (value if k == key else stable[k]) for k, c in eq.items())) for name, eq in eqs.items())
+        due = value if key == "due" else stable.get("due")
+        return all(holds(name, sum(c * (value if k == key else stable[k]) for k, c in eq.items()), due) for name, eq in eqs.items())
 
     def winners(key, eqs):
         candidates = [v for v in (raw[key]["a"], raw[key]["b"]) if v is not None]
@@ -170,8 +173,8 @@ def confirm_document(doc, low_ocr_threshold):
             checks.append({"rule": name, "doc_id": doc_id, "result": "skipped", "difference": None, "terms": terms})
             continue
         difference = sum(c * stable[k] for k, c in equation.items())
-        checks.append({"rule": name, "doc_id": doc_id, "result": "pass" if holds(name, difference) else "fail", "difference": difference, "terms": terms})
-        if not holds(name, difference):
+        checks.append({"rule": name, "doc_id": doc_id, "result": "pass" if holds(name, difference, stable.get("due")) else "fail", "difference": difference, "terms": terms})
+        if not holds(name, difference, stable.get("due")):
             broken |= {k for k in equation if not (k in results and results[k]["basis"] and results[k]["basis"]["type"] == "blank_zero")}
 
     for key, value in stable.items():

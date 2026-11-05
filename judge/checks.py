@@ -186,7 +186,8 @@ def cross_checks(documents, all_values, all_fields):
     named = [d for d in documents if d["type"] != "other"]
     names = [(d["doc_id"], by_id[d["doc_id"]].get("patient_name")) for d in named]
     known = [(i, n) for i, n in names if n is not None]
-    x3_failed = any(not _names_match(known[0][1], n) for _, n in known[1:]) if known else False
+    # 가린 이름은 여러 실명과 맞을 수 있어 첫 서류만이 아니라 모든 쌍을 비교한다.
+    x3_failed = any(not _names_match(a, b) for i, (_, a) in enumerate(known) for _, b in known[i + 1:])
     if x3_failed:
         issues.append(make_issue("DOC_MISMATCH", "X3", None, "서류끼리 환자 이름이 달라요.", None, [i for i, _ in known], ["patient_name"],
                                  "환자 이름이 서류마다 달라 확인이 필요합니다. 올바른 서류를 다시 보내 주세요."))
@@ -229,17 +230,26 @@ def cross_checks(documents, all_values, all_fields):
 
     prescriptions = [d for d in documents if d["type"] == "prescription"]
     for pharmacy in (d for d in documents if d["type"] == "pharmacy_receipt"):
+        if not prescriptions:
+            continue
         filled = to_date(by_id[pharmacy["doc_id"]].get("issue_date"))
+        covered, unknown = False, False
         for prescription in prescriptions:
             issued = to_date(by_id[prescription["doc_id"]].get("issue_date"))
             days = to_int(by_id[prescription["doc_id"]].get("valid_days"))
-            pair = [prescription["doc_id"], pharmacy["doc_id"]]
             if filled is None or issued is None or days is None:
-                issues.append(_unverified("X6", "처방전 발급일, 사용기간 또는 조제일", pair))
-                continue
-            ok = issued <= filled <= issued + timedelta(days=days)
-            checks.append({"rule": "X6", "doc_id": pharmacy["doc_id"], "result": "pass" if ok else "fail", "difference": None})
-            if not ok:
-                issues.append(make_issue("DOC_MISMATCH", "X6", None, "약국 조제일이 처방전 사용기간 밖이에요.", None, pair,
-                                         ["issue_date"], "처방전과 약제비 영수증의 날짜를 확인해 주세요."))
+                unknown = True
+            # 사용기간은 발급일부터 세므로 발급일이 첫날이다.
+            elif issued <= filled <= issued + timedelta(days=days - 1):
+                covered = True
+        pair = [d["doc_id"] for d in prescriptions] + [pharmacy["doc_id"]]
+        # 처방전이 여러 장이면 그중 한 장의 사용기간에 들면 된다.
+        if covered:
+            checks.append({"rule": "X6", "doc_id": pharmacy["doc_id"], "result": "pass", "difference": None})
+        elif unknown:
+            issues.append(_unverified("X6", "처방전 발급일, 사용기간 또는 조제일", pair))
+        else:
+            checks.append({"rule": "X6", "doc_id": pharmacy["doc_id"], "result": "fail", "difference": None})
+            issues.append(make_issue("DOC_MISMATCH", "X6", None, "약국 조제일이 처방전 사용기간 밖이에요.", None, pair,
+                                     ["issue_date"], "처방전과 약제비 영수증의 날짜를 확인해 주세요."))
     return issues, checks
