@@ -1,6 +1,6 @@
 # 가상 케이스 30건 초안
 
-`scripts/generate_case_drafts.py`로 만들었다. 금액 검산식과 필요 서류 규칙을 통과한 값이다. 케이스별 값은 `answers/case_NN.json`에 있다. 스키마가 확정되면 형식을 맞춘다.
+`scripts/generate_case_drafts.py`로 만들었다. 금액 검산식과 필요 서류 규칙을 통과한 값이다. 케이스별 값은 `answers/case_NN.json`에 있고, 형식은 `schema/answer.schema.json`을 따른다.
 
 | 번호 | 유형 | 목적 | 서식 | 환자부담 합계 | 제작 상태 | 이슈 | 결론 |
 | --- | --- | --- | --- | --- | --- | --- | --- |

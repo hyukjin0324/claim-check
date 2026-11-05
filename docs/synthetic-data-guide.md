@@ -98,5 +98,5 @@ python3 scripts/generate_case_drafts.py
 
 - 금액은 규칙에 맞춘 가상 값이다. 실제 진료비 수준과 다를 수 있다.
 - 저품질 케이스의 결론은 실제로 만든 파일을 보고 다시 확인한다.
-- 정답지 형식은 `schema/`가 확정되면 맞춘다.
+- 정답지 형식은 `schema/answer.schema.json`을 따른다. 칸마다 `fields`에 `file_name`, `key`, `value`로 한 줄씩 있다.
 - 실제 서류 묶음이 모이면 비슷한 가상 케이스를 대체한다.

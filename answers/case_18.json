@@ -5,133 +5,441 @@
   "draft": true,
   "purpose": "세부내역서 끝수처리, 합계끼리는 일치",
   "claim_type": "outpatient",
-  "department": "내과",
   "capture": "깨끗한 이미지",
   "note": null,
   "conclusion": "proceed",
   "documents": [
     {
-      "type": "receipt",
-      "form_no": "6",
       "file_name": "case_18_doc1_receipt",
-      "patient_name": "문채원",
-      "provider_name": "가상내과의원",
-      "visit_type": "외래",
-      "visit_start": "2026-10-25",
-      "visit_end": "2026-10-25",
-      "receipt_no": "2610-00119",
-      "rows": [
-        {
-          "name": "진찰료",
-          "copay": 3124,
-          "insurer": 11916,
-          "full_copay": 0,
-          "noncovered": 0
-        },
-        {
-          "name": "검사료",
-          "copay": 2012,
-          "insurer": 5877,
-          "full_copay": 0,
-          "noncovered": 30457
-        }
-      ],
-      "copay_total": 5070,
-      "insurer_total": 17850,
-      "full_copay_total": 0,
-      "noncovered_total": 30450,
-      "bill_total": 53370,
-      "cap_excess": 0,
-      "insurer_grand_total": 17850,
-      "patient_total": 35520,
-      "prepaid": 0,
-      "due": 35520,
-      "paid_card": 35520,
-      "paid_cash_receipt": 0,
-      "paid_cash": 0,
-      "paid_total": 35520,
-      "unpaid": 0
+      "type": "receipt",
+      "form_no": "6"
     },
     {
-      "type": "prescription",
-      "form_no": "md-9",
       "file_name": "case_18_doc2_prescription",
-      "patient_name": "문채원",
-      "provider_name": "가상내과의원",
-      "insurance_type": "건강보험",
-      "issue_date": "2026-10-25",
-      "issue_no": "20261025-001",
-      "disease_code": "J00",
-      "valid_days": 3,
-      "drugs": [
-        {
-          "name": "가상의약품정",
-          "code": "V900",
-          "dose": 1,
-          "daily": 3,
-          "days": 3
-        }
-      ],
-      "visit_start": "2026-10-25",
-      "visit_end": "2026-10-25"
+      "type": "prescription",
+      "form_no": "md-9"
     },
     {
-      "type": "itemized_bill",
-      "form_no": "itemized",
       "file_name": "case_18_doc3_itemized_bill",
-      "patient_name": "문채원",
-      "provider_name": "가상내과의원",
-      "visit_start": "2026-10-25",
-      "visit_end": "2026-10-25",
-      "lines": [
-        {
-          "item": "진찰료",
-          "date": "2026-10-25",
-          "code": "V001",
-          "name": "가상 진찰료",
-          "count": 1,
-          "days": 1,
-          "total": 15040,
-          "copay": 3124,
-          "insurer": 11916,
-          "full_copay": 0,
-          "noncovered": 0
-        },
-        {
-          "item": "검사료",
-          "date": "2026-10-25",
-          "code": "V002",
-          "name": "가상 검사료",
-          "count": 1,
-          "days": 1,
-          "total": 38346,
-          "copay": 2012,
-          "insurer": 5877,
-          "full_copay": 0,
-          "noncovered": 30457
-        }
-      ],
-      "subtotal": {
-        "copay": 5136,
-        "insurer": 17793,
-        "full_copay": 0,
-        "noncovered": 30457,
-        "total": 53386
-      },
-      "adjustment": {
-        "copay": -66,
-        "insurer": 57,
-        "full_copay": 0,
-        "noncovered": -7,
-        "total": -16
-      },
-      "grand_total": {
-        "copay": 5070,
-        "insurer": 17850,
-        "full_copay": 0,
-        "noncovered": 30450,
-        "total": 53370
-      }
+      "type": "itemized_bill",
+      "form_no": "itemized"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "department",
+      "value": "내과"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "patient_name",
+      "value": "문채원"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "provider_name",
+      "value": "가상내과의원"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "visit_type",
+      "value": "외래"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "visit_start",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "visit_end",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "receipt_no",
+      "value": "2610-00119"
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:진찰료:copay",
+      "value": 3124
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:진찰료:insurer",
+      "value": 11916
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:진찰료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:진찰료:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:검사료:copay",
+      "value": 2012
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:검사료:insurer",
+      "value": 5877
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:검사료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "row:검사료:noncovered",
+      "value": 30457
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "copay_total",
+      "value": 5070
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "insurer_total",
+      "value": 17850
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "noncovered_total",
+      "value": 30450
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "bill_total",
+      "value": 53370
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "cap_excess",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "insurer_grand_total",
+      "value": 17850
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "patient_total",
+      "value": 35520
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "prepaid",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "due",
+      "value": 35520
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "paid_card",
+      "value": 35520
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "paid_total",
+      "value": 35520
+    },
+    {
+      "file_name": "case_18_doc1_receipt",
+      "key": "unpaid",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "patient_name",
+      "value": "문채원"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "provider_name",
+      "value": "가상내과의원"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "insurance_type",
+      "value": "건강보험"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "issue_date",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "issue_no",
+      "value": "20261025-001"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "disease_code",
+      "value": "J00"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "valid_days",
+      "value": 3
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "drug:0:name",
+      "value": "가상의약품정"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "drug:0:code",
+      "value": "V900"
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "drug:0:dose",
+      "value": 1
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "drug:0:daily",
+      "value": 3
+    },
+    {
+      "file_name": "case_18_doc2_prescription",
+      "key": "drug:0:days",
+      "value": 3
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "patient_name",
+      "value": "문채원"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "provider_name",
+      "value": "가상내과의원"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "visit_start",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "visit_end",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:item",
+      "value": "진찰료"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:date",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:code",
+      "value": "V001"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:name",
+      "value": "가상 진찰료"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:count",
+      "value": 1
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:days",
+      "value": 1
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:total",
+      "value": 15040
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:copay",
+      "value": 3124
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:insurer",
+      "value": 11916
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:0:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:item",
+      "value": "검사료"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:date",
+      "value": "2026-10-25"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:code",
+      "value": "V002"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:name",
+      "value": "가상 검사료"
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:count",
+      "value": 1
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:days",
+      "value": 1
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:total",
+      "value": 38346
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:copay",
+      "value": 2012
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:insurer",
+      "value": 5877
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "line:1:noncovered",
+      "value": 30457
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "subtotal.copay",
+      "value": 5136
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "subtotal.insurer",
+      "value": 17793
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "subtotal.full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "subtotal.noncovered",
+      "value": 30457
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "subtotal.total",
+      "value": 53386
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "adjustment.copay",
+      "value": -66
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "adjustment.insurer",
+      "value": 57
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "adjustment.full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "adjustment.noncovered",
+      "value": -7
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "adjustment.total",
+      "value": -16
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "grand_total.copay",
+      "value": 5070
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "grand_total.insurer",
+      "value": 17850
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "grand_total.full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "grand_total.noncovered",
+      "value": 30450
+    },
+    {
+      "file_name": "case_18_doc3_itemized_bill",
+      "key": "grand_total.total",
+      "value": 53370
     }
   ],
   "issues": []

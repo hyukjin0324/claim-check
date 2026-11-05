@@ -5,48 +5,146 @@
   "draft": true,
   "purpose": "간이 외래 영수증 (수기)",
   "claim_type": "outpatient",
-  "department": "내과",
   "capture": "손글씨로 채운 뒤 스캔",
   "note": "제12호에는 영수증 번호 칸이 없음",
   "conclusion": "proceed",
   "documents": [
     {
-      "type": "simple_receipt",
-      "form_no": "12",
       "file_name": "case_11_doc1_simple_receipt",
-      "patient_name": "임하준",
-      "provider_name": "가상의원",
-      "visit_type": "외래",
-      "visit_start": "2026-10-17",
-      "visit_end": "2026-10-17",
-      "receipt_no": null,
-      "rows": [
-        {
-          "name": "진찰료",
-          "copay": 4200,
-          "insurer": 9800,
-          "full_copay": 0,
-          "noncovered": 0
-        },
-        {
-          "name": "주사료 행위료",
-          "copay": 1200,
-          "insurer": 2800,
-          "full_copay": 0,
-          "noncovered": 0
-        }
-      ],
-      "copay_total": 5400,
-      "insurer_total": 12600,
-      "full_copay_total": 0,
-      "noncovered_total": 0,
-      "bill_total": 18000,
-      "patient_total": 5400,
-      "due": 5400,
-      "paid_card": 5400,
-      "paid_cash_receipt": 0,
-      "paid_cash": 0,
-      "paid_total": 5400
+      "type": "simple_receipt",
+      "form_no": "12"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "department",
+      "value": "내과"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "patient_name",
+      "value": "임하준"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "provider_name",
+      "value": "가상의원"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "visit_type",
+      "value": "외래"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "visit_start",
+      "value": "2026-10-17"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "visit_end",
+      "value": "2026-10-17"
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "receipt_no",
+      "value": null
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:진찰료:copay",
+      "value": 4200
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:진찰료:insurer",
+      "value": 9800
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:진찰료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:진찰료:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:주사료 행위료:copay",
+      "value": 1200
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:주사료 행위료:insurer",
+      "value": 2800
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:주사료 행위료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "row:주사료 행위료:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "copay_total",
+      "value": 5400
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "insurer_total",
+      "value": 12600
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "noncovered_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "bill_total",
+      "value": 18000
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "patient_total",
+      "value": 5400
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "due",
+      "value": 5400
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "paid_card",
+      "value": 5400
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_11_doc1_simple_receipt",
+      "key": "paid_total",
+      "value": 5400
     }
   ],
   "issues": []

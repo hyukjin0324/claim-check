@@ -1,0 +1,908 @@
+{
+  "claim_id": "case_07",
+  "conclusion": "proceed",
+  "documents": [
+    {
+      "doc_id": "d1",
+      "file_name": "case_07_doc1_receipt",
+      "type": "receipt",
+      "form_no": "7"
+    },
+    {
+      "doc_id": "d2",
+      "file_name": "case_07_doc2_prescription",
+      "type": "prescription",
+      "form_no": "md-9"
+    }
+  ],
+  "fields": [
+    {
+      "doc_id": "d1",
+      "key": "department",
+      "status": "confirmed",
+      "value": "내과",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "내과",
+        "path_b": "내과"
+      },
+      "block_id": "d1_cell_0"
+    },
+    {
+      "doc_id": "d1",
+      "key": "patient_name",
+      "status": "confirmed",
+      "value": "윤세아",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "윤세아",
+        "path_b": "윤세아"
+      },
+      "block_id": "d1_cell_1"
+    },
+    {
+      "doc_id": "d1",
+      "key": "provider_name",
+      "status": "confirmed",
+      "value": "가상내과의원",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "가상내과의원",
+        "path_b": "가상내과의원"
+      },
+      "block_id": "d1_cell_2"
+    },
+    {
+      "doc_id": "d1",
+      "key": "visit_type",
+      "status": "confirmed",
+      "value": "외래",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "외래",
+        "path_b": "외래"
+      },
+      "block_id": "d1_cell_3"
+    },
+    {
+      "doc_id": "d1",
+      "key": "visit_start",
+      "status": "confirmed",
+      "value": "2026-10-13",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "2026-10-13",
+        "path_b": "2026-10-13"
+      },
+      "block_id": "d1_cell_4"
+    },
+    {
+      "doc_id": "d1",
+      "key": "visit_end",
+      "status": "confirmed",
+      "value": "2026-10-13",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "2026-10-13",
+        "path_b": "2026-10-13"
+      },
+      "block_id": "d1_cell_5"
+    },
+    {
+      "doc_id": "d1",
+      "key": "receipt_no",
+      "status": "confirmed",
+      "value": "2610-00107",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "2610-00107",
+        "path_b": "2610-00107"
+      },
+      "block_id": "d1_cell_6"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:진찰료:copay",
+      "status": "confirmed",
+      "value": 4200,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 4200,
+        "path_b": 4200
+      },
+      "block_id": "d1_cell_7"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:진찰료:insurer",
+      "status": "confirmed",
+      "value": 9800,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 9800,
+        "path_b": 9800
+      },
+      "block_id": "d1_cell_8"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:진찰료:full_copay",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_9"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:진찰료:noncovered",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_10"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:초음파 진단료:copay",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_11"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:초음파 진단료:insurer",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_12"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:초음파 진단료:full_copay",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_13"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:초음파 진단료:noncovered",
+      "status": "confirmed",
+      "value": 50000,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 50000,
+        "path_b": 50000
+      },
+      "block_id": "d1_cell_14"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:제증명수수료:copay",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_15"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:제증명수수료:insurer",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_16"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:제증명수수료:full_copay",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_17"
+    },
+    {
+      "doc_id": "d1",
+      "key": "row:제증명수수료:noncovered",
+      "status": "confirmed",
+      "value": 3000,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 3000,
+        "path_b": 3000
+      },
+      "block_id": "d1_cell_18"
+    },
+    {
+      "doc_id": "d1",
+      "key": "copay_total",
+      "status": "confirmed",
+      "value": 4200,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C1",
+          "C3"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 4200,
+        "path_b": 4200
+      },
+      "block_id": "d1_cell_19"
+    },
+    {
+      "doc_id": "d1",
+      "key": "insurer_total",
+      "status": "confirmed",
+      "value": 9800,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C1",
+          "C2"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 9800,
+        "path_b": 9800
+      },
+      "block_id": "d1_cell_20"
+    },
+    {
+      "doc_id": "d1",
+      "key": "full_copay_total",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C1",
+          "C3"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_21"
+    },
+    {
+      "doc_id": "d1",
+      "key": "noncovered_total",
+      "status": "confirmed",
+      "value": 53000,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C1",
+          "C3"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 53000,
+        "path_b": 53000
+      },
+      "block_id": "d1_cell_22"
+    },
+    {
+      "doc_id": "d1",
+      "key": "bill_total",
+      "status": "confirmed",
+      "value": 67000,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C1"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 67000,
+        "path_b": 67000
+      },
+      "block_id": "d1_cell_23"
+    },
+    {
+      "doc_id": "d1",
+      "key": "cap_excess",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C2",
+          "C3"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_24"
+    },
+    {
+      "doc_id": "d1",
+      "key": "insurer_grand_total",
+      "status": "confirmed",
+      "value": 9800,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C2"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 9800,
+        "path_b": 9800
+      },
+      "block_id": "d1_cell_25"
+    },
+    {
+      "doc_id": "d1",
+      "key": "patient_total",
+      "status": "confirmed",
+      "value": 57200,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C3",
+          "C4"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 57200,
+        "path_b": 57200
+      },
+      "block_id": "d1_cell_26"
+    },
+    {
+      "doc_id": "d1",
+      "key": "prepaid",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C4"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_27"
+    },
+    {
+      "doc_id": "d1",
+      "key": "due",
+      "status": "confirmed",
+      "value": 57200,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C4",
+          "C6"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 57200,
+        "path_b": 57200
+      },
+      "block_id": "d1_cell_28"
+    },
+    {
+      "doc_id": "d1",
+      "key": "paid_card",
+      "status": "confirmed",
+      "value": 57200,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C5"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 57200,
+        "path_b": 57200
+      },
+      "block_id": "d1_cell_29"
+    },
+    {
+      "doc_id": "d1",
+      "key": "paid_cash_receipt",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C5"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_30"
+    },
+    {
+      "doc_id": "d1",
+      "key": "paid_cash",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C5"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_31"
+    },
+    {
+      "doc_id": "d1",
+      "key": "paid_total",
+      "status": "confirmed",
+      "value": 57200,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C5",
+          "C6"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 57200,
+        "path_b": 57200
+      },
+      "block_id": "d1_cell_32"
+    },
+    {
+      "doc_id": "d1",
+      "key": "unpaid",
+      "status": "confirmed",
+      "value": 0,
+      "basis": {
+        "type": "agree",
+        "rules": [
+          "C6"
+        ]
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 0,
+        "path_b": 0
+      },
+      "block_id": "d1_cell_33"
+    },
+    {
+      "doc_id": "d2",
+      "key": "patient_name",
+      "status": "confirmed",
+      "value": "윤세아",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "윤세아",
+        "path_b": "윤세아"
+      },
+      "block_id": "d2_cell_0"
+    },
+    {
+      "doc_id": "d2",
+      "key": "provider_name",
+      "status": "confirmed",
+      "value": "가상내과의원",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "가상내과의원",
+        "path_b": "가상내과의원"
+      },
+      "block_id": "d2_cell_1"
+    },
+    {
+      "doc_id": "d2",
+      "key": "insurance_type",
+      "status": "confirmed",
+      "value": "건강보험",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "건강보험",
+        "path_b": "건강보험"
+      },
+      "block_id": "d2_cell_2"
+    },
+    {
+      "doc_id": "d2",
+      "key": "issue_date",
+      "status": "confirmed",
+      "value": "2026-10-13",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "2026-10-13",
+        "path_b": "2026-10-13"
+      },
+      "block_id": "d2_cell_3"
+    },
+    {
+      "doc_id": "d2",
+      "key": "issue_no",
+      "status": "confirmed",
+      "value": "20261013-001",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "20261013-001",
+        "path_b": "20261013-001"
+      },
+      "block_id": "d2_cell_4"
+    },
+    {
+      "doc_id": "d2",
+      "key": "disease_code",
+      "status": "confirmed",
+      "value": "J00",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "J00",
+        "path_b": "J00"
+      },
+      "block_id": "d2_cell_5"
+    },
+    {
+      "doc_id": "d2",
+      "key": "valid_days",
+      "status": "confirmed",
+      "value": 3,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 3,
+        "path_b": 3
+      },
+      "block_id": "d2_cell_6"
+    },
+    {
+      "doc_id": "d2",
+      "key": "drug:0:name",
+      "status": "confirmed",
+      "value": "가상의약품정",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "가상의약품정",
+        "path_b": "가상의약품정"
+      },
+      "block_id": "d2_cell_7"
+    },
+    {
+      "doc_id": "d2",
+      "key": "drug:0:code",
+      "status": "confirmed",
+      "value": "V900",
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": "V900",
+        "path_b": "V900"
+      },
+      "block_id": "d2_cell_8"
+    },
+    {
+      "doc_id": "d2",
+      "key": "drug:0:dose",
+      "status": "confirmed",
+      "value": 1,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 1,
+        "path_b": 1
+      },
+      "block_id": "d2_cell_9"
+    },
+    {
+      "doc_id": "d2",
+      "key": "drug:0:daily",
+      "status": "confirmed",
+      "value": 3,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 3,
+        "path_b": 3
+      },
+      "block_id": "d2_cell_10"
+    },
+    {
+      "doc_id": "d2",
+      "key": "drug:0:days",
+      "status": "confirmed",
+      "value": 3,
+      "basis": {
+        "type": "agree",
+        "rules": []
+      },
+      "review_code": null,
+      "candidates": {
+        "path_a": 3,
+        "path_b": 3
+      },
+      "block_id": "d2_cell_11"
+    }
+  ],
+  "checks": [
+    {
+      "rule": "C1",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "bill_total",
+        "copay_total",
+        "full_copay_total",
+        "insurer_total",
+        "noncovered_total"
+      ]
+    },
+    {
+      "rule": "C2",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "cap_excess",
+        "insurer_grand_total",
+        "insurer_total"
+      ]
+    },
+    {
+      "rule": "C3",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "cap_excess",
+        "copay_total",
+        "full_copay_total",
+        "noncovered_total",
+        "patient_total"
+      ]
+    },
+    {
+      "rule": "C4",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "due",
+        "patient_total",
+        "prepaid"
+      ]
+    },
+    {
+      "rule": "C5",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "paid_card",
+        "paid_cash",
+        "paid_cash_receipt",
+        "paid_total"
+      ]
+    },
+    {
+      "rule": "C6",
+      "doc_id": "d1",
+      "result": "pass",
+      "difference": 0,
+      "terms": [
+        "due",
+        "paid_total",
+        "unpaid"
+      ]
+    },
+    {
+      "rule": "S1",
+      "doc_id": "d1",
+      "column": "copay",
+      "result": "pass",
+      "difference": 0
+    },
+    {
+      "rule": "S1",
+      "doc_id": "d1",
+      "column": "insurer",
+      "result": "pass",
+      "difference": 0
+    },
+    {
+      "rule": "S1",
+      "doc_id": "d1",
+      "column": "full_copay",
+      "result": "pass",
+      "difference": 0
+    },
+    {
+      "rule": "S1",
+      "doc_id": "d1",
+      "column": "noncovered",
+      "result": "pass",
+      "difference": 0
+    },
+    {
+      "rule": "X3",
+      "doc_id": null,
+      "result": "pass",
+      "difference": null
+    },
+    {
+      "rule": "X4",
+      "doc_id": null,
+      "result": "pass",
+      "difference": null
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,25 @@
+{
+  "note": "서류 유형별로 뽑을 필드 키. 칸 번호가 아니라 뜻으로 정한 키를 쓴다.",
+  "common": ["patient_name", "provider_name", "visit_start", "visit_end", "issue_date"],
+  "receipt": ["department", "visit_type", "receipt_no", "copay_total", "insurer_total", "full_copay_total", "noncovered_total", "cap_excess", "bill_total", "insurer_grand_total", "patient_total", "prepaid", "due", "paid_card", "paid_cash_receipt", "paid_cash", "paid_total", "unpaid"],
+  "simple_receipt": ["department", "visit_type", "receipt_no", "copay_total", "insurer_total", "full_copay_total", "noncovered_total", "bill_total", "patient_total", "due", "paid_card", "paid_cash_receipt", "paid_cash", "paid_total"],
+  "pharmacy_receipt": ["receipt_no", "copay_total", "insurer_total", "full_copay_total", "noncovered_total", "bill_total", "patient_total", "due", "paid_card", "paid_cash_receipt", "paid_cash", "paid_total"],
+  "itemized_bill": ["subtotal.copay", "subtotal.insurer", "subtotal.full_copay", "subtotal.noncovered", "subtotal.total", "adjustment.copay", "adjustment.insurer", "adjustment.full_copay", "adjustment.noncovered", "adjustment.total", "grand_total.copay", "grand_total.insurer", "grand_total.full_copay", "grand_total.noncovered", "grand_total.total"],
+  "prescription": ["insurance_type", "issue_no", "disease_code", "valid_days"],
+  "diagnosis": ["disease_name", "disease_code", "diagnosis_type", "diagnosis_date", "admission_date", "discharge_date"],
+  "visit_cert": ["disease_name", "disease_code"],
+  "payment_cert": [],
+  "other": [],
+  "repeating": {
+    "row:<행 이름>:<열>": "영수증 항목 행. 열은 copay, insurer, full_copay, noncovered. 예: row:진찰료:copay",
+    "line:<번호>:<열>": "세부내역서 줄(0부터). 열은 item, date, code, name, count, days, total, copay, insurer, full_copay, noncovered",
+    "line:<번호>:<열> (납입 확인서)": "납입 확인서 줄(0부터). 열은 date, visit_type, insurer, copay, full_copay, noncovered, total, patient_total, card, cash_receipt, cash",
+    "drug:<번호>:<열>": "처방전 의약품(0부터). 열은 name, code, dose, daily, days"
+  },
+  "format": {
+    "금액": "쉼표 없는 정수(원)",
+    "날짜": "YYYY-MM-DD",
+    "값 없음": "null",
+    "가려진 이름": "가려진 글자는 * 그대로. 예: 김*수"
+  }
+}

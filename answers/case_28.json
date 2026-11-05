@@ -5,24 +5,24 @@
   "draft": true,
   "purpose": "카드 전표와 수납대장만 있고 영수증 없음",
   "claim_type": "outpatient",
-  "department": "내과",
   "capture": "각각 촬영",
   "note": null,
   "conclusion": "request_supplement",
   "documents": [
     {
+      "file_name": "case_28_doc1_other",
       "type": "other",
       "form_no": null,
-      "description": "카드 결제 전표",
-      "file_name": "case_28_doc1_other"
+      "description": "카드 결제 전표"
     },
     {
+      "file_name": "case_28_doc2_other",
       "type": "other",
       "form_no": "13",
-      "description": "본인부담금 수납대장",
-      "file_name": "case_28_doc2_other"
+      "description": "본인부담금 수납대장"
     }
   ],
+  "fields": [],
   "issues": [
     {
       "cause": "DOC_MISSING",

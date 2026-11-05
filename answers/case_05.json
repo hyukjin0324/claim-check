@@ -5,39 +5,111 @@
   "draft": true,
   "purpose": "약국 약제비 영수증",
   "claim_type": "pharmacy",
-  "department": null,
   "capture": "깨끗한 이미지",
   "note": null,
   "conclusion": "proceed",
   "documents": [
     {
-      "type": "pharmacy_receipt",
-      "form_no": "10",
       "file_name": "case_05_doc1_pharmacy_receipt",
-      "patient_name": "정보라",
-      "provider_name": "가상약국",
-      "issue_date": "2026-10-09",
-      "receipt_no": "2610-00105",
-      "rows": [
-        {
-          "name": "약품비",
-          "copay": 3000,
-          "insurer": 7000,
-          "full_copay": 0,
-          "noncovered": 0
-        }
-      ],
-      "copay_total": 3000,
-      "insurer_total": 7000,
-      "full_copay_total": 0,
-      "noncovered_total": 0,
-      "bill_total": 10000,
-      "patient_total": 3000,
-      "due": 3000,
-      "paid_card": 3000,
-      "paid_cash_receipt": 0,
-      "paid_cash": 0,
-      "paid_total": 3000
+      "type": "pharmacy_receipt",
+      "form_no": "10"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "patient_name",
+      "value": "정보라"
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "provider_name",
+      "value": "가상약국"
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "issue_date",
+      "value": "2026-10-09"
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "receipt_no",
+      "value": "2610-00105"
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "row:약품비:copay",
+      "value": 3000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "row:약품비:insurer",
+      "value": 7000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "row:약품비:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "row:약품비:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "copay_total",
+      "value": 3000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "insurer_total",
+      "value": 7000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "noncovered_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "bill_total",
+      "value": 10000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "patient_total",
+      "value": 3000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "due",
+      "value": 3000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "paid_card",
+      "value": 3000
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_05_doc1_pharmacy_receipt",
+      "key": "paid_total",
+      "value": 3000
     }
   ],
   "issues": []

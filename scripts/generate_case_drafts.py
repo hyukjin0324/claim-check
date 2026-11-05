@@ -126,9 +126,9 @@ def build_cases():
     c = []
 
     def add(category, purpose, claim_type, docs, conclusion="proceed", issues=(), capture="깨끗한 이미지",
-            note=None, dept=None):
+            note=None, dept=None, cropped=False):
         c.append(dict(category=category, purpose=purpose, claim_type=claim_type, dept=dept, documents=docs,
-                      conclusion=conclusion, issues=list(issues), capture=capture, note=note))
+                      conclusion=conclusion, issues=list(issues), capture=capture, note=note, cropped=cropped))
 
     # 단순 6건
     add("simple", "3만 원 이하 통원, 영수증만", "outpatient",
@@ -214,7 +214,7 @@ def build_cases():
     add("low_quality", "아래쪽 금액 칸이 잘린 사진", "outpatient",
         [receipt("6", "전우빈", "가상의원", "2026-10-30", no="2610-00124", rows=[(J, 4200, 9800, 0, 5000)])],
         conclusion="needs_review", issues=[{"cause": "NEEDS_REVIEW", "review_code": "CROPPED"}],
-        capture="합계 행 아래가 안 나오게 잘라 촬영", dept="내과", note="값은 제작 기준이고, 잘린 칸은 사람도 읽을 수 없음")
+        capture="합계 행 아래가 안 나오게 잘라 촬영", dept="내과", note="잘린 칸은 사람도 읽을 수 없어 정답 값이 null", cropped=True)
 
     # 예외·함정 7건
     b = receipt("6", "황도현", "가상정형외과의원", "2026-11-01", no="2611-00125",
@@ -250,6 +250,50 @@ def build_cases():
 
 
 RECEIPTS = ("receipt", "simple_receipt", "pharmacy_receipt")
+META_KEYS = ("type", "form_no", "file_name", "description")
+# 사진에서 잘려 나간 칸. 합계 행 아래에 있다.
+CROPPED_KEYS = ("bill_total", "cap_excess", "insurer_grand_total", "patient_total", "prepaid", "due",
+                "paid_card", "paid_cash_receipt", "paid_cash", "paid_total", "unpaid")
+
+
+def flatten(doc, department=None, cropped=False):
+    """서류 값을 schema/fields.json의 평면 키로 바꾼다."""
+    fields = {}
+    if doc["type"] in ("receipt", "simple_receipt") and department:
+        fields["department"] = department
+    for key, value in doc.items():
+        if key in META_KEYS or (key in ("visit_start", "visit_end") and doc["type"] in ("prescription", "diagnosis")):
+            continue
+        if key == "rows":
+            for row in value:
+                fields.update({f"row:{row['name']}:{col}": v for col, v in row.items() if col != "name"})
+        elif key in ("lines", "drugs"):
+            prefix = "line" if key == "lines" else "drug"
+            for i, line in enumerate(value):
+                fields.update({f"{prefix}:{i}:{col}": v for col, v in line.items()})
+        elif key in ("subtotal", "adjustment", "grand_total"):
+            fields.update({f"{key}.{col}": v for col, v in value.items()})
+        else:
+            fields[key] = value
+    if cropped:
+        fields.update({key: None for key in CROPPED_KEYS if key in fields})
+    return [{"file_name": doc["file_name"], "key": key, "value": value} for key, value in fields.items()]
+
+
+def to_answer(cid, case):
+    documents = []
+    for d in case["documents"]:
+        entry = {"file_name": d["file_name"], "type": d["type"], "form_no": d.get("form_no")}
+        if d.get("description"):
+            entry["description"] = d["description"]
+        if case["cropped"]:
+            entry["flags"] = ["CROPPED"]
+        documents.append(entry)
+    return {"case_id": cid, "category": case["category"], "source_type": "synthetic", "draft": True,
+            "purpose": case["purpose"], "claim_type": case["claim_type"], "capture": case["capture"],
+            "note": case["note"], "conclusion": case["conclusion"], "documents": documents,
+            "fields": [f for d in case["documents"] for f in flatten(d, case["dept"], case["cropped"])],
+            "issues": case["issues"]}
 
 
 def check_amounts(d):
@@ -339,10 +383,7 @@ def main():
         found = derive_issues(case)
         if expected != found:
             problems.append(f"{cid}: 정답 {expected} / 규칙 {found}")
-        answer = {"case_id": cid, "category": case["category"], "source_type": "synthetic",
-                  "draft": True, "purpose": case["purpose"], "claim_type": case["claim_type"],
-                  "department": case["dept"], "capture": case["capture"], "note": case["note"],
-                  "conclusion": case["conclusion"], "documents": case["documents"], "issues": case["issues"]}
+        answer = to_answer(cid, case)
         ANSWERS.mkdir(exist_ok=True)
         (ANSWERS / f"{cid}.json").write_text(json.dumps(answer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         forms = ", ".join(dict.fromkeys(FORM_NAMES.get(d.get("form_no"), {"prescription": "처방전", "diagnosis": "진단서", "visit_cert": "확인서", "other": "기타"}.get(d["type"], d["type"])) for d in case["documents"]))
@@ -355,7 +396,7 @@ def main():
     PLAN.write_text(
         "# 가상 케이스 30건 초안\n\n"
         "`scripts/generate_case_drafts.py`로 만들었다. 금액 검산식과 필요 서류 규칙을 통과한 값이다. "
-        "케이스별 값은 `answers/case_NN.json`에 있다. 스키마가 확정되면 형식을 맞춘다.\n\n"
+        "케이스별 값은 `answers/case_NN.json`에 있고, 형식은 `schema/answer.schema.json`을 따른다.\n\n"
         "| 번호 | 유형 | 목적 | 서식 | 환자부담 합계 | 제작 상태 | 이슈 | 결론 |\n"
         "| --- | --- | --- | --- | --- | --- | --- | --- |\n" + "\n".join(rows) + "\n", encoding="utf-8")
     counts = {}
