@@ -1,4 +1,4 @@
-"""가상 케이스 30건의 정답지 초안과 케이스 표를 만든다.
+"""가상 케이스 20건의 정답지 초안과 케이스 표를 만든다.
 
 금액은 규칙으로 계산하고, 만든 뒤 검산식과 필요 서류 규칙으로 다시 검사한다.
 실행: python3 scripts/generate_case_drafts.py
@@ -249,6 +249,8 @@ def build_cases():
     return c
 
 
+# 서류 이미지까지 만들어 실제로 쓰는 케이스. 나머지는 테스트에서만 쓴다.
+USED_CASES = (1, 3, 5, 7, 8, 9, 10, 11, 12, 14, 17, 19, 20, 23, 24, 25, 26, 27, 28, 29)
 RECEIPTS = ("receipt", "simple_receipt", "pharmacy_receipt")
 META_KEYS = ("type", "form_no", "file_name", "description")
 # 사진에서 잘려 나간 칸. 서식 오른쪽 금액산정 칸과 머리글의 오른쪽 칸이다.
@@ -366,11 +368,11 @@ def derive_issues(case):
     return found
 
 
-def main():
+def build_answers():
+    """번호별 정답지와 검사 문제. 쓰지 않는 케이스도 함께 만든다."""
     cases = build_cases()
     assert len(cases) == 30
-    problems = []
-    rows = []
+    answers, problems = {}, []
     for i, case in enumerate(cases, 1):
         cid = f"case_{i:02d}"
         for j, d in enumerate(case["documents"], 1):
@@ -383,26 +385,33 @@ def main():
         found = derive_issues(case)
         if expected != found:
             problems.append(f"{cid}: 정답 {expected} / 규칙 {found}")
-        answer = to_answer(cid, case)
-        ANSWERS.mkdir(exist_ok=True)
-        (ANSWERS / f"{cid}.json").write_text(json.dumps(answer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        answers[i] = to_answer(cid, case)
+    return cases, answers, problems
+
+
+def main():
+    cases, answers, problems = build_answers()
+    if problems:
+        raise SystemExit("검사 실패\n" + "\n".join(problems))
+    rows, counts = [], {}
+    ANSWERS.mkdir(exist_ok=True)
+    for i in USED_CASES:
+        case, answer = cases[i - 1], answers[i]
+        (ANSWERS / f"{answer['case_id']}.json").write_text(json.dumps(answer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         forms = ", ".join(dict.fromkeys(FORM_NAMES.get(d.get("form_no"), {"prescription": "처방전", "diagnosis": "진단서", "visit_cert": "확인서", "other": "기타"}.get(d["type"], d["type"])) for d in case["documents"]))
         receipts = [d for d in case["documents"] if d["type"] in RECEIPTS]
         amount = sum({d.get("receipt_no") or id(d): d["patient_total"] for d in receipts}.values())
         issue = ", ".join(x.get("rule") or x.get("review_code") or x["cause"] for x in case["issues"]) or "없음"
         rows.append(f"| {i:02d} | {case['category']} | {case['purpose']} | {forms} | {amount:,} | {case['capture']} | {issue} | {case['conclusion']} |")
-    if problems:
-        raise SystemExit("검사 실패\n" + "\n".join(problems))
+        counts[case["category"]] = counts.get(case["category"], 0) + 1
     PLAN.write_text(
-        "# 가상 케이스 30건 초안\n\n"
+        "# 가상 케이스 20건 초안\n\n"
         "`scripts/generate_case_drafts.py`로 만들었다. 금액 검산식과 필요 서류 규칙을 통과한 값이다. "
-        "케이스별 값은 `answers/case_NN.json`에 있고, 형식은 `schema/answer.schema.json`을 따른다.\n\n"
+        "케이스별 값은 `answers/case_NN.json`에, 서류 이미지는 `cases/case_NN/`에 있고, 형식은 `schema/answer.schema.json`을 따른다. "
+        "번호는 처음 정한 30건의 번호를 유지해 중간이 비어 있다.\n\n"
         "| 번호 | 유형 | 목적 | 서식 | 환자부담 합계 | 제작 상태 | 이슈 | 결론 |\n"
         "| --- | --- | --- | --- | --- | --- | --- | --- |\n" + "\n".join(rows) + "\n", encoding="utf-8")
-    counts = {}
-    for case in cases:
-        counts[case["category"]] = counts.get(case["category"], 0) + 1
-    print("통과", len(cases), counts)
+    print("통과", len(USED_CASES), counts)
 
 
 if __name__ == "__main__":

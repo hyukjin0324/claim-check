@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from judge import judge_claim  # noqa: E402
 from judge.perfect import answer_to_extract  # noqa: E402
+from generate_case_drafts import build_answers  # noqa: E402
 from score_rules import load_answers, score_case  # noqa: E402
 
 try:
@@ -19,8 +20,12 @@ except ImportError:
     jsonschema = None
 
 
+# 규칙 시험에는 쓰지 않는 케이스도 필요해서 파일 대신 생성 스크립트에서 읽는다.
+ALL_ANSWERS = build_answers()[1]
+
+
 def load_case(number):
-    return answer_to_extract(json.loads((ROOT / "answers" / f"case_{number:02d}.json").read_text(encoding="utf-8")))
+    return answer_to_extract(copy.deepcopy(ALL_ANSWERS[number]))
 
 
 def load_fake(name):
