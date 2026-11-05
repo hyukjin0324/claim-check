@@ -2,7 +2,7 @@
 
 실손보험 청구 서류 묶음을 **두 가지 방법으로 읽고, 영수증 안의 검산식으로 맞는 값을 골라내고, 오류 원인을 읽기 오류·서류 불일치·서류 누락으로 나눠** 심사 담당자가 할 일까지 알려주는 워크플로우. 해커톤 프로젝트.
 
-자세한 기능은 [기능명세서](docs/functional-spec.md)를 본다.
+자세한 기능은 [기능명세서](docs/functional-spec.md), JSON 형식과 판정 코드 실행법은 [JSON 형식 문서](docs/json-format.md)를 본다.
 
 ## 처리 흐름
 
@@ -16,9 +16,9 @@ F1 입력 ─┬→ F2 파싱(OCR) → F3 분류 ─┬→ F4 경로 A: F2의 �
 
 | 역할 | 맡는 일 | 주로 쓰는 폴더 |
 | --- | --- | --- |
-| ① 데이터·정답지 | 케이스 30개, 정답지 | `cases/`, `answers/` |
+| ① 데이터·정답지 | 케이스, 정답지 | `cases/`, `answers/` |
 | ② 추출 | F2~F5: 파싱, 분류, 두 경로 추출 | `outputs/extract/` |
-| ③ 검증 규칙 · JSON 형식 | F6~F10: 값 확정, 문서 간 검증, 누락·중복, 원인 분류 | `schema/`, `examples/`, `outputs/judge/` |
+| ③ 검증 규칙 · JSON 형식 | F6~F10: 값 확정, 문서 간 검증, 누락·중복, 원인 분류 | `schema/`, `examples/`, `judge/`, `config/`, `outputs/judge/` |
 | ④ 평가·리포트·발표 | F1, F11, F13: 채점, 리포트, 설계서, 발표 | `reports/` |
 
 ## 폴더 구조
@@ -27,12 +27,31 @@ F1 입력 ─┬→ F2 파싱(OCR) → F3 분류 ─┬→ F4 경로 A: F2의 �
 docs/              기능명세서
 schema/            JSON 형식 (③만 바꾼다. 바꾸면 팀에 알린다)
 examples/          JSON 형식별 예시 파일
+judge/             ③ 판정 코드 (실행: python3 -m judge)
+config/            필요 서류 규칙과 기준값
+fixtures/          ②의 결과가 나오기 전에 쓰는 가짜 추출 결과
+tests/             판정 코드 테스트
 cases/case_NN/     케이스별 서류 파일 (가상 값으로 만든 것만)
 answers/           케이스별 정답지 (case_NN.json)
 outputs/extract/   ② 추출 결과 (실행하면 다시 만들어져서 올리지 않는다)
 outputs/judge/     ③ 판정 결과 (실행하면 다시 만들어져서 올리지 않는다)
 reports/           ④ 점수 리포트
 ```
+
+## CI와 제출 묶음
+
+| 동작 | 언제 | 하는 일 |
+| --- | --- | --- |
+| CI (`.github/workflows/ci.yml`) | PR, `main` 푸시 | 저장소 규칙, 테스트, 정답지 일치, 규칙 점수 |
+| 제출 묶음 (`.github/workflows/package.yml`) | `submit`으로 시작하는 태그, 수동 실행 | 검사 후 저장소를 압축해 Actions 아티팩트로 저장 |
+
+CI에 올리기 전에 같은 검사를 돌릴 수 있다.
+
+```bash
+python3 scripts/check_repo.py
+```
+
+제출 묶음에는 Git에 올린 파일만 들어간다. `private/`의 실제 서류는 들어가지 않으니 따로 제출한다.
 
 ## 지킬 것
 

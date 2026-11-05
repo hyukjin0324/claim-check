@@ -5,67 +5,216 @@
   "draft": true,
   "purpose": "납입 확인서 함께 제출. ①공단 ②본인 번호에 주의",
   "claim_type": "outpatient",
-  "department": "소아과",
   "capture": "깨끗한 이미지",
   "note": null,
   "conclusion": "proceed",
   "documents": [
     {
-      "type": "receipt",
-      "form_no": "6",
       "file_name": "case_12_doc1_receipt",
-      "patient_name": "신유나",
-      "provider_name": "가상소아과의원",
-      "visit_type": "외래",
-      "visit_start": "2026-10-18",
-      "visit_end": "2026-10-18",
-      "receipt_no": "2610-00111",
-      "rows": [
-        {
-          "name": "진찰료",
-          "copay": 3000,
-          "insurer": 7000,
-          "full_copay": 0,
-          "noncovered": 5000
-        }
-      ],
-      "copay_total": 3000,
-      "insurer_total": 7000,
-      "full_copay_total": 0,
-      "noncovered_total": 5000,
-      "bill_total": 15000,
-      "cap_excess": 0,
-      "insurer_grand_total": 7000,
-      "patient_total": 8000,
-      "prepaid": 0,
-      "due": 8000,
-      "paid_card": 8000,
-      "paid_cash_receipt": 0,
-      "paid_cash": 0,
-      "paid_total": 8000,
-      "unpaid": 0
+      "type": "receipt",
+      "form_no": "6"
     },
     {
+      "file_name": "case_12_doc2_payment_cert",
       "type": "payment_cert",
-      "form_no": "12-2",
-      "patient_name": "신유나",
-      "provider_name": "가상소아과의원",
-      "lines": [
-        {
-          "date": "2026-10-18",
-          "visit_type": "외래",
-          "insurer": 7000,
-          "copay": 3000,
-          "full_copay": 0,
-          "noncovered": 5000,
-          "total": 15000,
-          "patient_total": 8000,
-          "card": 8000,
-          "cash_receipt": 0,
-          "cash": 0
-        }
-      ],
-      "file_name": "case_12_doc2_payment_cert"
+      "form_no": "12-2"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "department",
+      "value": "소아과"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "patient_name",
+      "value": "신유나"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "provider_name",
+      "value": "가상소아과의원"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "visit_type",
+      "value": "외래"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "visit_start",
+      "value": "2026-10-18"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "visit_end",
+      "value": "2026-10-18"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "receipt_no",
+      "value": "2610-00111"
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "row:진찰료:copay",
+      "value": 3000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "row:진찰료:insurer",
+      "value": 7000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "row:진찰료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "row:진찰료:noncovered",
+      "value": 5000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "copay_total",
+      "value": 3000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "insurer_total",
+      "value": 7000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "noncovered_total",
+      "value": 5000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "bill_total",
+      "value": 15000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "cap_excess",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "insurer_grand_total",
+      "value": 7000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "patient_total",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "prepaid",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "due",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "paid_card",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "paid_total",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc1_receipt",
+      "key": "unpaid",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "patient_name",
+      "value": "신유나"
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "provider_name",
+      "value": "가상소아과의원"
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:date",
+      "value": "2026-10-18"
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:visit_type",
+      "value": "외래"
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:insurer",
+      "value": 7000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:copay",
+      "value": 3000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:noncovered",
+      "value": 5000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:total",
+      "value": 15000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:patient_total",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:card",
+      "value": 8000
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_12_doc2_payment_cert",
+      "key": "line:0:cash",
+      "value": 0
     }
   ],
   "issues": []

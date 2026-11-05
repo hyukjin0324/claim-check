@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "③ 판정 결과",
+  "type": "object",
+  "required": ["claim_id", "conclusion", "documents", "fields", "checks", "issues"],
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {"type": "string"},
+    "conclusion": {"enum": ["proceed", "request_supplement", "needs_review"]},
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["doc_id", "file_name", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": {"type": "string"},
+          "file_name": {"type": "string"},
+          "type": {"type": "string"},
+          "form_no": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["doc_id", "key", "status", "value", "basis", "review_code", "candidates"],
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": {"type": "string"},
+          "key": {"type": "string"},
+          "status": {"enum": ["confirmed", "needs_review", "absent"]},
+          "value": {"type": ["string", "integer", "null"]},
+          "basis": {
+            "type": ["object", "null"],
+            "required": ["type"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {"enum": ["agree", "checksum", "blank_zero", "masked_agree"]},
+              "rules": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "review_code": {"enum": ["LOW_OCR", "MISSING_FIELD", "READ_CONFLICT", "AMBIGUOUS_VALUE", "UNSTABLE_BASE", "INTERNAL_MISMATCH", "CROPPED", null]},
+          "candidates": {"type": "object", "additionalProperties": true},
+          "block_id": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "result"],
+        "additionalProperties": true,
+        "properties": {
+          "rule": {"type": "string"},
+          "doc_id": {"type": ["string", "null"]},
+          "result": {"enum": ["pass", "fail", "skipped"]},
+          "difference": {"type": ["integer", "null"]}
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["issue_id", "cause", "rule", "review_code", "message", "amount_diff", "doc_ids", "keys", "request_text"],
+        "additionalProperties": false,
+        "properties": {
+          "issue_id": {"type": "string"},
+          "cause": {"enum": ["READ_ERROR", "DOC_MISMATCH", "DOC_MISSING", "DUPLICATE", "NEEDS_REVIEW"]},
+          "rule": {"type": ["string", "null"]},
+          "review_code": {"type": ["string", "null"]},
+          "message": {"type": "string"},
+          "amount_diff": {"type": ["integer", "null"]},
+          "doc_ids": {"type": "array", "items": {"type": "string"}},
+          "keys": {"type": "array", "items": {"type": "string"}},
+          "request_text": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

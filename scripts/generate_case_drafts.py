@@ -1,4 +1,4 @@
-"""가상 케이스 30건의 정답지 초안과 케이스 표를 만든다.
+"""가상 케이스 20건의 정답지 초안과 케이스 표를 만든다.
 
 금액은 규칙으로 계산하고, 만든 뒤 검산식과 필요 서류 규칙으로 다시 검사한다.
 실행: python3 scripts/generate_case_drafts.py
@@ -126,9 +126,9 @@ def build_cases():
     c = []
 
     def add(category, purpose, claim_type, docs, conclusion="proceed", issues=(), capture="깨끗한 이미지",
-            note=None, dept=None):
+            note=None, dept=None, cropped=False):
         c.append(dict(category=category, purpose=purpose, claim_type=claim_type, dept=dept, documents=docs,
-                      conclusion=conclusion, issues=list(issues), capture=capture, note=note))
+                      conclusion=conclusion, issues=list(issues), capture=capture, note=note, cropped=cropped))
 
     # 단순 6건
     add("simple", "3만 원 이하 통원, 영수증만", "outpatient",
@@ -164,7 +164,7 @@ def build_cases():
         [pharmacy("11", "서지안", "가상온누리약국", "2026-10-16", "2610-00110", 4500, 10500, 2000)])
     add("variety", "간이 외래 영수증 (수기)", "outpatient",
         [receipt("12", "임하준", "가상의원", "2026-10-17",
-                 rows=[(J, 4200, 9800, 0, 0), (TS, 1200, 2800, 0, 0)])], capture="손글씨로 채운 뒤 스캔", dept="내과",
+                 rows=[(J, 4200, 9800, 0, 0), (TS, 1200, 2800, 0, 0)])], capture="인쇄 후 스캔 느낌 효과", dept="내과",
         note="제12호에는 영수증 번호 칸이 없음")
     b = receipt("6", "신유나", "가상소아과의원", "2026-10-18", no="2610-00111", rows=[(J, 3000, 7000, 0, 5000)])
     add("variety", "납입 확인서 함께 제출. ①공단 ②본인 번호에 주의", "outpatient",
@@ -201,20 +201,20 @@ def build_cases():
     b = receipt("7", "남기태", "가상내과의원", "2026-10-26", no="2610-00120",
                 rows=[(J, 15000, 35000, 0, 0), (GS, 20000, 30000, 0, 0)])
     add("low_quality", "본인부담금 합계 칸만 흐림, 검산 C1로 확정 시험", "outpatient",
-        [b, rx("남기태", "가상내과의원", "2026-10-26")], capture="본인부담금 합계 칸을 연하게 인쇄한 뒤 촬영", dept="내과",
+        [b, rx("남기태", "가상내과의원", "2026-10-26")], capture="본인부담금 합계 칸을 연하게 채움", dept="내과",
         note="두 경로가 다르게 읽고 C1로 고르면 정상. 사람도 못 읽으면 정답지를 다시 정한다")
     add("low_quality", "구겨진 사진", "outpatient",
         [receipt("6", "유하린", "가상의원", "2026-10-27", no="2610-00121", rows=[(J, 4200, 9800, 0, 0), (TS, 2000, 4700, 0, 0)])],
-        capture="구긴 뒤 펴서 촬영", dept="내과")
+        capture="구긴 듯한 명암 효과", dept="내과")
     add("low_quality", "기울어진 사진", "outpatient",
         [receipt("7", "백시온", "가상의원", "2026-10-28", no="2610-00122", rows=[(J, 4200, 9800, 0, 3000)])],
-        capture="15도 기울여 촬영", dept="내과")
+        capture="15도 기울임 효과", dept="내과")
     add("low_quality", "그림자가 진 약국 영수증", "pharmacy",
-        [pharmacy("10", "송예린", "가상약국", "2026-10-29", "2610-00123", 3300, 7700)], capture="금액 칸에 그림자가 지게 촬영")
+        [pharmacy("10", "송예린", "가상약국", "2026-10-29", "2610-00123", 3300, 7700)], capture="금액 칸 그림자 효과")
     add("low_quality", "아래쪽 금액 칸이 잘린 사진", "outpatient",
         [receipt("6", "전우빈", "가상의원", "2026-10-30", no="2610-00124", rows=[(J, 4200, 9800, 0, 5000)])],
         conclusion="needs_review", issues=[{"cause": "NEEDS_REVIEW", "review_code": "CROPPED"}],
-        capture="합계 행 아래가 안 나오게 잘라 촬영", dept="내과", note="값은 제작 기준이고, 잘린 칸은 사람도 읽을 수 없음")
+        capture="오른쪽 금액산정 칸이 안 나오게 잘라 저장", dept="내과", note="잘린 칸은 사람도 읽을 수 없어 정답 값이 null", cropped=True)
 
     # 예외·함정 7건
     b = receipt("6", "황도현", "가상정형외과의원", "2026-11-01", no="2611-00125",
@@ -249,7 +249,53 @@ def build_cases():
     return c
 
 
+# 서류 이미지까지 만들어 실제로 쓰는 케이스. 나머지는 테스트에서만 쓴다.
+USED_CASES = (1, 3, 5, 7, 8, 9, 10, 11, 12, 14, 17, 19, 20, 23, 24, 25, 26, 27, 28, 29)
 RECEIPTS = ("receipt", "simple_receipt", "pharmacy_receipt")
+META_KEYS = ("type", "form_no", "file_name", "description")
+# 사진에서 잘려 나간 칸. 서식 오른쪽 금액산정 칸과 머리글의 오른쪽 칸이다.
+CROPPED_KEYS = ("visit_start", "visit_end", "receipt_no", "bill_total", "cap_excess", "insurer_grand_total", "patient_total", "prepaid", "due",
+                "paid_card", "paid_cash_receipt", "paid_cash", "paid_total", "unpaid")
+
+
+def flatten(doc, department=None, cropped=False):
+    """서류 값을 schema/fields.json의 평면 키로 바꾼다."""
+    fields = {}
+    if doc["type"] in ("receipt", "simple_receipt") and department:
+        fields["department"] = department
+    for key, value in doc.items():
+        if key in META_KEYS or (key in ("visit_start", "visit_end") and doc["type"] in ("prescription", "diagnosis")):
+            continue
+        if key == "rows":
+            for row in value:
+                fields.update({f"row:{row['name']}:{col}": v for col, v in row.items() if col != "name"})
+        elif key in ("lines", "drugs"):
+            prefix = "line" if key == "lines" else "drug"
+            for i, line in enumerate(value):
+                fields.update({f"{prefix}:{i}:{col}": v for col, v in line.items()})
+        elif key in ("subtotal", "adjustment", "grand_total"):
+            fields.update({f"{key}.{col}": v for col, v in value.items()})
+        else:
+            fields[key] = value
+    if cropped:
+        fields.update({key: None for key in CROPPED_KEYS if key in fields})
+    return [{"file_name": doc["file_name"], "key": key, "value": value} for key, value in fields.items()]
+
+
+def to_answer(cid, case):
+    documents = []
+    for d in case["documents"]:
+        entry = {"file_name": d["file_name"], "type": d["type"], "form_no": d.get("form_no")}
+        if d.get("description"):
+            entry["description"] = d["description"]
+        if case["cropped"]:
+            entry["flags"] = ["CROPPED"]
+        documents.append(entry)
+    return {"case_id": cid, "category": case["category"], "source_type": "synthetic", "draft": True,
+            "purpose": case["purpose"], "claim_type": case["claim_type"], "capture": case["capture"],
+            "note": case["note"], "conclusion": case["conclusion"], "documents": documents,
+            "fields": [f for d in case["documents"] for f in flatten(d, case["dept"], case["cropped"])],
+            "issues": case["issues"]}
 
 
 def check_amounts(d):
@@ -322,11 +368,11 @@ def derive_issues(case):
     return found
 
 
-def main():
+def build_answers():
+    """번호별 정답지와 검사 문제. 쓰지 않는 케이스도 함께 만든다."""
     cases = build_cases()
     assert len(cases) == 30
-    problems = []
-    rows = []
+    answers, problems = {}, []
     for i, case in enumerate(cases, 1):
         cid = f"case_{i:02d}"
         for j, d in enumerate(case["documents"], 1):
@@ -339,29 +385,33 @@ def main():
         found = derive_issues(case)
         if expected != found:
             problems.append(f"{cid}: 정답 {expected} / 규칙 {found}")
-        answer = {"case_id": cid, "category": case["category"], "source_type": "synthetic",
-                  "draft": True, "purpose": case["purpose"], "claim_type": case["claim_type"],
-                  "department": case["dept"], "capture": case["capture"], "note": case["note"],
-                  "conclusion": case["conclusion"], "documents": case["documents"], "issues": case["issues"]}
-        ANSWERS.mkdir(exist_ok=True)
-        (ANSWERS / f"{cid}.json").write_text(json.dumps(answer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        answers[i] = to_answer(cid, case)
+    return cases, answers, problems
+
+
+def main():
+    cases, answers, problems = build_answers()
+    if problems:
+        raise SystemExit("검사 실패\n" + "\n".join(problems))
+    rows, counts = [], {}
+    ANSWERS.mkdir(exist_ok=True)
+    for i in USED_CASES:
+        case, answer = cases[i - 1], answers[i]
+        (ANSWERS / f"{answer['case_id']}.json").write_text(json.dumps(answer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         forms = ", ".join(dict.fromkeys(FORM_NAMES.get(d.get("form_no"), {"prescription": "처방전", "diagnosis": "진단서", "visit_cert": "확인서", "other": "기타"}.get(d["type"], d["type"])) for d in case["documents"]))
         receipts = [d for d in case["documents"] if d["type"] in RECEIPTS]
         amount = sum({d.get("receipt_no") or id(d): d["patient_total"] for d in receipts}.values())
         issue = ", ".join(x.get("rule") or x.get("review_code") or x["cause"] for x in case["issues"]) or "없음"
         rows.append(f"| {i:02d} | {case['category']} | {case['purpose']} | {forms} | {amount:,} | {case['capture']} | {issue} | {case['conclusion']} |")
-    if problems:
-        raise SystemExit("검사 실패\n" + "\n".join(problems))
+        counts[case["category"]] = counts.get(case["category"], 0) + 1
     PLAN.write_text(
-        "# 가상 케이스 30건 초안\n\n"
+        "# 가상 케이스 20건 초안\n\n"
         "`scripts/generate_case_drafts.py`로 만들었다. 금액 검산식과 필요 서류 규칙을 통과한 값이다. "
-        "케이스별 값은 `answers/case_NN.json`에 있다. 스키마가 확정되면 형식을 맞춘다.\n\n"
+        "케이스별 값은 `answers/case_NN.json`에, 서류 이미지는 `cases/case_NN/`에 있고, 형식은 `schema/answer.schema.json`을 따른다. "
+        "번호는 처음 정한 30건의 번호를 유지해 중간이 비어 있다.\n\n"
         "| 번호 | 유형 | 목적 | 서식 | 환자부담 합계 | 제작 상태 | 이슈 | 결론 |\n"
         "| --- | --- | --- | --- | --- | --- | --- | --- |\n" + "\n".join(rows) + "\n", encoding="utf-8")
-    counts = {}
-    for case in cases:
-        counts[case["category"]] = counts.get(case["category"], 0) + 1
-    print("통과", len(cases), counts)
+    print("통과", len(USED_CASES), counts)
 
 
 if __name__ == "__main__":

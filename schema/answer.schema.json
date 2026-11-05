@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "① 정답지",
+  "type": "object",
+  "required": ["case_id", "category", "source_type", "claim_type", "conclusion", "documents", "fields", "issues"],
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {"type": "string"},
+    "category": {"enum": ["simple", "variety", "combined", "low_quality", "trap"]},
+    "source_type": {"enum": ["real", "synthetic", "modified_real"]},
+    "draft": {"type": "boolean"},
+    "purpose": {"type": ["string", "null"]},
+    "claim_type": {"enum": ["outpatient", "inpatient", "pharmacy"]},
+    "capture": {"type": ["string", "null"]},
+    "note": {"type": ["string", "null"]},
+    "conclusion": {"enum": ["proceed", "request_supplement", "needs_review"]},
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file_name", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "file_name": {"type": "string"},
+          "type": {"type": "string"},
+          "form_no": {"type": ["string", "null"]},
+          "description": {"type": ["string", "null"]},
+          "flags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file_name", "key", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "file_name": {"type": "string"},
+          "key": {"type": "string"},
+          "value": {"type": ["string", "integer", "null"]},
+          "evidence_text": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cause"],
+        "additionalProperties": false,
+        "properties": {
+          "cause": {"enum": ["READ_ERROR", "DOC_MISMATCH", "DOC_MISSING", "DUPLICATE", "NEEDS_REVIEW"]},
+          "rule": {"type": ["string", "null"]},
+          "review_code": {"type": ["string", "null"]},
+          "amount_diff": {"type": ["integer", "null"]}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,578 @@
+{
+  "claim_id": "fake_checksum",
+  "claim_type": "outpatient",
+  "documents": [
+    {
+      "doc_id": "d1",
+      "file_name": "case_07_doc1_receipt",
+      "type": "receipt",
+      "form_no": "7",
+      "type_confidence": 1.0,
+      "flags": [],
+      "fields": [
+        {
+          "key": "department",
+          "path_a": {
+            "value": "내과",
+            "block_id": "d1_cell_0",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "내과",
+            "quote": "내과"
+          }
+        },
+        {
+          "key": "patient_name",
+          "path_a": {
+            "value": "윤세아",
+            "block_id": "d1_cell_1",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "윤세아",
+            "quote": "윤세아"
+          }
+        },
+        {
+          "key": "provider_name",
+          "path_a": {
+            "value": "가상내과의원",
+            "block_id": "d1_cell_2",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "가상내과의원",
+            "quote": "가상내과의원"
+          }
+        },
+        {
+          "key": "visit_type",
+          "path_a": {
+            "value": "외래",
+            "block_id": "d1_cell_3",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "외래",
+            "quote": "외래"
+          }
+        },
+        {
+          "key": "visit_start",
+          "path_a": {
+            "value": "2026-10-13",
+            "block_id": "d1_cell_4",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "2026-10-13",
+            "quote": "2026-10-13"
+          }
+        },
+        {
+          "key": "visit_end",
+          "path_a": {
+            "value": "2026-10-13",
+            "block_id": "d1_cell_5",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "2026-10-13",
+            "quote": "2026-10-13"
+          }
+        },
+        {
+          "key": "receipt_no",
+          "path_a": {
+            "value": "2610-00107",
+            "block_id": "d1_cell_6",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "2610-00107",
+            "quote": "2610-00107"
+          }
+        },
+        {
+          "key": "row:진찰료:copay",
+          "path_a": {
+            "value": 4200,
+            "block_id": "d1_cell_7",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 4200,
+            "quote": "4,200"
+          }
+        },
+        {
+          "key": "row:진찰료:insurer",
+          "path_a": {
+            "value": 9800,
+            "block_id": "d1_cell_8",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 9800,
+            "quote": "9,800"
+          }
+        },
+        {
+          "key": "row:진찰료:full_copay",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_9",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:진찰료:noncovered",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_10",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:초음파 진단료:copay",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_11",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:초음파 진단료:insurer",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_12",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:초음파 진단료:full_copay",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_13",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:초음파 진단료:noncovered",
+          "path_a": {
+            "value": 50000,
+            "block_id": "d1_cell_14",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 50000,
+            "quote": "50,000"
+          }
+        },
+        {
+          "key": "row:제증명수수료:copay",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_15",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:제증명수수료:insurer",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_16",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:제증명수수료:full_copay",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_17",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "row:제증명수수료:noncovered",
+          "path_a": {
+            "value": 3000,
+            "block_id": "d1_cell_18",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 3000,
+            "quote": "3,000"
+          }
+        },
+        {
+          "key": "copay_total",
+          "path_a": {
+            "value": 4200,
+            "block_id": "d1_cell_19",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 4800,
+            "quote": "4,200"
+          }
+        },
+        {
+          "key": "insurer_total",
+          "path_a": {
+            "value": 9800,
+            "block_id": "d1_cell_20",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 9800,
+            "quote": "9,800"
+          }
+        },
+        {
+          "key": "full_copay_total",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_21",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "noncovered_total",
+          "path_a": {
+            "value": 53000,
+            "block_id": "d1_cell_22",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 53000,
+            "quote": "53,000"
+          }
+        },
+        {
+          "key": "bill_total",
+          "path_a": {
+            "value": 67000,
+            "block_id": "d1_cell_23",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 67000,
+            "quote": "67,000"
+          }
+        },
+        {
+          "key": "cap_excess",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_24",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "insurer_grand_total",
+          "path_a": {
+            "value": 9800,
+            "block_id": "d1_cell_25",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 9800,
+            "quote": "9,800"
+          }
+        },
+        {
+          "key": "patient_total",
+          "path_a": {
+            "value": 57200,
+            "block_id": "d1_cell_26",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 57200,
+            "quote": "57,200"
+          }
+        },
+        {
+          "key": "prepaid",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_27",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "due",
+          "path_a": {
+            "value": 57200,
+            "block_id": "d1_cell_28",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 57200,
+            "quote": "57,200"
+          }
+        },
+        {
+          "key": "paid_card",
+          "path_a": {
+            "value": 57200,
+            "block_id": "d1_cell_29",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 57200,
+            "quote": "57,200"
+          }
+        },
+        {
+          "key": "paid_cash_receipt",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_30",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "paid_cash",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_31",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        },
+        {
+          "key": "paid_total",
+          "path_a": {
+            "value": 57200,
+            "block_id": "d1_cell_32",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 57200,
+            "quote": "57,200"
+          }
+        },
+        {
+          "key": "unpaid",
+          "path_a": {
+            "value": 0,
+            "block_id": "d1_cell_33",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 0,
+            "quote": "0"
+          }
+        }
+      ]
+    },
+    {
+      "doc_id": "d2",
+      "file_name": "case_07_doc2_prescription",
+      "type": "prescription",
+      "form_no": "md-9",
+      "type_confidence": 1.0,
+      "flags": [],
+      "fields": [
+        {
+          "key": "patient_name",
+          "path_a": {
+            "value": "윤세아",
+            "block_id": "d2_cell_0",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "윤세아",
+            "quote": "윤세아"
+          }
+        },
+        {
+          "key": "provider_name",
+          "path_a": {
+            "value": "가상내과의원",
+            "block_id": "d2_cell_1",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "가상내과의원",
+            "quote": "가상내과의원"
+          }
+        },
+        {
+          "key": "insurance_type",
+          "path_a": {
+            "value": "건강보험",
+            "block_id": "d2_cell_2",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "건강보험",
+            "quote": "건강보험"
+          }
+        },
+        {
+          "key": "issue_date",
+          "path_a": {
+            "value": "2026-10-13",
+            "block_id": "d2_cell_3",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "2026-10-13",
+            "quote": "2026-10-13"
+          }
+        },
+        {
+          "key": "issue_no",
+          "path_a": {
+            "value": "20261013-001",
+            "block_id": "d2_cell_4",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "20261013-001",
+            "quote": "20261013-001"
+          }
+        },
+        {
+          "key": "disease_code",
+          "path_a": {
+            "value": "J00",
+            "block_id": "d2_cell_5",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "J00",
+            "quote": "J00"
+          }
+        },
+        {
+          "key": "valid_days",
+          "path_a": {
+            "value": 3,
+            "block_id": "d2_cell_6",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 3,
+            "quote": "3"
+          }
+        },
+        {
+          "key": "drug:0:name",
+          "path_a": {
+            "value": "가상의약품정",
+            "block_id": "d2_cell_7",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "가상의약품정",
+            "quote": "가상의약품정"
+          }
+        },
+        {
+          "key": "drug:0:code",
+          "path_a": {
+            "value": "V900",
+            "block_id": "d2_cell_8",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": "V900",
+            "quote": "V900"
+          }
+        },
+        {
+          "key": "drug:0:dose",
+          "path_a": {
+            "value": 1,
+            "block_id": "d2_cell_9",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 1,
+            "quote": "1"
+          }
+        },
+        {
+          "key": "drug:0:daily",
+          "path_a": {
+            "value": 3,
+            "block_id": "d2_cell_10",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 3,
+            "quote": "3"
+          }
+        },
+        {
+          "key": "drug:0:days",
+          "path_a": {
+            "value": 3,
+            "block_id": "d2_cell_11",
+            "ocr_confidence": 0.97
+          },
+          "path_b": {
+            "value": 3,
+            "quote": "3"
+          }
+        }
+      ]
+    }
+  ]
+}

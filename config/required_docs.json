@@ -1,0 +1,9 @@
+{
+  "source": "손해보험협회 실손의료보험금 청구서류 표준안 (2014. 1. 1. 시행). https://consumer.knia.or.kr/m/consumer/insurance-guide/0202.do",
+  "outpatient_prescription_over": 30000,
+  "outpatient_extra_evidence_over": 100000,
+  "inpatient_certificate_up_to": 500000,
+  "no_simplified_departments": ["산부인과", "항문외과", "비뇨기과", "피부과"],
+  "low_ocr_threshold": 0.6,
+  "row_sum_tolerance": 100
+}

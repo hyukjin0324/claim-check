@@ -5,39 +5,111 @@
   "draft": true,
   "purpose": "약제비 괄호 칸 양식",
   "claim_type": "pharmacy",
-  "department": null,
   "capture": "깨끗한 이미지",
   "note": null,
   "conclusion": "proceed",
   "documents": [
     {
-      "type": "pharmacy_receipt",
-      "form_no": "11",
       "file_name": "case_10_doc1_pharmacy_receipt",
-      "patient_name": "서지안",
-      "provider_name": "가상온누리약국",
-      "issue_date": "2026-10-16",
-      "receipt_no": "2610-00110",
-      "rows": [
-        {
-          "name": "약품비",
-          "copay": 4500,
-          "insurer": 10500,
-          "full_copay": 0,
-          "noncovered": 2000
-        }
-      ],
-      "copay_total": 4500,
-      "insurer_total": 10500,
-      "full_copay_total": 0,
-      "noncovered_total": 2000,
-      "bill_total": 17000,
-      "patient_total": 6500,
-      "due": 6500,
-      "paid_card": 6500,
-      "paid_cash_receipt": 0,
-      "paid_cash": 0,
-      "paid_total": 6500
+      "type": "pharmacy_receipt",
+      "form_no": "11"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "patient_name",
+      "value": "서지안"
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "provider_name",
+      "value": "가상온누리약국"
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "issue_date",
+      "value": "2026-10-16"
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "receipt_no",
+      "value": "2610-00110"
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "row:약품비:copay",
+      "value": 4500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "row:약품비:insurer",
+      "value": 10500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "row:약품비:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "row:약품비:noncovered",
+      "value": 2000
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "copay_total",
+      "value": 4500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "insurer_total",
+      "value": 10500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "noncovered_total",
+      "value": 2000
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "bill_total",
+      "value": 17000
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "patient_total",
+      "value": 6500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "due",
+      "value": 6500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "paid_card",
+      "value": 6500
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_10_doc1_pharmacy_receipt",
+      "key": "paid_total",
+      "value": 6500
     }
   ],
   "issues": []

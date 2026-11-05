@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "② 추출 결과",
+  "type": "object",
+  "required": ["claim_id", "claim_type", "documents"],
+  "additionalProperties": false,
+  "properties": {
+    "claim_id": {"type": "string"},
+    "claim_type": {"enum": ["outpatient", "inpatient", "pharmacy"]},
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["doc_id", "file_name", "type", "fields"],
+        "additionalProperties": false,
+        "properties": {
+          "doc_id": {"type": "string"},
+          "file_name": {"type": "string"},
+          "type": {"enum": ["receipt", "simple_receipt", "pharmacy_receipt", "itemized_bill", "prescription", "diagnosis", "visit_cert", "payment_cert", "other"]},
+          "form_no": {"type": ["string", "null"]},
+          "type_confidence": {"type": ["number", "null"]},
+          "flags": {"type": "array", "items": {"enum": ["CROPPED", "UNKNOWN_DOC"]}},
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["key", "path_a", "path_b"],
+              "additionalProperties": false,
+              "properties": {
+                "key": {"type": "string"},
+                "path_a": {
+                  "type": "object",
+                  "required": ["value"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "value": {"type": ["string", "integer", "null"]},
+                    "block_id": {"type": ["string", "null"]},
+                    "ocr_confidence": {"type": ["number", "null"]}
+                  }
+                },
+                "path_b": {
+                  "type": "object",
+                  "required": ["value"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "value": {"type": ["string", "integer", "null"]},
+                    "quote": {"type": ["string", "null"]},
+                    "location": {"type": ["string", "null"]}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

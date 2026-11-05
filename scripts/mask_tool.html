@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>서류 칠하기</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px -apple-system, "Apple SD Gothic Neo", sans-serif; background: #eee; color: #111; }
+  header { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px 14px; background: #fff; border-bottom: 1px solid #ccc; }
+  button { font: inherit; padding: 6px 12px; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; }
+  button.main { background: #111; color: #fff; border-color: #111; }
+  button:disabled { opacity: .4; cursor: default; }
+  #stage { padding: 16px; overflow: auto; }
+  canvas { display: block; background: #fff; cursor: crosshair; box-shadow: 0 1px 6px rgba(0,0,0,.3); touch-action: none; }
+  #status { margin-left: auto; color: #444; }
+  #help { padding: 40px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<header>
+  <input type="file" id="files" accept="image/png,image/jpeg" multiple>
+  <button id="prev" disabled>◀ 이전</button>
+  <button id="next" disabled>다음 ▶</button>
+  <button id="undo" disabled>되돌리기 (Z)</button>
+  <button id="rotate" disabled>90° 회전</button>
+  <button id="out" disabled>−</button>
+  <button id="in" disabled>＋</button>
+  <button id="save" class="main" disabled>저장 (S)</button>
+  <span id="status"></span>
+</header>
+<div id="stage">
+  <p id="help">파일 선택으로 이미지를 고른 뒤, 가릴 칸을 마우스로 끌면 검게 칠해집니다.<br>
+    이 페이지는 이미지를 이 브라우저 안에서만 다루고 어디로도 보내지 않습니다.</p>
+  <canvas id="view" hidden></canvas>
+</div>
+<script>
+const view = document.getElementById("view");
+const ctx = view.getContext("2d");
+const statusText = document.getElementById("status");
+let files = [], index = 0, base = null, rects = [], drag = null, zoom = 0.5;
+const saved = new Set();
+
+function draw() {
+  ctx.drawImage(base, 0, 0);
+  ctx.fillStyle = "#000";
+  rects.forEach(r => ctx.fillRect(r.x, r.y, r.w, r.h));
+  if (drag) {
+    ctx.fillStyle = "rgba(0,0,0,.6)";
+    ctx.fillRect(drag.x, drag.y, drag.w, drag.h);
+  }
+}
+
+function layout() {
+  view.style.width = Math.round(view.width * zoom) + "px";
+}
+
+function update() {
+  const name = files[index] ? files[index].name : "";
+  statusText.textContent = `${index + 1} / ${files.length}  ${name}  ${saved.has(name) ? "저장됨" : "저장 안 됨"}  칠한 칸 ${rects.length}`;
+  document.getElementById("prev").disabled = index === 0;
+  document.getElementById("next").disabled = index >= files.length - 1;
+  document.getElementById("undo").disabled = rects.length === 0;
+  ["rotate", "out", "in", "save"].forEach(id => document.getElementById(id).disabled = false);
+}
+
+function open(i) {
+  if (rects.length && !saved.has(files[index].name) && !confirm("저장하지 않은 칠이 있어요. 그래도 넘어갈까요?")) return;
+  index = i;
+  const image = new Image();
+  image.onload = () => {
+    base = document.createElement("canvas");
+    base.width = view.width = image.naturalWidth;
+    base.height = view.height = image.naturalHeight;
+    base.getContext("2d").drawImage(image, 0, 0);
+    URL.revokeObjectURL(image.src);
+    rects = [];
+    view.hidden = false;
+    document.getElementById("help").hidden = true;
+    layout();
+    draw();
+    update();
+  };
+  image.src = URL.createObjectURL(files[i]);
+}
+
+function point(event) {
+  const box = view.getBoundingClientRect();
+  return { x: (event.clientX - box.left) * view.width / box.width, y: (event.clientY - box.top) * view.height / box.height };
+}
+
+view.addEventListener("pointerdown", e => {
+  view.setPointerCapture(e.pointerId);
+  const p = point(e);
+  drag = { startX: p.x, startY: p.y, x: p.x, y: p.y, w: 0, h: 0 };
+});
+view.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const p = point(e);
+  drag.x = Math.min(drag.startX, p.x);
+  drag.y = Math.min(drag.startY, p.y);
+  drag.w = Math.abs(p.x - drag.startX);
+  drag.h = Math.abs(p.y - drag.startY);
+  draw();
+});
+view.addEventListener("pointerup", () => {
+  if (drag && drag.w > 2 && drag.h > 2) {
+    rects.push({ x: drag.x, y: drag.y, w: drag.w, h: drag.h });
+    saved.delete(files[index].name);
+  }
+  drag = null;
+  draw();
+  update();
+});
+
+function undo() {
+  if (!rects.length) return;
+  rects.pop();
+  saved.delete(files[index].name);
+  draw();
+  update();
+}
+
+// 회전할 때는 칠한 칸까지 이미지에 합친다.
+function rotate() {
+  draw();
+  const next = document.createElement("canvas");
+  next.width = view.height;
+  next.height = view.width;
+  const c = next.getContext("2d");
+  c.translate(next.width, 0);
+  c.rotate(Math.PI / 2);
+  c.drawImage(view, 0, 0);
+  base = next;
+  rects = [];
+  view.width = next.width;
+  view.height = next.height;
+  saved.delete(files[index].name);
+  layout();
+  draw();
+  update();
+}
+
+function save() {
+  draw();
+  const name = files[index].name;
+  // 캔버스 픽셀만 새 파일로 저장하므로 원본의 메타데이터와 칠한 칸 아래 글자는 남지 않는다.
+  view.toBlob(blob => {
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "checked_" + name.replace(/\.[^.]+$/, "") + ".png";
+    link.click();
+    URL.revokeObjectURL(link.href);
+    saved.add(name);
+    update();
+  }, "image/png");
+}
+
+document.getElementById("files").addEventListener("change", e => {
+  files = [...e.target.files].sort((a, b) => a.name.localeCompare(b.name));
+  rects = [];
+  saved.clear();
+  if (files.length) open(0);
+});
+document.getElementById("prev").onclick = () => open(index - 1);
+document.getElementById("next").onclick = () => open(index + 1);
+document.getElementById("undo").onclick = undo;
+document.getElementById("rotate").onclick = rotate;
+document.getElementById("save").onclick = save;
+document.getElementById("in").onclick = () => { zoom = Math.min(zoom * 1.25, 3); layout(); };
+document.getElementById("out").onclick = () => { zoom = Math.max(zoom / 1.25, 0.1); layout(); };
+window.addEventListener("keydown", e => {
+  if (!base) return;
+  if (e.key === "z" || e.key === "Z") undo();
+  if (e.key === "s" || e.key === "S") { e.preventDefault(); save(); }
+});
+</script>
+</body>
+</html>
