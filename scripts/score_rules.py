@@ -1,6 +1,6 @@
 """정답 값을 넣고 판정 규칙만 채점한다. OCR과 추출의 정확도는 재지 않는다.
 
-실행: python3 scripts/score_rules.py
+실행: python3 scripts/score_rules.py [정답지 폴더]
 """
 import json
 import sys
@@ -34,12 +34,12 @@ def score_case(answer):
     }
 
 
-def load_answers():
-    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted((ROOT / "answers").glob("case_*.json"))]
+def load_answers(folder=ROOT / "answers"):
+    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(folder).glob("*.json"))]
 
 
 def main():
-    scores = [score_case(a) for a in load_answers()]
+    scores = [score_case(a) for a in (load_answers(sys.argv[1]) if len(sys.argv) > 1 else load_answers())]
     hit = sum(len(s["expected"] & s["found"]) for s in scores)
     expected = sum(len(s["expected"]) for s in scores)
     found = sum(len(s["found"]) for s in scores)

@@ -5,7 +5,7 @@
   "draft": true,
   "purpose": "아래쪽 금액 칸이 잘린 사진",
   "claim_type": "outpatient",
-  "capture": "합계 행 아래가 안 나오게 잘라 촬영",
+  "capture": "오른쪽 금액산정 칸이 안 나오게 잘라 저장",
   "note": "잘린 칸은 사람도 읽을 수 없어 정답 값이 null",
   "conclusion": "needs_review",
   "documents": [
@@ -42,17 +42,17 @@
     {
       "file_name": "case_23_doc1_receipt",
       "key": "visit_start",
-      "value": "2026-10-30"
+      "value": null
     },
     {
       "file_name": "case_23_doc1_receipt",
       "key": "visit_end",
-      "value": "2026-10-30"
+      "value": null
     },
     {
       "file_name": "case_23_doc1_receipt",
       "key": "receipt_no",
-      "value": "2610-00124"
+      "value": null
     },
     {
       "file_name": "case_23_doc1_receipt",

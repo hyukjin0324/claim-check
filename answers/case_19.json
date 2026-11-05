@@ -5,7 +5,7 @@
   "draft": true,
   "purpose": "본인부담금 합계 칸만 흐림, 검산 C1로 확정 시험",
   "claim_type": "outpatient",
-  "capture": "본인부담금 합계 칸을 연하게 인쇄한 뒤 촬영",
+  "capture": "본인부담금 합계 칸을 연하게 채움",
   "note": "두 경로가 다르게 읽고 C1로 고르면 정상. 사람도 못 읽으면 정답지를 다시 정한다",
   "conclusion": "proceed",
   "documents": [

@@ -5,7 +5,7 @@
   "draft": true,
   "purpose": "간이 외래 영수증 (수기)",
   "claim_type": "outpatient",
-  "capture": "손글씨로 채운 뒤 스캔",
+  "capture": "인쇄 후 스캔 느낌 효과",
   "note": "제12호에는 영수증 번호 칸이 없음",
   "conclusion": "proceed",
   "documents": [

@@ -5,7 +5,7 @@
   "draft": true,
   "purpose": "그림자가 진 약국 영수증",
   "claim_type": "pharmacy",
-  "capture": "금액 칸에 그림자가 지게 촬영",
+  "capture": "금액 칸 그림자 효과",
   "note": null,
   "conclusion": "proceed",
   "documents": [

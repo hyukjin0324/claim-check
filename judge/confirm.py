@@ -7,7 +7,7 @@ BLANK_IS_ZERO = {
     "full_copay_total", "noncovered_total", "cap_excess", "prepaid", "unpaid",
     "paid_card", "paid_cash_receipt", "paid_cash",
 }
-MONEY_SUFFIXES = (":copay", ":insurer", ":full_copay", ":noncovered", ":total", ":patient_total", ":card", ":cash_receipt", ":cash")
+MONEY_SUFFIXES = (":covered", ":copay", ":insurer", ":full_copay", ":noncovered", ":total", ":patient_total", ":card", ":cash_receipt", ":cash")
 RECEIPT_MONEY = BLANK_IS_ZERO | {"copay_total", "insurer_total", "bill_total", "insurer_grand_total", "patient_total", "due", "paid_total"}
 
 REQUIRED = {

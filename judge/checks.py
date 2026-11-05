@@ -29,6 +29,15 @@ def row_sum_checks(doc, values, tolerance):
         if not ok:
             issues.append(make_issue("NEEDS_REVIEW", "S1", "INTERNAL_MISMATCH", f"{column} 항목 합이 합계와 {abs(difference):,}원 달라요.",
                                      abs(difference), [doc["doc_id"]], [total_key]))
+    # 옛 양식은 본인부담금과 공단부담금을 한 칸(요양급여)에 합쳐 적는다.
+    covered = [k for k in values if re.fullmatch(r"row:.+:covered", k)]
+    if covered and "copay_total" in values and "insurer_total" in values:
+        difference = sum(values[k] or 0 for k in covered) - values["copay_total"] - values["insurer_total"]
+        ok = abs(difference) <= tolerance
+        checks.append({"rule": "S1", "doc_id": doc["doc_id"], "column": "covered", "result": "pass" if ok else "fail", "difference": difference})
+        if not ok:
+            issues.append(make_issue("NEEDS_REVIEW", "S1", "INTERNAL_MISMATCH", f"요양급여 항목 합이 합계와 {abs(difference):,}원 달라요.",
+                                     abs(difference), [doc["doc_id"]], ["copay_total", "insurer_total"]))
     return issues, checks
 
 

@@ -164,7 +164,7 @@ def build_cases():
         [pharmacy("11", "서지안", "가상온누리약국", "2026-10-16", "2610-00110", 4500, 10500, 2000)])
     add("variety", "간이 외래 영수증 (수기)", "outpatient",
         [receipt("12", "임하준", "가상의원", "2026-10-17",
-                 rows=[(J, 4200, 9800, 0, 0), (TS, 1200, 2800, 0, 0)])], capture="손글씨로 채운 뒤 스캔", dept="내과",
+                 rows=[(J, 4200, 9800, 0, 0), (TS, 1200, 2800, 0, 0)])], capture="인쇄 후 스캔 느낌 효과", dept="내과",
         note="제12호에는 영수증 번호 칸이 없음")
     b = receipt("6", "신유나", "가상소아과의원", "2026-10-18", no="2610-00111", rows=[(J, 3000, 7000, 0, 5000)])
     add("variety", "납입 확인서 함께 제출. ①공단 ②본인 번호에 주의", "outpatient",
@@ -201,20 +201,20 @@ def build_cases():
     b = receipt("7", "남기태", "가상내과의원", "2026-10-26", no="2610-00120",
                 rows=[(J, 15000, 35000, 0, 0), (GS, 20000, 30000, 0, 0)])
     add("low_quality", "본인부담금 합계 칸만 흐림, 검산 C1로 확정 시험", "outpatient",
-        [b, rx("남기태", "가상내과의원", "2026-10-26")], capture="본인부담금 합계 칸을 연하게 인쇄한 뒤 촬영", dept="내과",
+        [b, rx("남기태", "가상내과의원", "2026-10-26")], capture="본인부담금 합계 칸을 연하게 채움", dept="내과",
         note="두 경로가 다르게 읽고 C1로 고르면 정상. 사람도 못 읽으면 정답지를 다시 정한다")
     add("low_quality", "구겨진 사진", "outpatient",
         [receipt("6", "유하린", "가상의원", "2026-10-27", no="2610-00121", rows=[(J, 4200, 9800, 0, 0), (TS, 2000, 4700, 0, 0)])],
-        capture="구긴 뒤 펴서 촬영", dept="내과")
+        capture="구긴 듯한 명암 효과", dept="내과")
     add("low_quality", "기울어진 사진", "outpatient",
         [receipt("7", "백시온", "가상의원", "2026-10-28", no="2610-00122", rows=[(J, 4200, 9800, 0, 3000)])],
-        capture="15도 기울여 촬영", dept="내과")
+        capture="15도 기울임 효과", dept="내과")
     add("low_quality", "그림자가 진 약국 영수증", "pharmacy",
-        [pharmacy("10", "송예린", "가상약국", "2026-10-29", "2610-00123", 3300, 7700)], capture="금액 칸에 그림자가 지게 촬영")
+        [pharmacy("10", "송예린", "가상약국", "2026-10-29", "2610-00123", 3300, 7700)], capture="금액 칸 그림자 효과")
     add("low_quality", "아래쪽 금액 칸이 잘린 사진", "outpatient",
         [receipt("6", "전우빈", "가상의원", "2026-10-30", no="2610-00124", rows=[(J, 4200, 9800, 0, 5000)])],
         conclusion="needs_review", issues=[{"cause": "NEEDS_REVIEW", "review_code": "CROPPED"}],
-        capture="합계 행 아래가 안 나오게 잘라 촬영", dept="내과", note="잘린 칸은 사람도 읽을 수 없어 정답 값이 null", cropped=True)
+        capture="오른쪽 금액산정 칸이 안 나오게 잘라 저장", dept="내과", note="잘린 칸은 사람도 읽을 수 없어 정답 값이 null", cropped=True)
 
     # 예외·함정 7건
     b = receipt("6", "황도현", "가상정형외과의원", "2026-11-01", no="2611-00125",
@@ -251,8 +251,8 @@ def build_cases():
 
 RECEIPTS = ("receipt", "simple_receipt", "pharmacy_receipt")
 META_KEYS = ("type", "form_no", "file_name", "description")
-# 사진에서 잘려 나간 칸. 합계 행 아래에 있다.
-CROPPED_KEYS = ("bill_total", "cap_excess", "insurer_grand_total", "patient_total", "prepaid", "due",
+# 사진에서 잘려 나간 칸. 서식 오른쪽 금액산정 칸과 머리글의 오른쪽 칸이다.
+CROPPED_KEYS = ("visit_start", "visit_end", "receipt_no", "bill_total", "cap_excess", "insurer_grand_total", "patient_total", "prepaid", "due",
                 "paid_card", "paid_cash_receipt", "paid_cash", "paid_total", "unpaid")
 
 

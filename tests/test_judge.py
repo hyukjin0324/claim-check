@@ -145,6 +145,14 @@ class RoundingTest(unittest.TestCase):
             read_as(extract, "d1", key, amount, amount)
         return extract
 
+    def test_combined_covered_rows_use_tolerance(self):
+        extract = load_case(1)
+        doc = extract["documents"][0]
+        doc["fields"] = [f for f in doc["fields"] if not f["key"].startswith("row:")]
+        self.assertEqual(judge_claim(read_as(copy.deepcopy(extract), "d1", "row:진찰료:covered", 14004, 14004))["conclusion"], "proceed")
+        found = codes(judge_claim(read_as(extract, "d1", "row:진찰료:covered", 15000, 15000)))
+        self.assertIn(("NEEDS_REVIEW", "S1", "INTERNAL_MISMATCH"), found)
+
     def test_due_with_dropped_ones_passes(self):
         result = judge_claim(self.paid(load_case(1), 4110))
         self.assertEqual(field(result, "d1", "due")["value"], 4110)
