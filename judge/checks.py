@@ -55,6 +55,61 @@ def itemized_checks(doc, values):
     return issues, checks
 
 
+VISIT_COLUMNS = (("total", "bill_total"), ("insurer", "insurer_total"), ("patient_total", "patient_total"))
+
+
+def visit_dates(values):
+    return sorted({m.group(1) for k in values for m in [re.fullmatch(r"visit:(.+):total", k)] if m})
+
+
+def visit_sum_checks(doc, values):
+    """S4. 여러 날을 묶은 내역서의 날짜별 소계 합 = 총합."""
+    issues, checks = [], []
+    dates = visit_dates(values)
+    if doc["type"] != "itemized_bill" or not dates:
+        return issues, checks
+    for column, grand in (("total", "grand_total.total"), ("insurer", "grand_total.insurer"), ("patient_total", "grand_total.patient_total")):
+        parts = [values.get(f"visit:{d}:{column}") for d in dates]
+        if grand not in values or any(p is None for p in parts):
+            continue
+        difference = sum(parts) - values[grand]
+        checks.append({"rule": "S4", "doc_id": doc["doc_id"], "column": column, "result": "fail" if difference else "pass", "difference": difference})
+        if difference:
+            issues.append(make_issue("NEEDS_REVIEW", "S4", "INTERNAL_MISMATCH", f"내역서 날짜별 소계의 합이 총합과 {abs(difference):,}원 달라요.",
+                                     abs(difference), [doc["doc_id"]], [grand]))
+    return issues, checks
+
+
+def _visit_checks(doc, receipts, by_id):
+    """X7. 여러 날을 묶은 내역서는 날짜별 소계를 그날 영수증과 비교한다."""
+    issues, checks = [], []
+    values = by_id[doc["doc_id"]]
+    by_date = {by_id[r["doc_id"]].get("visit_start"): r for r in receipts}
+    for date in visit_dates(values):
+        receipt = by_date.get(date)
+        if receipt is None:
+            issues.append(make_issue("NEEDS_REVIEW", "X7", "UNVERIFIED_INPUT", f"{date} 진료의 영수증이 없어 내역서와 비교하지 못했어요.", values.get(f"visit:{date}:patient_total"),
+                                     [doc["doc_id"]], [f"visit:{date}:total"]))
+            continue
+        base = by_id[receipt["doc_id"]]
+        diffs = []
+        for column, key in VISIT_COLUMNS:
+            left, right = values.get(f"visit:{date}:{column}"), base.get(key)
+            if left is None or right is None:
+                issues.append(_unverified("X7", f"{date} 내역서 소계 또는 영수증", [receipt["doc_id"], doc["doc_id"]]))
+                diffs = None
+                break
+            if left != right:
+                diffs.append(abs(left - right))
+        if diffs is None:
+            continue
+        checks.append({"rule": "X7", "doc_id": doc["doc_id"], "date": date, "result": "fail" if diffs else "pass", "difference": max(diffs) if diffs else 0})
+        if diffs:
+            issues.append(make_issue("DOC_MISMATCH", "X7", None, f"{date} 내역서 소계와 영수증이 최대 {max(diffs):,}원 달라요.", max(diffs), [receipt["doc_id"], doc["doc_id"]],
+                                     [f"visit:{date}:total"], "진료비 내역서와 영수증의 금액을 확인해 재발급해 주세요."))
+    return issues, checks
+
+
 def _unverified(rule, what, doc_ids, keys=()):
     return make_issue("NEEDS_REVIEW", rule, "UNVERIFIED_INPUT", f"{what} 값이 확정되지 않아 비교하지 못했어요.", None, doc_ids, keys)
 
@@ -82,6 +137,11 @@ def cross_checks(documents, all_values, all_fields):
         if doc["type"] != "itemized_bill":
             continue
         values = by_id[doc["doc_id"]]
+        if visit_dates(values):
+            found, found_checks = _visit_checks(doc, receipts, by_id)
+            issues += found
+            checks += found_checks
+            continue
         receipt = _link_itemized(doc, receipts, by_id)
         if receipt is None:
             if receipts:

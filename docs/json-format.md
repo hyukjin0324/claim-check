@@ -40,6 +40,17 @@
 - 잘린 문서는 `flags`에 `CROPPED`, 종류가 애매한 문서는 `UNKNOWN_DOC`을 넣는다.
 - 영수증의 진료과는 `department` 키로 뽑는다. D4 판단에 쓴다.
 
+## 각도별 변형
+
+칠한 이미지를 5, 15, 90, 180, 270, 345도로 돌린 변형을 만든다. 정답은 원본과 같다.
+
+```bash
+bash scripts/make_angle_variants.sh private/real_checked/real_A/real_A_doc1_receipt.png private/real_angles
+```
+
+- 원본에서 만든 파생 자료라 실제 묶음 수에 넣지 않고 `source_type`을 `modified_real`로 적는다.
+- 각도별 정확도는 따로 집계한다. 어느 각도부터 읽지 못하는지 알 수 있고, 회전 보정이 필요한지 판단하는 근거가 된다.
+
 ## 실행
 
 ```bash

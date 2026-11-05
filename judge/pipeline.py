@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-from .checks import cross_checks, itemized_checks, make_issue, row_sum_checks
+from .checks import cross_checks, itemized_checks, make_issue, row_sum_checks, visit_sum_checks
 from .claim_rules import duplicate_check, required_docs_check
 from .confirm import confirm_document, confirmed_values
 
@@ -63,7 +63,7 @@ def judge_claim(extract, previous_receipts=(), config=None):
         all_values[doc["doc_id"]] = confirmed_values(fields)
         checks += doc_checks
         issues += doc_flag_issues(doc) + field_issues(doc, fields) + broken_equation_issues(doc, doc_checks)
-        for found, found_checks in (row_sum_checks(doc, all_values[doc["doc_id"]], config["row_sum_tolerance"]), itemized_checks(doc, all_values[doc["doc_id"]])):
+        for found, found_checks in (row_sum_checks(doc, all_values[doc["doc_id"]], config["row_sum_tolerance"]), itemized_checks(doc, all_values[doc["doc_id"]]), visit_sum_checks(doc, all_values[doc["doc_id"]])):
             issues += found
             checks += found_checks
     found, found_checks = cross_checks(documents, all_values, all_fields)

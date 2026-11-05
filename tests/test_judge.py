@@ -139,6 +139,74 @@ class ConfirmTest(unittest.TestCase):
         self.assertIn(("NEEDS_REVIEW", "S1", "INTERNAL_MISMATCH"), codes(result))
 
 
+class RoundingTest(unittest.TestCase):
+    def paid(self, extract, amount):
+        for key in ("due", "paid_total", "paid_card"):
+            read_as(extract, "d1", key, amount, amount)
+        return extract
+
+    def test_due_with_dropped_ones_passes(self):
+        result = judge_claim(self.paid(load_case(1), 4110))
+        self.assertEqual(field(result, "d1", "due")["value"], 4110)
+        self.assertEqual(result["conclusion"], "proceed")
+
+    def test_due_off_by_100_is_mismatch(self):
+        result = judge_claim(self.paid(load_case(1), 4100))
+        self.assertIn(("NEEDS_REVIEW", "C4", "INTERNAL_MISMATCH"), codes(result))
+
+    def test_due_above_patient_total_is_mismatch(self):
+        result = judge_claim(self.paid(load_case(1), 4210))
+        self.assertIn(("NEEDS_REVIEW", "C4", "INTERNAL_MISMATCH"), codes(result))
+
+    def test_two_values_inside_range_are_ambiguous(self):
+        extract = read_as(load_case(1), "d1", "due", 4150, 4180)
+        for key in ("paid_total", "paid_card", "unpaid"):
+            read_as(extract, "d1", key, None, None)
+        self.assertEqual(field(judge_claim(extract), "d1", "due")["review_code"], "AMBIGUOUS_VALUE")
+
+
+def set_visit(extract, doc_id, date, total, insurer, patient):
+    for column, value in (("total", total), ("insurer", insurer), ("patient_total", patient)):
+        read_as(extract, doc_id, f"visit:{date}:{column}", value, value)
+    return extract
+
+
+class VisitBillTest(unittest.TestCase):
+    """여러 날을 묶은 내역서. case 4의 세부내역서를 이틀짜리 내역서로 바꾼다."""
+
+    def build(self, second=None):
+        extract = load_case(4)
+        doc = extract["documents"][2]
+        doc["fields"] = [f for f in doc["fields"] if f["key"] in ("patient_name", "provider_name", "visit_start", "visit_end", "grand_total.total")]
+        receipt = {f["key"]: f["path_a"]["value"] for f in extract["documents"][0]["fields"]}
+        date = receipt["visit_start"]
+        set_visit(extract, "d3", date, receipt["bill_total"], receipt["insurer_total"], receipt["patient_total"])
+        total = receipt["bill_total"]
+        if second:
+            set_visit(extract, "d3", second, 1000, 300, 700)
+            total += 1000
+        read_as(extract, "d3", "grand_total.total", total, total)
+        return extract
+
+    def test_visit_matches_receipt(self):
+        self.assertEqual(judge_claim(self.build())["conclusion"], "proceed")
+
+    def test_missing_receipt_for_a_visit_needs_review(self):
+        result = judge_claim(self.build("2026-10-09"))
+        self.assertIn(("NEEDS_REVIEW", "X7", "UNVERIFIED_INPUT"), codes(result))
+        self.assertNotIn("DOC_MISMATCH", {i["cause"] for i in result["issues"]})
+
+    def test_visit_amount_differs(self):
+        extract = self.build()
+        date = next(f["path_a"]["value"] for f in extract["documents"][0]["fields"] if f["key"] == "visit_start")
+        read_as(extract, "d3", f"visit:{date}:total", 1, 1)
+        self.assertIn(("DOC_MISMATCH", "X7", None), codes(judge_claim(extract)))
+
+    def test_visit_sum_must_match_grand_total(self):
+        extract = read_as(self.build(), "d3", "grand_total.total", 1, 1)
+        self.assertIn(("NEEDS_REVIEW", "S4", "INTERNAL_MISMATCH"), codes(judge_claim(extract)))
+
+
 class CrossCheckTest(unittest.TestCase):
     def test_mismatch_amount(self):
         result = judge_claim(load_case(24))
