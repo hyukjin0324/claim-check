@@ -1,0 +1,623 @@
+{
+  "kind": "studio.workflow-config-draft",
+  "schemaVersion": 4,
+  "exportedAt": "2026-11-06T02:17:21.601Z",
+  "exportedFrom": {
+    "workflowId": "agt_FG92rGr3o2iisX9yc5HD7X",
+    "workflowName": "컴학감동_미션2_실손보험 청구 서류 검증",
+    "configId": "cfg_YZQvtRiQ39THez8sVsUtAS",
+    "configVer": 3
+  },
+  "workflowConfig": {
+    "workflow_name": "컴학감동_미션2_실손보험 청구 서류 검증",
+    "pipelineType": "instruct",
+    "documentParseConfiguration": {
+      "modelName": "document-parse",
+      "mode": "standard",
+      "ocrMode": "force",
+      "lang": "",
+      "chartRecognition": false,
+      "coordinates": true,
+      "mergeMultipageTables": false,
+      "outputFormats": [
+        "html",
+        "text"
+      ],
+      "base64Encoding": [
+        "figure"
+      ],
+      "customName": "청구서류-파싱"
+    },
+    "documentClassifyConfiguration": {
+      "schema": {
+        "type": "json_schema",
+        "json_schema": {
+          "name": "document-classify",
+          "schema": {
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "receipt",
+                "description": "진료비 또는 약제비 계산서·영수증. 항목별 본인부담금·공단부담금·비급여 표와 진료비 총액, 환자부담 총액이 있다. 재발행본도 영수증이다."
+              },
+              {
+                "const": "itemized_bill",
+                "description": "진료비 세부산정내역. 항목, 일자, 코드, 명칭, 횟수 표와 계, 끝수처리 조정금액, 합계 줄이 있다."
+              },
+              {
+                "const": "prescription",
+                "description": "처방전. 질병분류기호, 처방 의약품 표, 사용기간이 있다."
+              },
+              {
+                "const": "evidence",
+                "description": "통원확인서, 입퇴원확인서, 진료확인서, 진단서. 진단명이나 병명이 있다."
+              },
+              {
+                "const": "Other",
+                "description": "위에 없거나 읽을 수 없는 문서. 예: 카드 전표, 본인부담금 수납대장, 빈 페이지."
+              }
+            ]
+          }
+        }
+      },
+      "modelName": "",
+      "split": true,
+      "splitCriteria": [
+        {
+          "criterion": "PAGE",
+          "description": ""
+        }
+      ],
+      "customName": "청구서류-분류"
+    },
+    "informationExtractConfiguration": {
+      "modelName": "",
+      "schemas": [
+        {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "영수증_추출",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "patient_name": {
+                  "type": "string",
+                  "description": "환자 성명. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "provider_name": {
+                  "type": "string",
+                  "description": "요양기관명 또는 상호. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "department": {
+                  "type": "string",
+                  "description": "진료과목. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "visit_type": {
+                  "type": "string",
+                  "description": "맨 위 체크된 진료 구분. 외래 또는 입원. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "receipt_no": {
+                  "type": "string",
+                  "description": "영수증번호. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "visit_start": {
+                  "type": "string",
+                  "description": "진료 시작일. YYYY-MM-DD. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "visit_end": {
+                  "type": "string",
+                  "description": "진료 종료일. YYYY-MM-DD. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "copay_total": {
+                  "type": "number",
+                  "description": "합계 행 ① 본인부담금. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "insurer_total": {
+                  "type": "number",
+                  "description": "합계 행 ② 공단부담금. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "full_copay_total": {
+                  "type": "number",
+                  "description": "합계 행 ③ 전액본인부담. 쉼표 없는 정수(원). 칸이 비어 있으면 0."
+                },
+                "noncovered_total": {
+                  "type": "number",
+                  "description": "합계 행 ④ 비급여. 쉼표 없는 정수(원). 칸이 비어 있으면 0."
+                },
+                "cap_excess": {
+                  "type": "number",
+                  "description": "⑤ 상한액 초과금. 쉼표 없는 정수(원). 칸이 비어 있으면 0."
+                },
+                "bill_total": {
+                  "type": "number",
+                  "description": "진료비 총액 또는 약제비 총액. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "patient_total": {
+                  "type": "number",
+                  "description": "환자부담 총액. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                }
+              }
+            }
+          },
+          "schemaLayout": {
+            "version": 1,
+            "columns": [
+              {
+                "name": "patient_name",
+                "source": "root"
+              },
+              {
+                "name": "provider_name",
+                "source": "root"
+              },
+              {
+                "name": "department",
+                "source": "root"
+              },
+              {
+                "name": "visit_type",
+                "source": "root"
+              },
+              {
+                "name": "receipt_no",
+                "source": "root"
+              },
+              {
+                "name": "visit_start",
+                "source": "root"
+              },
+              {
+                "name": "visit_end",
+                "source": "root"
+              },
+              {
+                "name": "copay_total",
+                "source": "root"
+              },
+              {
+                "name": "insurer_total",
+                "source": "root"
+              },
+              {
+                "name": "full_copay_total",
+                "source": "root"
+              },
+              {
+                "name": "noncovered_total",
+                "source": "root"
+              },
+              {
+                "name": "cap_excess",
+                "source": "root"
+              },
+              {
+                "name": "bill_total",
+                "source": "root"
+              },
+              {
+                "name": "patient_total",
+                "source": "root"
+              }
+            ]
+          },
+          "mode": "standard",
+          "modelName": "",
+          "nodeMode": "extract",
+          "userSystemPrompt": "[문서 경계] 입력은 청구 1건의 서류 묶음이며 앞 단계에서 문서별로 나뉜다. 이 문서에 적힌 값만 읽는다. 값을 계산하거나 다른 서류에서 가져오지 않는다."
+        },
+        {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "세부내역서_추출",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "patient_name": {
+                  "type": "string",
+                  "description": "환자 성명. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "provider_name": {
+                  "type": "string",
+                  "description": "요양기관명 또는 상호. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "grand_copay": {
+                  "type": "number",
+                  "description": "맨 아래 '합계' 줄의 본인부담금. '계' 줄이 아니다. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "grand_insurer": {
+                  "type": "number",
+                  "description": "맨 아래 '합계' 줄의 공단부담금. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "grand_full_copay": {
+                  "type": "number",
+                  "description": "맨 아래 '합계' 줄의 전액본인부담. 쉼표 없는 정수(원). 칸이 비어 있으면 0."
+                },
+                "grand_noncovered": {
+                  "type": "number",
+                  "description": "맨 아래 '합계' 줄의 비급여. 쉼표 없는 정수(원). 칸이 비어 있으면 0."
+                },
+                "grand_total": {
+                  "type": "number",
+                  "description": "맨 아래 '합계' 줄의 총액. 쉼표 없는 정수(원). 문서에 없으면 추측하지 말고 빈 값."
+                }
+              }
+            }
+          },
+          "schemaLayout": {
+            "version": 1,
+            "columns": [
+              {
+                "name": "patient_name",
+                "source": "root"
+              },
+              {
+                "name": "provider_name",
+                "source": "root"
+              },
+              {
+                "name": "grand_copay",
+                "source": "root"
+              },
+              {
+                "name": "grand_insurer",
+                "source": "root"
+              },
+              {
+                "name": "grand_full_copay",
+                "source": "root"
+              },
+              {
+                "name": "grand_noncovered",
+                "source": "root"
+              },
+              {
+                "name": "grand_total",
+                "source": "root"
+              }
+            ]
+          },
+          "mode": "standard",
+          "modelName": "",
+          "nodeMode": "extract",
+          "userSystemPrompt": "[문서 경계] 입력은 청구 1건의 서류 묶음이며 앞 단계에서 문서별로 나뉜다. 이 문서에 적힌 값만 읽는다. 값을 계산하거나 다른 서류에서 가져오지 않는다."
+        },
+        {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "처방전_추출",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "patient_name": {
+                  "type": "string",
+                  "description": "환자 성명. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "provider_name": {
+                  "type": "string",
+                  "description": "요양기관명 또는 상호. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "issue_date": {
+                  "type": "string",
+                  "description": "발급 연월일. YYYY-MM-DD. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "disease_code": {
+                  "type": "string",
+                  "description": "질병분류기호. 비어 있으면 빈 값. 문서에 없으면 추측하지 말고 빈 값."
+                }
+              }
+            }
+          },
+          "schemaLayout": {
+            "version": 1,
+            "columns": [
+              {
+                "name": "patient_name",
+                "source": "root"
+              },
+              {
+                "name": "provider_name",
+                "source": "root"
+              },
+              {
+                "name": "issue_date",
+                "source": "root"
+              },
+              {
+                "name": "disease_code",
+                "source": "root"
+              }
+            ]
+          },
+          "mode": "standard",
+          "modelName": "",
+          "nodeMode": "extract",
+          "userSystemPrompt": "[문서 경계] 입력은 청구 1건의 서류 묶음이며 앞 단계에서 문서별로 나뉜다. 이 문서에 적힌 값만 읽는다. 값을 계산하거나 다른 서류에서 가져오지 않는다."
+        },
+        {
+          "type": "json_schema",
+          "json_schema": {
+            "name": "증빙_추출",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "patient_name": {
+                  "type": "string",
+                  "description": "환자 성명. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "provider_name": {
+                  "type": "string",
+                  "description": "요양기관명 또는 상호. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "document_type": {
+                  "type": "string",
+                  "description": "서류 제목. 예: 통원확인서, 진단서. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "disease_name": {
+                  "type": "string",
+                  "description": "진단명 또는 병명. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "visit_start": {
+                  "type": "string",
+                  "description": "진료 또는 입원 시작일. YYYY-MM-DD. 문서에 없으면 추측하지 말고 빈 값."
+                },
+                "visit_end": {
+                  "type": "string",
+                  "description": "진료 또는 퇴원일. YYYY-MM-DD. 문서에 없으면 추측하지 말고 빈 값."
+                }
+              }
+            }
+          },
+          "schemaLayout": {
+            "version": 1,
+            "columns": [
+              {
+                "name": "patient_name",
+                "source": "root"
+              },
+              {
+                "name": "provider_name",
+                "source": "root"
+              },
+              {
+                "name": "document_type",
+                "source": "root"
+              },
+              {
+                "name": "disease_name",
+                "source": "root"
+              },
+              {
+                "name": "visit_start",
+                "source": "root"
+              },
+              {
+                "name": "visit_end",
+                "source": "root"
+              }
+            ]
+          },
+          "mode": "standard",
+          "modelName": "",
+          "nodeMode": "extract",
+          "userSystemPrompt": "[문서 경계] 입력은 청구 1건의 서류 묶음이며 앞 단계에서 문서별로 나뉜다. 이 문서에 적힌 값만 읽는다. 값을 계산하거나 다른 서류에서 가져오지 않는다."
+        }
+      ],
+      "categorySchemaMapping": {
+        "receipt": "영수증_추출",
+        "itemized_bill": "세부내역서_추출",
+        "prescription": "처방전_추출",
+        "evidence": "증빙_추출"
+      },
+      "confidenceThreshold": 0.9676
+    },
+    "instructConfiguration": {
+      "nodes": [
+        {
+          "name": "미분류_안내",
+          "modelName": "",
+          "prompt": "이 문서는 청구 점검 대상 서류로 분류되지 않았다. 문서에 없는 값을 만들지 않는다. 한 줄로 쓴다: 문서 종류=<보이는 종류>, 이유=<분류되지 않은 이유>, 할 일=<무시 또는 담당자 확인>."
+        },
+        {
+          "name": "청구_판정",
+          "modelName": "",
+          "prompt": "너는 실손보험 보상 담당자의 청구 서류 1차 점검을 돕는다. 앞 단계에서 추출한 값만 쓴다. 문서에 없는 값을 만들지 않는다. 보험금 지급 여부는 판단하지 않는다.\n\n입력은 청구 1건의 서류 묶음이다. 어떤 서류의 추출 결과가 비어 있으면 제출되지 않은 것으로 본다. 영수증이 여러 장이면 모두 살핀다.\n\n아래 순서로 판단하고, 앞 단계에서 걸리면 다음 단계의 결과로 cause를 바꾸지 않는다.\n\n1단계 읽기 점검 (영수증마다)\nA = copay_total + insurer_total + full_copay_total + noncovered_total. A가 bill_total과 같은지 본다.\nB = copay_total - cap_excess + full_copay_total + noncovered_total. B가 patient_total과 같은지 본다.\n빈 full_copay_total, noncovered_total, cap_excess는 0으로 계산한다.\n식이 깨지거나 bill_total, patient_total, 환자 이름을 읽지 못했으면 decision은 검토 필요, cause는 읽기 오류다.\n\n2단계 중복\n요양기관과 receipt_no가 같은 영수증이 2장 이상이면 decision은 보완 요청, cause는 중복 제출이다. 이후 금액은 한 장만 센다.\n\n3단계 서류 비교 (1단계를 통과한 값끼리)\n세부내역서가 있으면 grand_copay, grand_insurer, grand_full_copay, grand_noncovered, grand_total을 영수증 copay_total, insurer_total, full_copay_total, noncovered_total, bill_total과 각각 비교한다.\n환자 이름과 요양기관을 서류끼리 비교한다.\n다르면 decision은 보완 요청, cause는 서류 불일치다. mismatches에 다른 값의 이름을 적는다. 금액은 본인부담금 합계, 공단부담금 합계, 전액본인부담 합계, 비급여 합계, 진료비 총액 중에서, 그 밖에는 환자 이름, 요양기관으로 적는다.\n\n4단계 필요 서류\n영수증이 없으면 decision은 보완 요청, cause는 서류 누락이다. missing_documents에 진료비 영수증을 적는다.\n환자부담 합계는 중복을 뺀 영수증 patient_total의 합이다.\n처방전 조건: disease_code 값이 있는 prescription 문서가 있다.\n증빙 조건: disease_name 값이 있는 evidence 문서가 있다.\n진단서 조건: document_type에 진단서가 들어 있고 disease_name 값이 있는 evidence 문서가 있다.\n\n영수증 visit_type이 입원이면 입원 기준만 적용한다.\n- 세부내역서가 없으면 missing_documents에 세부내역서를 적는다.\n- 환자부담 합계가 500,000원 이하면 증빙 조건이 맞아야 하고, 없으면 진단서를 적는다.\n- 환자부담 합계가 500,000원을 넘으면 진단서 조건이 맞아야 하고, 없으면 진단서를 적는다.\n- 적은 서류가 있으면 decision은 보완 요청, cause는 서류 누락이다.\n\n그 밖에는 통원 기준을 적용한다.\n- 영수증 department가 산부인과, 항문외과, 비뇨기과, 비뇨의학과, 피부과 중 하나면 금액과 상관없이 증빙 조건을 본다. 맞지 않으면 decision은 검토 필요, cause는 서류 누락이다. 이때 missing_documents는 비워 둔다. 이 경우 아래 금액 기준은 적용하지 않는다.\n- 환자부담 합계가 30,000원을 넘으면 처방전 조건이나 증빙 조건 중 하나만 맞아도 통과다. 둘 다 맞지 않을 때만 decision은 보완 요청, cause는 서류 누락이고 missing_documents에 처방전을 적는다.\n- 환자부담 합계가 100,000원을 넘는데 증빙 조건이 맞지 않으면 decision은 검토 필요, cause는 서류 누락이다. 이때 missing_documents는 비워 둔다.\n\n5단계\n위 조건에 하나도 걸리지 않으면 반드시 decision은 심사 진행, cause는 없음이다.\n영수증 외 서류가 없다는 이유만으로 서류 누락으로 판단하지 않는다. 환자부담 합계 30,000원 이하 통원은 진료과 예외가 아니면 영수증만으로 충분하다.\ncause가 서류 누락이고 decision이 보완 요청이면 missing_documents는 비어 있으면 안 된다. 적을 서류가 없으면 심사 진행이다.\n\n아래 키 7개를 이 순서로 한 줄에 하나씩 쓴다.\npatient_name: <영수증 환자 이름>\nprovider_name: <영수증 요양기관>\ndecision: <심사 진행 | 보완 요청 | 검토 필요>\ncause: <없음 | 읽기 오류 | 서류 불일치 | 서류 누락 | 중복 제출>\nreason: <판정 근거 1~2문장. 실제 금액 포함>\nmissing_documents: <JSON 문자열 배열. 예: [\"처방전\"]. 없으면 []>\nmismatches: <JSON 문자열 배열. 예: [\"비급여 합계\", \"진료비 총액\"]. 없으면 []>\n마지막 줄에 decision 값만 한 번 더 쓴다.",
+          "enumEnabled": true,
+          "enumValues": [
+            "심사 진행",
+            "보완 요청",
+            "검토 필요"
+          ]
+        },
+        {
+          "name": "보완_요청_문구",
+          "modelName": "",
+          "prompt": "앞선 판정 #청구_판정 결과가 보완 요청인 건이다. 고객에게 보낼 안내문을 쓴다. 문서에 없는 값을 만들지 않는다. 구성: 빠지거나 맞지 않는 서류와 값 / 다시 보내 주실 서류 / 제출 기한은 '담당자 지정'. 200자 이내, 존댓말. 보험금 지급 여부는 말하지 않는다."
+        },
+        {
+          "name": "담당자_확인_메모",
+          "modelName": "",
+          "prompt": "앞선 판정 #청구_판정 결과가 검토 필요인 건이다. 담당자 확인 메모를 쓴다. 문서에 없는 값을 만들지 않는다. 구성: 검토 이유 / 원본에서 볼 서류와 칸 / 담당자가 정할 것. 200자 이내."
+        }
+      ],
+      "connectionMapping": {
+        "미분류_안내": {
+          "targetType": "classify",
+          "classifyClassName": "Other"
+        },
+        "보완_요청_문구": {
+          "targetType": "instruct",
+          "instructNodeName": "청구_판정"
+        },
+        "담당자_확인_메모": {
+          "targetType": "instruct",
+          "instructNodeName": "청구_판정"
+        }
+      }
+    },
+    "pipelineEdges": [
+      {
+        "id": "e0",
+        "source": {
+          "nodeType": "parse"
+        },
+        "target": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        }
+      },
+      {
+        "id": "e1",
+        "source": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        },
+        "target": {
+          "nodeType": "extract",
+          "name": "영수증_추출"
+        },
+        "condition": {
+          "conditionName": "receipt"
+        }
+      },
+      {
+        "id": "e2",
+        "source": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        },
+        "target": {
+          "nodeType": "extract",
+          "name": "세부내역서_추출"
+        },
+        "condition": {
+          "conditionName": "itemized_bill"
+        }
+      },
+      {
+        "id": "e3",
+        "source": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        },
+        "target": {
+          "nodeType": "extract",
+          "name": "처방전_추출"
+        },
+        "condition": {
+          "conditionName": "prescription"
+        }
+      },
+      {
+        "id": "e4",
+        "source": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        },
+        "target": {
+          "nodeType": "extract",
+          "name": "증빙_추출"
+        },
+        "condition": {
+          "conditionName": "evidence"
+        }
+      },
+      {
+        "id": "e5",
+        "source": {
+          "nodeType": "classify",
+          "name": "청구서류-분류"
+        },
+        "target": {
+          "nodeType": "instruct",
+          "name": "미분류_안내"
+        },
+        "condition": {
+          "conditionName": "Other"
+        }
+      },
+      {
+        "id": "e6",
+        "source": {
+          "nodeType": "extract",
+          "name": "영수증_추출"
+        },
+        "target": {
+          "nodeType": "merge",
+          "name": "병합-1"
+        }
+      },
+      {
+        "id": "e7",
+        "source": {
+          "nodeType": "extract",
+          "name": "세부내역서_추출"
+        },
+        "target": {
+          "nodeType": "merge",
+          "name": "병합-1"
+        }
+      },
+      {
+        "id": "e8",
+        "source": {
+          "nodeType": "extract",
+          "name": "처방전_추출"
+        },
+        "target": {
+          "nodeType": "merge",
+          "name": "병합-1"
+        }
+      },
+      {
+        "id": "e9",
+        "source": {
+          "nodeType": "extract",
+          "name": "증빙_추출"
+        },
+        "target": {
+          "nodeType": "merge",
+          "name": "병합-1"
+        }
+      },
+      {
+        "id": "e10",
+        "source": {
+          "nodeType": "merge",
+          "name": "병합-1"
+        },
+        "target": {
+          "nodeType": "instruct",
+          "name": "청구_판정"
+        }
+      },
+      {
+        "id": "e11",
+        "source": {
+          "nodeType": "instruct",
+          "name": "청구_판정"
+        },
+        "target": {
+          "nodeType": "instruct",
+          "name": "보완_요청_문구"
+        },
+        "condition": {
+          "conditionName": "보완 요청"
+        }
+      },
+      {
+        "id": "e12",
+        "source": {
+          "nodeType": "instruct",
+          "name": "청구_판정"
+        },
+        "target": {
+          "nodeType": "instruct",
+          "name": "담당자_확인_메모"
+        },
+        "condition": {
+          "conditionName": "검토 필요"
+        }
+      }
+    ]
+  }
+}
