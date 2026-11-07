@@ -67,6 +67,8 @@ OCR을 켠다. 합쳐진 표를 읽어야 하니 좌표(`coordinates`)도 켠다
 
 Number 유형을 Studio에서 고를 수 없으면 String으로 두고 설명에 숫자만 적으라고 쓴다.
 
+기타 문서는 `미분류_안내`를 거쳐 `병합-1`로 들어간다(설정 #9). 그래서 기타 문서만 있어도 판정이 나온다. `scripts/build_workflow_config.py`에는 이 연결이 아직 없다.
+
 ## Instruct(결정)
 
 타입은 "생성하고 결정도 내리기", 값은 `심사 진행`, `보완 요청`, `검토 필요`.
@@ -78,11 +80,16 @@ Number 유형을 Studio에서 고를 수 없으면 String으로 두고 설명에
 
 아래 순서로 판단하고, 앞 단계에서 걸리면 다음 단계의 결과로 cause를 바꾸지 않는다.
 
+먼저 영수증(receipt) 추출 결과가 있는지 본다. 하나도 없으면 1~3단계를 건너뛰고 decision은 보완 요청, cause는 서류 누락, missing_documents에 진료비 영수증을 적는다. 읽기 오류로 판정하지 않는다.
+미분류_안내 결과는 카드 전표 같은 기타 문서다. 처방전, 증빙, 세부내역서로 세지 않고 판정 근거로 쓰지 않는다.
+
 1단계 읽기 점검 (영수증마다)
-A = copay_total + insurer_total + full_copay_total + noncovered_total. A가 bill_total과 같은지 본다.
-B = copay_total - cap_excess + full_copay_total + noncovered_total. B가 patient_total과 같은지 본다.
 빈 full_copay_total, noncovered_total, cap_excess는 0으로 계산한다.
-식이 깨지거나 bill_total, patient_total, 환자 이름을 읽지 못했으면 decision은 검토 필요, cause는 읽기 오류다.
+A = copay_total + insurer_total + full_copay_total + noncovered_total. 한 번에 두 수만 더하며 적는다. 예: 1000+2000=3000, 3000+0=3000, 3000+500=3500.
+B = copay_total - cap_excess + full_copay_total + noncovered_total. 같은 방식으로 적는다.
+A와 bill_total, B와 patient_total을 숫자 그대로 비교한다.
+둘 중 하나라도 다르면 이유를 찾거나 정상으로 해석하지 말고 바로 decision은 검토 필요, cause는 읽기 오류다. 2~5단계는 보지 않는다.
+bill_total, patient_total, 환자 이름을 읽지 못했어도 decision은 검토 필요, cause는 읽기 오류다.
 
 2단계 중복
 요양기관과 receipt_no가 같은 영수증이 2장 이상이면 decision은 보완 요청, cause는 중복 제출이다. 이후 금액은 한 장만 센다.
@@ -108,7 +115,7 @@ B = copay_total - cap_excess + full_copay_total + noncovered_total. B가 patient
 그 밖에는 통원 기준을 적용한다. 아래를 위에서부터 보고, 처음 맞는 한 줄만 적용한다.
 1. 영수증 department가 산부인과, 항문외과, 비뇨기과, 비뇨의학과, 피부과 중 하나면 금액과 상관없이 증빙 조건만 본다. 맞으면 통과다. 맞지 않으면 decision은 검토 필요, cause는 서류 누락, missing_documents는 비워 둔다.
 2. 환자부담 합계가 100,000원을 넘는데 증빙 조건이 맞지 않으면 decision은 검토 필요, cause는 서류 누락이다. 처방전 조건도 맞지 않으면 missing_documents에 처방전을 적고, 맞으면 비워 둔다. 처방전이 있어도 이 줄을 적용한다. 보완 요청으로 판정하지 않는다.
-3. 환자부담 합계가 30,000원을 넘는데 처방전 조건과 증빙 조건이 모두 맞지 않으면 decision은 보완 요청, cause는 서류 누락, missing_documents에 처방전을 적는다.
+3. 처방전 조건과 증빙 조건 중 하나라도 맞으면 이 줄을 적용하지 않고 4번으로 간다. 환자부담 합계가 30,000원을 넘고 둘 다 맞지 않을 때만 decision은 보완 요청, cause는 서류 누락, missing_documents에 처방전을 적는다.
 4. 그 밖에는 통과다.
 
 5단계
@@ -118,9 +125,9 @@ B = copay_total - cap_excess + full_copay_total + noncovered_total. B가 patient
 decision이 심사 진행이면 missing_documents와 mismatches는 모두 []다. decision이 보완 요청이고 cause가 서류 누락이면 missing_documents는 비어 있으면 안 된다.
 
 판정을 정하기 전에 reason을 먼저 쓴다. 아래 키 7개를 이 순서로 한 줄에 하나씩 쓴다.
-patient_name: <영수증 환자 이름>
-provider_name: <영수증 요양기관>
-reason: <읽기 점검 결과, 중복 여부, 서류 비교 결과(다른 값 또는 같음), 통원 또는 입원, 환자부담 합계, 처방전 조건 맞음/안 맞음, 증빙 조건 맞음/안 맞음, 적용한 단계와 줄을 이 순서로 먼저 적고 판정 근거 1~2문장. 실제 금액 포함>
+patient_name: <영수증 환자 이름. 영수증이 없으면 빈 값>
+provider_name: <영수증 요양기관. 영수증이 없으면 빈 값>
+reason: <A의 덧셈 과정과 값, bill_total, 같음/다름, B의 계산 과정과 값, patient_total, 같음/다름, 중복 여부, 서류 비교 결과(다른 값 또는 같음), 통원 또는 입원, 환자부담 합계, 처방전 조건 맞음/안 맞음, 증빙 조건 맞음/안 맞음, 적용한 단계와 줄을 이 순서로 먼저 적고 판정 근거 1~2문장. 실제 금액 포함>
 decision: <reason에 맞는 값. 심사 진행 | 보완 요청 | 검토 필요>
 cause: <없음 | 읽기 오류 | 서류 불일치 | 서류 누락 | 중복 제출>
 missing_documents: <JSON 문자열 배열. 예: ["처방전"]. 없으면 []>
