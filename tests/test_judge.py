@@ -285,6 +285,13 @@ class RequiredDocsTest(unittest.TestCase):
         self.assertEqual(codes(result), {("NEEDS_REVIEW", "D3", None)})
         self.assertEqual(result["conclusion"], "needs_review")
 
+    def test_over_100000_with_no_documents_is_review_first(self):
+        extract = load_case(30)
+        extract["documents"] = extract["documents"][:1]
+        result = judge_claim(extract)
+        self.assertEqual(codes(result), {("DOC_MISSING", "D2", None), ("NEEDS_REVIEW", "D3", None)})
+        self.assertEqual(result["conclusion"], "needs_review")
+
     def test_special_department_skips_simplified_rule(self):
         extract = read_as(load_case(1), "d1", "department", "피부과", "피부과")
         self.assertEqual(codes(judge_claim(extract)), {("NEEDS_REVIEW", "D4", None)})

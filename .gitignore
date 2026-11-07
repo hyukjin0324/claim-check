@@ -18,3 +18,8 @@ venv/
 node_modules/
 .idea/
 .vscode/
+
+# Word 임시 파일, 제출하지 않는 옛 초안
+~$*
+submission/mission2/studio_import.json
+submission/mission2/*_초안.docx

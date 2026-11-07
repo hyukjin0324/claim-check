@@ -1,0 +1,110 @@
+{
+  "task": "실손보험 청구 서류 검증 (가상)",
+  "unit": "청구 1건 = 파일 1개(서류 묶음 PDF) = 판정 1건",
+  "output_keys": [
+    "patient_name",
+    "provider_name",
+    "decision",
+    "cause",
+    "reason",
+    "missing_documents",
+    "mismatches"
+  ],
+  "decision_values": [
+    "심사 진행",
+    "보완 요청",
+    "검토 필요"
+  ],
+  "cases": [
+    {
+      "case_id": "A",
+      "file": "컴학감동_미션2_set01.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "김가온",
+        "provider_name": "가상내과의원",
+        "decision": "심사 진행",
+        "cause": "없음",
+        "reason": "환자부담 총액 4,200원의 3만 원 이하 통원으로 영수증만으로 충분하고, 금액 검산이 맞음",
+        "missing_documents": [],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "B",
+      "file": "컴학감동_미션2_set02.pdf",
+      "documents": [
+        "진료비 영수증",
+        "처방전"
+      ],
+      "answer": {
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
+        "decision": "심사 진행",
+        "cause": "없음",
+        "reason": "환자부담 총액 50,000원으로 질병분류기호가 있는 처방전이 필요하며 제출됨. 환자와 요양기관이 일치함",
+        "missing_documents": [],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "C",
+      "file": "컴학감동_미션2_set03.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "환자부담 총액 54,200원으로 3만 원을 넘는데 질병분류기호가 적힌 처방전이나 진단명이 있는 증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "D",
+      "file": "컴학감동_미션2_set04.pdf",
+      "documents": [
+        "진료비 영수증",
+        "처방전",
+        "통원확인서",
+        "세부내역서"
+      ],
+      "answer": {
+        "patient_name": "황도현",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 불일치",
+        "reason": "영수증은 검산이 맞지만 세부내역서 비급여 합계가 108,000원으로 영수증 150,000원보다 42,000원 적고 총액도 다름",
+        "missing_documents": [],
+        "mismatches": [
+          "비급여 합계",
+          "진료비 총액"
+        ]
+      }
+    },
+    {
+      "case_id": "E",
+      "file": "컴학감동_미션2_set05.pdf",
+      "documents": [
+        "진료비 영수증",
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "구하람",
+        "provider_name": "가상의원",
+        "decision": "보완 요청",
+        "cause": "중복 제출",
+        "reason": "요양기관과 영수증 번호가 같은 영수증이 두 장 제출됨",
+        "missing_documents": [],
+        "mismatches": []
+      }
+    }
+  ]
+}
