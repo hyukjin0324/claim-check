@@ -145,7 +145,12 @@ class ConfirmTest(unittest.TestCase):
 
 
 class RoundingTest(unittest.TestCase):
-    def paid(self, extract, amount):
+    def paid(self, amount):
+        """본인부담금 4,217원인 영수증에 납부할 금액을 넣는다."""
+        extract = load_case(1)
+        read_as(extract, "d1", "copay_total", 4217, 4217)
+        read_as(extract, "d1", "bill_total", 14017, 14017)
+        read_as(extract, "d1", "patient_total", 4217, 4217)
         for key in ("due", "paid_total", "paid_card"):
             read_as(extract, "d1", key, amount, amount)
         return extract
@@ -159,20 +164,20 @@ class RoundingTest(unittest.TestCase):
         self.assertIn(("NEEDS_REVIEW", "S1", "INTERNAL_MISMATCH"), found)
 
     def test_due_with_dropped_ones_passes(self):
-        result = judge_claim(self.paid(load_case(1), 4110))
-        self.assertEqual(field(result, "d1", "due")["value"], 4110)
-        self.assertEqual(result["conclusion"], "proceed")
+        for amount in (4217, 4210, 4200):
+            with self.subTest(amount=amount):
+                result = judge_claim(self.paid(amount))
+                self.assertEqual(field(result, "d1", "due")["value"], amount)
+                self.assertEqual(result["conclusion"], "proceed")
 
-    def test_due_off_by_100_is_mismatch(self):
-        result = judge_claim(self.paid(load_case(1), 4100))
-        self.assertIn(("NEEDS_REVIEW", "C4", "INTERNAL_MISMATCH"), codes(result))
-
-    def test_due_above_patient_total_is_mismatch(self):
-        result = judge_claim(self.paid(load_case(1), 4210))
-        self.assertIn(("NEEDS_REVIEW", "C4", "INTERNAL_MISMATCH"), codes(result))
+    def test_due_not_rounded_is_mismatch(self):
+        for amount in (4201, 4215, 4190, 4220):
+            with self.subTest(amount=amount):
+                self.assertIn(("NEEDS_REVIEW", "C4", "INTERNAL_MISMATCH"), codes(judge_claim(self.paid(amount))))
 
     def test_two_values_inside_range_are_ambiguous(self):
-        extract = read_as(load_case(1), "d1", "due", 4150, 4180)
+        extract = self.paid(4217)
+        read_as(extract, "d1", "due", 4210, 4200)
         for key in ("paid_total", "paid_card", "unpaid"):
             read_as(extract, "d1", key, None, None)
         self.assertEqual(field(judge_claim(extract), "d1", "due")["review_code"], "AMBIGUOUS_VALUE")
@@ -307,6 +312,84 @@ class RequiredDocsTest(unittest.TestCase):
     def test_previous_claim_duplicate(self):
         result = judge_claim(load_case(1), previous_receipts={"2610-00101"})
         self.assertEqual(codes(result), {("DUPLICATE", None, None)})
+
+
+class RuleReviewTest(unittest.TestCase):
+    """외부 검토에서 찾은 잘못 통과와 잘못 경고."""
+
+    def test_inpatient_needs_medical_receipt(self):
+        extract = load_case(29)
+        pharmacy = load_case(5)["documents"][0]
+        pharmacy["doc_id"] = "d9"
+        extract["documents"] = [pharmacy] + [d for d in extract["documents"] if d["type"] != "receipt"]
+        self.assertIn(("DOC_MISSING", "D5", None), codes(judge_claim(extract)))
+
+    def drop_disease_name(self, extract, kind):
+        doc = next(d for d in extract["documents"] if d["type"] == kind)
+        doc["fields"] = [f for f in doc["fields"] if f["key"] not in ("disease_name", "disease_code")]
+        return extract
+
+    def test_diagnosis_without_name_is_missing(self):
+        result = judge_claim(self.drop_disease_name(load_case(29), "diagnosis"))
+        self.assertIn(("DOC_MISSING", "D5", None), codes(result))
+
+    def test_unconfirmed_diagnosis_name_is_not_missing(self):
+        found = codes(judge_claim(read_as(load_case(29), "d3", "disease_name", "가상 진단명", "가상 병명")))
+        self.assertIn(("NEEDS_REVIEW", "D5", "UNVERIFIED_INPUT"), found)
+        self.assertNotIn(("DOC_MISSING", "D5", None), found)
+
+    def test_certificate_without_name_is_not_evidence(self):
+        result = judge_claim(self.drop_disease_name(load_case(17), "visit_cert"))
+        self.assertIn(("NEEDS_REVIEW", "D3", None), codes(result))
+
+    def test_evidence_can_replace_prescription(self):
+        extract = read_as(load_case(17), "d2", "disease_code", None, None)
+        self.assertNotIn(("DOC_MISSING", "D2", None), codes(judge_claim(extract)))
+
+    def test_new_department_name_is_special(self):
+        extract = read_as(load_case(1), "d1", "department", "비뇨의학과", "비뇨의학과")
+        self.assertEqual(codes(judge_claim(extract)), {("NEEDS_REVIEW", "D4", None)})
+
+    def two_pairs(self):
+        extract = load_case(14)
+        prescription = copy.deepcopy(next(d for d in extract["documents"] if d["type"] == "prescription"))
+        pharmacy = copy.deepcopy(next(d for d in extract["documents"] if d["type"] == "pharmacy_receipt"))
+        prescription["doc_id"], pharmacy["doc_id"] = "d8", "d9"
+        extract["documents"] += [prescription, pharmacy]
+        read_as(extract, "d8", "issue_date", "2026-10-28", "2026-10-28")
+        read_as(extract, "d9", "issue_date", "2026-10-28", "2026-10-28")
+        read_as(extract, "d9", "receipt_no", "2610-09999", "2610-09999")
+        return extract
+
+    def test_two_prescription_pairs_are_not_crossed(self):
+        self.assertNotIn(("DOC_MISMATCH", "X6", None), codes(judge_claim(self.two_pairs())))
+
+    def test_pharmacy_outside_every_prescription(self):
+        extract = read_as(self.two_pairs(), "d9", "issue_date", "2026-11-20", "2026-11-20")
+        self.assertIn(("DOC_MISMATCH", "X6", None), codes(judge_claim(extract)))
+
+    def test_prescription_period_counts_issue_day(self):
+        extract = read_as(load_case(14), "d2", "valid_days", 1, 1)
+        self.assertNotIn(("DOC_MISMATCH", "X6", None), codes(judge_claim(extract)))
+        read_as(extract, "d3", "issue_date", "2026-10-21", "2026-10-21")
+        self.assertIn(("DOC_MISMATCH", "X6", None), codes(judge_claim(extract)))
+
+    def test_masked_name_does_not_join_different_names(self):
+        extract = load_case(4)
+        for doc_id, name in (("d1", "김*수"), ("d2", "김철수"), ("d3", "김민수")):
+            read_as(extract, doc_id, "patient_name", name, name)
+        self.assertIn(("DOC_MISMATCH", "X3", None), codes(judge_claim(extract)))
+
+    def test_same_number_at_other_provider_is_not_duplicate(self):
+        extract = load_case(27)
+        read_as(extract, "d2", "provider_name", "다른의원", "다른의원")
+        self.assertNotIn(("DUPLICATE", None, None), codes(judge_claim(extract)))
+
+    def test_unconfirmed_provider_is_not_called_duplicate(self):
+        extract = read_as(load_case(27), "d2", "provider_name", "가상의원", "가상의원2")
+        found = codes(judge_claim(extract))
+        self.assertNotIn(("DUPLICATE", None, None), found)
+        self.assertIn(("NEEDS_REVIEW", "F9", "UNVERIFIED_INPUT"), found)
 
 
 class ConclusionTest(unittest.TestCase):

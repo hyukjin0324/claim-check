@@ -5,9 +5,10 @@ RECEIPT_TYPES = ("receipt", "simple_receipt", "pharmacy_receipt")
 
 
 def _receipt_identity(doc, values):
-    """같은 서류로 볼 기준. 영수증 번호가 있으면 번호만 쓴다. 값이 모자라면 None."""
+    """같은 서류로 볼 기준. 번호는 기관마다 따로 매기므로 기관과 함께 본다. 값이 모자라면 None."""
     if values.get("receipt_no"):
-        return values["receipt_no"]
+        provider = values.get("provider_name")
+        return None if provider is None else ("number", values["receipt_no"], provider)
     start = values.get("visit_start") or values.get("issue_date")
     parts = (values.get("provider_name"), start, values.get("patient_name"), values.get("paid_total"))
     return None if any(p is None for p in parts) else ("auto",) + parts + (values.get("visit_end"),)
@@ -47,6 +48,10 @@ def duplicate_check(documents, all_values, previous=()):
     return issues
 
 
+def _has_disease_name(documents, all_values, kinds):
+    return any(d["type"] in kinds and all_values[d["doc_id"]].get("disease_name") for d in documents)
+
+
 def required_docs_check(claim_type, documents, all_values, all_fields, config):
     issues = []
     has = lambda *kinds: any(d["type"] in kinds for d in documents)
@@ -68,7 +73,8 @@ def required_docs_check(claim_type, documents, all_values, all_fields, config):
     if claim_type == "outpatient":
         departments = {all_values[d["doc_id"]].get("department") for d in unique} - {None}
         special = departments & set(config["no_simplified_departments"])
-        evidence = has("diagnosis", "visit_cert")
+        # 표준안은 증빙서류에 진단명이 있어야 한다고 정한다.
+        evidence = _has_disease_name(documents, all_values, ("diagnosis", "visit_cert"))
         if total is None:
             issues.append(make_issue("NEEDS_REVIEW", "D2", "UNVERIFIED_INPUT", "청구 금액이 확정되지 않아 필요 서류를 판단하지 못했어요.", None, receipt_ids, ["patient_total"]))
         else:
@@ -79,7 +85,8 @@ def required_docs_check(claim_type, documents, all_values, all_fields, config):
                 coded = any(all_values[d["doc_id"]].get("disease_code") for d in prescriptions)
                 if unresolved and not coded:
                     issues.append(make_issue("NEEDS_REVIEW", "D2", "UNVERIFIED_INPUT", "처방전의 질병분류기호를 확정하지 못했어요.", None, [d["doc_id"] for d in prescriptions], ["disease_code"]))
-                elif not coded:
+                elif not coded and not evidence:
+                    # 표준안은 처방전이 없으면 추가 증빙이 필요할 수 있다고 하므로, 진단명이 있는 증빙도 인정한다.
                     message = "처방전에 질병분류기호가 없어요." if prescriptions else "청구 금액이 3만 원을 넘는데 질병분류기호가 적힌 처방전이 없어요."
                     issues.append(make_issue("DOC_MISSING", "D2", None, message, None, receipt_ids, ["disease_code"], "질병분류기호가 적힌 처방전을 추가로 보내 주세요."))
             if total > config["outpatient_extra_evidence_over"] and not evidence and not special:
@@ -89,17 +96,21 @@ def required_docs_check(claim_type, documents, all_values, all_fields, config):
 
     if claim_type == "inpatient":
         missing = []
+        # 입원은 진료비 계산서가 있어야 한다. 약제비·간이 외래 영수증은 대신하지 못한다.
+        if not has("receipt"):
+            missing.append("입원 진료비 계산서")
         if not has("itemized_bill"):
             missing.append("진료비 세부산정내역서")
-        certificates = [d for d in documents if d["type"] == "visit_cert" and all_values[d["doc_id"]].get("disease_name")]
+        certificates = _has_disease_name(documents, all_values, ("visit_cert",))
+        diagnosis = _has_disease_name(documents, all_values, ("diagnosis",))
         small = total is not None and total <= config["inpatient_certificate_up_to"]
         name_unresolved = any(f["key"] == "disease_name" and f["status"] == "needs_review"
-                              for d in documents if d["type"] == "visit_cert" for f in all_fields[d["doc_id"]])
-        if not has("diagnosis") and not (small and certificates):
-            if has("visit_cert") and (total is None or (small and name_unresolved)):
-                issues.append(make_issue("NEEDS_REVIEW", "D5", "UNVERIFIED_INPUT", "금액이나 진단명이 확정되지 않아 확인서로 대체할 수 있는지 판단하지 못했어요.", None, receipt_ids, ["patient_total"]))
+                              for d in documents if d["type"] in ("diagnosis", "visit_cert") for f in all_fields[d["doc_id"]])
+        if not diagnosis and not (small and certificates):
+            if has("diagnosis", "visit_cert") and (total is None or name_unresolved):
+                issues.append(make_issue("NEEDS_REVIEW", "D5", "UNVERIFIED_INPUT", "금액이나 진단명이 확정되지 않아 증빙 서류로 인정할 수 있는지 판단하지 못했어요.", None, receipt_ids, ["patient_total"]))
             else:
-                missing.append("진단서" if not small else "진단서 또는 진단명이 있는 확인서")
+                missing.append("진단명이 있는 진단서" if not small else "진단명이 있는 진단서 또는 확인서")
         if missing:
             issues.append(make_issue("DOC_MISSING", "D5", None, f"입원 청구에 필요한 {', '.join(missing)}가 없어요.", None, receipt_ids, [], f"{', '.join(missing)}를 추가로 보내 주세요."))
     return issues

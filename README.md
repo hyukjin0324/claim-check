@@ -2,7 +2,7 @@
 
 실손보험 청구 서류 묶음을 **두 가지 방법으로 읽고, 영수증 안의 검산식으로 맞는 값을 골라내고, 오류 원인을 읽기 오류·서류 불일치·서류 누락으로 나눠** 심사 담당자가 할 일까지 알려주는 워크플로우. 해커톤 프로젝트.
 
-자세한 기능은 [기능명세서](docs/functional-spec.md), JSON 형식과 판정 코드 실행법은 [JSON 형식 문서](docs/json-format.md)를 본다.
+자세한 기능은 [기능명세서](docs/functional-spec.md), JSON 형식과 판정 코드 실행법은 [JSON 형식 문서](docs/json-format.md)를, Studio로 옮길 규칙은 [규칙표](docs/studio-rules.md)를 본다.
 
 ## 처리 흐름
 
