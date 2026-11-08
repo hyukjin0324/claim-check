@@ -1,0 +1,128 @@
+{
+  "task": "실손보험 청구 서류 검증 (가상, 홀드아웃)",
+  "unit": "청구 1건 = 파일 1개 = 판정 1건",
+  "output_keys": [
+    "patient_name",
+    "provider_name",
+    "decision",
+    "cause",
+    "reason",
+    "missing_documents",
+    "mismatches"
+  ],
+  "decision_values": [
+    "심사 진행",
+    "보완 요청",
+    "검토 필요"
+  ],
+  "cases": [
+    {
+      "case_id": "holdout01",
+      "file": "시험_홀드아웃_01.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout01_rotated",
+      "file": "시험_홀드아웃_01_rotated.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout02",
+      "file": "시험_홀드아웃_02.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "홍지호",
+        "provider_name": "가상정형외과의원",
+        "decision": "검토 필요",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout02_rotated",
+      "file": "시험_홀드아웃_02_rotated.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "홍지호",
+        "provider_name": "가상정형외과의원",
+        "decision": "검토 필요",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout03",
+      "file": "시험_홀드아웃_03.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout03_lowres",
+      "file": "시험_홀드아웃_03_lowres.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    }
+  ]
+}

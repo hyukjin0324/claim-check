@@ -1,8 +1,0 @@
-patient_name: 
-provider_name: 
-reason: 환자부담 총액 122,200원이 10만 원을 넘고 처방전·통원확인서가 있어 심사 진행. 그림자 변형에서도 필요한 서류와 요양기관 근거가 같다
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

@@ -1,8 +1,0 @@
-patient_name: 
-provider_name: 
-reason: 환자부담 총액 50,000원이 3만 원을 넘지만 처방전의 질병분류기호 M54가 있어 심사 진행. 기울임 변형에서도 서류 간 이름·기관과 금액 근거가 같다
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

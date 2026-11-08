@@ -1,8 +1,0 @@
-patient_name: 차유진
-provider_name: 가상정형외과의원
-reason: 환자부담 합계가 10만 원을 넘는데 진단명이 있는 증빙이 없음. 처방전은 있음
-decision: 검토 필요
-cause: 서류 누락
-missing_documents: []
-mismatches: []
-검토 필요

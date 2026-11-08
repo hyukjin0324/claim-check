@@ -1,8 +1,0 @@
-patient_name: 홍지호
-provider_name: 가상정형외과의원
-reason: 영수증과 세부내역서 금액이 같고 처방전과 통원확인서 조건이 맞음. 실제 환자부담 합계는 122,200원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행
