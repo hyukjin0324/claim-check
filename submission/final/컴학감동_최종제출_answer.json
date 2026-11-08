@@ -531,8 +531,8 @@
         "처방전"
       ],
       "answer": {
-        "patient_name": "",
-        "provider_name": "",
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
         "decision": "심사 진행",
         "cause": "없음",
         "reason": "환자부담 총액 50,000원이 3만 원을 넘지만 처방전의 질병분류기호 M54가 있어 심사 진행. 기울임 변형에서도 서류 간 이름·기관과 금액 근거가 같다",
@@ -550,8 +550,8 @@
         "세부내역서"
       ],
       "answer": {
-        "patient_name": "",
-        "provider_name": "",
+        "patient_name": "홍지호",
+        "provider_name": "가상정형외과의원",
         "decision": "심사 진행",
         "cause": "없음",
         "reason": "환자부담 총액 122,200원이 10만 원을 넘고 처방전·통원확인서가 있어 심사 진행. 그림자 변형에서도 필요한 서류와 요양기관 근거가 같다",
@@ -566,8 +566,8 @@
         "진료비 영수증"
       ],
       "answer": {
-        "patient_name": "",
-        "provider_name": "",
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
         "decision": "보완 요청",
         "cause": "서류 누락",
         "reason": "환자부담 총액 54,200원이 3만 원을 넘는데 처방전이 없어 보완 요청. 저해상도 변형에서도 영수증 금액과 누락 서류 규칙은 원본과 같다",

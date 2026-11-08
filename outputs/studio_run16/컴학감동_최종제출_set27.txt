@@ -1,8 +1,0 @@
-patient_name: 민서준
-provider_name: 가상병원
-reason: 입원인데 세부내역서와 진단서가 없음
-decision: 보완 요청
-cause: 서류 누락
-missing_documents: ["세부내역서", "진단서"]
-mismatches: []
-보완 요청
