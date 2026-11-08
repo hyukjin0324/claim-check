@@ -6,8 +6,8 @@
   "purpose": "환자부담 정확히 30,000원",
   "claim_type": "outpatient",
   "capture": "깨끗한 이미지",
-  "note": "① 4,200 + ② 9,800 = 14,000인데 총액 칸에 15,000 인쇄. 검산이 깨지면 읽기 오류",
-  "conclusion": "pass",
+  "note": "환자부담 총액이 정확히 30,000원이며 30,000원 이하 경계값을 확인한다",
+  "conclusion": "proceed",
   "documents": [
     {
       "file_name": "case_36_doc1_receipt",
@@ -119,12 +119,12 @@
     {
       "file_name": "case_36_doc1_receipt",
       "key": "due",
-      "value": 4200
+      "value": 30000
     },
     {
       "file_name": "case_36_doc1_receipt",
       "key": "paid_card",
-      "value": 4200
+      "value": 30000
     },
     {
       "file_name": "case_36_doc1_receipt",
@@ -139,7 +139,7 @@
     {
       "file_name": "case_36_doc1_receipt",
       "key": "paid_total",
-      "value": 4200
+      "value": 30000
     },
     {
       "file_name": "case_36_doc1_receipt",
@@ -147,11 +147,5 @@
       "value": 0
     }
   ],
-  "issues": [
-    {
-      "cause": "NEEDS_REVIEW",
-      "rule": "C1",
-      "review_code": "INTERNAL_MISMATCH"
-    }
-  ]
+  "issues": []
 }

@@ -3,5 +3,5 @@
 출력 키: patient_name, provider_name, reason, decision, cause, missing_documents, mismatches.
 판정 순서: 영수증 확인 → 읽기 점검 → 중복 → 서류 비교 → 필요 서류.
 심사 진행은 바로 심사하고, 보완 요청은 보완 문구를 발송하며, 검토 필요는 담당자가 확인합니다.
-샘플은 컴학감동_최종제출_set01~set32.pdf의 가상 문서만 사용합니다.
+샘플은 컴학감동_최종제출_set01~set36.pdf의 가상 문서만 사용합니다.
 공식 서식의 가상 값으로 구성했으며 실제 환자 정보는 포함하지 않습니다.
