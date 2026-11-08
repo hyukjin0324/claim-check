@@ -1,8 +1,0 @@
-patient_name: 한우주
-provider_name: 가상병원
-reason: 50만 원 이하 입원이라 진단명이 있는 확인서로 충분하고 세부내역서가 있음
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

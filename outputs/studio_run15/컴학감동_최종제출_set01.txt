@@ -1,8 +1,0 @@
-patient_name: 김가온
-provider_name: 가상내과의원
-reason: 환자부담 총액 4,200원의 3만 원 이하 통원이라 영수증만으로 충분하고 검산이 맞음
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행
