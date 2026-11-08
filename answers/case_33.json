@@ -1,0 +1,176 @@
+{
+  "case_id": "case_33",
+  "category": "trap",
+  "source_type": "synthetic",
+  "draft": true,
+  "purpose": "통원 5만 원대인데 처방전 없음",
+  "claim_type": "outpatient",
+  "capture": "깨끗한 이미지",
+  "note": null,
+  "conclusion": "request_supplement",
+  "documents": [
+    {
+      "file_name": "case_33_doc1_receipt",
+      "type": "receipt",
+      "form_no": "6"
+    }
+  ],
+  "fields": [
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "department",
+      "value": "내과"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "patient_name",
+      "value": "고은우"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "provider_name",
+      "value": "가상내과의원"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "visit_type",
+      "value": "외래"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "visit_start",
+      "value": "2026-11-03"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "visit_end",
+      "value": "2026-11-03"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "receipt_no",
+      "value": "2611-00127"
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:진찰료:copay",
+      "value": 4200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:진찰료:insurer",
+      "value": 9800
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:진찰료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:진찰료:noncovered",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:검사료:copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:검사료:insurer",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:검사료:full_copay",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "row:검사료:noncovered",
+      "value": 50000
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "copay_total",
+      "value": 4200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "insurer_total",
+      "value": 9800
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "full_copay_total",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "noncovered_total",
+      "value": 50000
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "bill_total",
+      "value": 64000
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "cap_excess",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "insurer_grand_total",
+      "value": 9800
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "patient_total",
+      "value": 54200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "prepaid",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "due",
+      "value": 54200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "paid_card",
+      "value": 54200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "paid_cash_receipt",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "paid_cash",
+      "value": 0
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "paid_total",
+      "value": 54200
+    },
+    {
+      "file_name": "case_33_doc1_receipt",
+      "key": "unpaid",
+      "value": 0
+    }
+  ],
+  "issues": [
+    {
+      "cause": "DOC_MISSING",
+      "rule": "D2"
+    }
+  ]
+}
