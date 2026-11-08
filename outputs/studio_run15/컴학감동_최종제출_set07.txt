@@ -1,0 +1,8 @@
+patient_name: 서지안
+provider_name: 가상온누리약국
+reason: 괄호형 약제비 영수증의 검산이 맞고 3만 원 이하임. 실제 환자부담 합계는 6,500원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행

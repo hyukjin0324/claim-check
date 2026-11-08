@@ -1,0 +1,8 @@
+patient_name: 배서윤
+provider_name: 가상종합병원
+reason: 환자부담 합계가 50만 원을 넘는 입원이라 진단서가 필요한데 없음
+decision: 보완 요청
+cause: 서류 누락
+missing_documents: ["진단서"]
+mismatches: []
+보완 요청

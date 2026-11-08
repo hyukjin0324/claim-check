@@ -1,0 +1,8 @@
+patient_name: 
+provider_name: 
+reason: 환자부담 총액 54,200원이 3만 원을 넘는데 처방전이 없어 보완 요청. 저해상도 변형에서도 영수증 금액과 누락 서류 규칙은 원본과 같다
+decision: 보완 요청
+cause: 서류 누락
+missing_documents: ["처방전"]
+mismatches: []
+보완 요청
