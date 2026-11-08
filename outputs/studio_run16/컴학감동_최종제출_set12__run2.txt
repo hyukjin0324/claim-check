@@ -1,0 +1,8 @@
+patient_name: 남기태
+provider_name: 가상내과의원
+reason: 흐린 칸을 포함해 검산이 맞고 처방전 조건이 맞음. 실제 환자부담 합계는 35,000원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행
