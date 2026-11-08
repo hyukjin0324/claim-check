@@ -1,0 +1,8 @@
+patient_name: 정보라
+provider_name: 가상약국
+reason: 약제비 영수증 검산이 맞고 3만 원 이하라 영수증만으로 충분함. 실제 환자부담 합계는 3,000원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행

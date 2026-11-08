@@ -1,0 +1,8 @@
+patient_name: 배하율
+provider_name: 가상내과의원
+reason: ① 4,200원과 ② 9,800원의 합은 14,000원인데 진료비 총액이 15,000원이라 검산이 맞지 않음
+decision: 검토 필요
+cause: 읽기 오류
+missing_documents: []
+mismatches: []
+검토 필요

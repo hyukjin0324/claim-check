@@ -1,0 +1,8 @@
+patient_name: 구하람
+provider_name: 가상의원
+reason: 요양기관과 영수증 번호가 같은 영수증이 두 장 제출됨. 실제 환자부담 합계는 4,200원이며, 적용 규칙은 서류 누락으로 보완 요청이다.
+decision: 보완 요청
+cause: 중복 제출
+missing_documents: []
+mismatches: []
+보완 요청
