@@ -1,0 +1,8 @@
+patient_name: 김가온
+provider_name: 가상내과의원
+reason: 피부과는 금액과 상관없이 증빙 조건을 보는데 증빙이 없음
+decision: 검토 필요
+cause: 서류 누락
+missing_documents: []
+mismatches: []
+검토 필요

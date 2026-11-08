@@ -1,0 +1,8 @@
+patient_name: 조은별
+provider_name: 가상내과의원
+reason: 약국 영수증은 요양기관이 달라도 정상이고 처방전 조건이 맞음. 실제 환자부담 합계는 7,200원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행

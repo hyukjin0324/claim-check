@@ -1,0 +1,8 @@
+patient_name: 황도현
+provider_name: 가상정형외과의원
+reason: 세부내역서 비급여 합계 108,000원이 영수증 150,000원보다 42,000원 적고 총액도 다름
+decision: 보완 요청
+cause: 서류 불일치
+missing_documents: []
+mismatches: ["비급여 합계", "진료비 총액"]
+보완 요청
