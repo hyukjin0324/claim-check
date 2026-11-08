@@ -95,7 +95,7 @@ def image_para(path, rid, width=8500, height=2600):
 
 def build_body():
     body = Element(q("body"))
-    body.append(para("미션 2 최종 제출 설계서", style="Title", bold=True, size=32, align="center"))
+    body.append(para("최종 제출 설계서", style="Title", bold=True, size=32, align="center"))
     body.append(para("- 컴학감동 실손보험 청구 서류 검증 워크플로우 -", style="Heading1", size=22, align="center"))
     body.append(table(["항목", "내용"], [
         ["팀명", "컴학감동"], ["주제", "실손보험 청구 서류 1차 검증"],
