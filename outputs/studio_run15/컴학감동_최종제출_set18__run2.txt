@@ -1,0 +1,8 @@
+patient_name: 
+provider_name: 
+reason: 카드 전표 같은 기타 문서만 있고 진료비 영수증이 없음
+decision: 보완 요청
+cause: 서류 누락
+missing_documents: ["진료비 영수증"]
+mismatches: []
+보완 요청

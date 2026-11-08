@@ -1,0 +1,8 @@
+patient_name: 고은우
+provider_name: 가상내과의원
+reason: 환자부담 총액 54,200원으로 3만 원을 넘는데 처방전이나 증빙이 없음
+decision: 보완 요청
+cause: 서류 누락
+missing_documents: ["처방전"]
+mismatches: []
+보완 요청
