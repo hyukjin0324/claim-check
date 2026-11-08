@@ -150,7 +150,8 @@
   "issues": [
     {
       "cause": "NEEDS_REVIEW",
-      "review_code": "SUM_MISMATCH"
+      "rule": "C1",
+      "review_code": "INTERNAL_MISMATCH"
     }
   ]
 }
