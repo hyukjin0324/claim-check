@@ -1,0 +1,8 @@
+patient_name: 민서준
+provider_name: 가상병원
+reason: A=600000+2400000=3000000, 3000000+0=3000000, 3000000+100000=3100000, bill_total 3100000, 같음. B=600000-200000=400000, 400000+0=400000, 400000+100000=500000, patient_total 500000, 같음. 중복 여부: 같은 요양기관 가상병원과 receipt_no 2609-00129인 영수증은 1장뿐이라 중복 아님. 서류 비교 결과: 세부내역서 grand_copay 600000, grand_insurer 2400000, grand_full_copay 0, grand_noncovered 100000, grand_total 3100000이 영수증 copay_total 600000, insurer_total 2400000, full_copay_total 0, noncovered_total 100000, bill_total 3100000과 각각 같고, 환자 이름 민서준, 요양기관 가상병원도 서로 같음. 입원, 영수증 진료과 내과, 통원 1번 진료과 예외 해당 없음. 환자부담 합계 500000, 500000 > 500000 아니오. 처방전 조건 안 맞음, 증빙 조건 맞음: evidence의 disease_name 가상 진단명 존재. 적용한 단계와 줄: 4단계 입원 기준, 세부내역서 있음, 환자부담 합계 500,000원 이하이므로 증빙 조건 확인 후 충족. 영수증과 세부내역서 금액이 일치하고 입원 50만원 이하 기준의 증빙 서류도 제출되어 1차 점검상 추가 보완 사항이 없습니다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행
