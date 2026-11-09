@@ -25,7 +25,8 @@
           "type": {"type": "string"},
           "form_no": {"type": ["string", "null"]},
           "description": {"type": ["string", "null"]},
-          "flags": {"type": "array", "items": {"type": "string"}}
+          "flags": {"type": "array", "items": {"type": "string"}},
+          "reissued": {"type": ["string", "null"]}
         }
       }
     },
