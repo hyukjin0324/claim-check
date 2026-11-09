@@ -1,8 +1,0 @@
-patient_name: 민서준
-provider_name: 가상병원
-reason: 상한액 초과금을 빼고 계산하면 환자부담 총액이 맞고 필요한 서류가 있음. 실제 환자부담 합계는 500,000원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

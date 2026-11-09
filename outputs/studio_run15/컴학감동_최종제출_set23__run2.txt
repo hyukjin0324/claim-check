@@ -1,8 +1,0 @@
-patient_name: 홍지호
-provider_name: 가상정형외과의원
-reason: 비뇨의학과는 금액과 상관없이 증빙 조건을 보며 진단명이 있는 증빙이 있음
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

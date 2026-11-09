@@ -1,8 +1,0 @@
-patient_name: 박나래
-provider_name: 가상정형외과의원
-reason: 환자부담 총액이 3만 원을 넘고 질병분류기호가 있는 처방전이 있음. 실제 환자부담 합계는 50,000원이며, 적용 규칙은 검산과 필요한 서류가 모두 충족되어 심사 진행이다.
-decision: 심사 진행
-cause: 없음
-missing_documents: []
-mismatches: []
-심사 진행

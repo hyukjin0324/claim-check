@@ -1,8 +1,0 @@
-patient_name: 안소율
-provider_name: 가상내과의원
-reason: 세부내역서의 환자 이름이 영수증과 다름. 실제 환자부담 합계는 35,000원이며, 적용 규칙은 서류 누락으로 보완 요청이다.
-decision: 보완 요청
-cause: 서류 불일치
-missing_documents: []
-mismatches: ["환자 이름"]
-보완 요청

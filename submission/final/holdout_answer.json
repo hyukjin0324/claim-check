@@ -1,1252 +1,183 @@
 {
+  "task": "실손보험 청구 서류 검증 (가상, 홀드아웃)",
+  "unit": "청구 1건 = 파일 1개 = 판정 1건",
+  "output_keys": [
+    "patient_name",
+    "provider_name",
+    "decision",
+    "cause",
+    "reason",
+    "missing_documents",
+    "mismatches"
+  ],
+  "decision_values": [
+    "심사 진행",
+    "보완 요청",
+    "검토 필요"
+  ],
   "cases": [
     {
-      "case_id": "holdout04",
-      "category": "combined",
-      "source_type": "synthetic_holdout",
-      "draft": false,
-      "purpose": "홀드아웃: 10만 원 초과 통원, 처방전 + 통원확인서",
-      "claim_type": "outpatient",
-      "capture": "깨끗한 이미지",
-      "note": null,
-      "conclusion": "proceed",
+      "case_id": "holdout01",
+      "file": "시험_홀드아웃_01.pdf",
       "documents": [
-        {
-          "file_name": "case_17_doc1_receipt",
-          "type": "receipt",
-          "form_no": "6"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "type": "prescription",
-          "form_no": "md-9"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "type": "visit_cert",
-          "form_no": null
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "type": "itemized_bill",
-          "form_no": "itemized"
-        }
+        "진료비 영수증"
       ],
-      "fields": [
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "department",
-          "value": "정형외과"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "patient_name",
-          "value": "홍지호"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "provider_name",
-          "value": "가상정형외과의원"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "visit_type",
-          "value": "외래"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "visit_start",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "visit_end",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "receipt_no",
-          "value": "2610-00118"
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:진찰료:copay",
-          "value": 4200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:진찰료:insurer",
-          "value": 9800
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:진찰료:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:진찰료:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:재활 및 물리치료료:copay",
-          "value": 8000
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:재활 및 물리치료료:insurer",
-          "value": 18700
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:재활 및 물리치료료:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "row:재활 및 물리치료료:noncovered",
-          "value": 110000
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "copay_total",
-          "value": 12200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "insurer_total",
-          "value": 28500
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "full_copay_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "noncovered_total",
-          "value": 110000
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "bill_total",
-          "value": 150700
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "cap_excess",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "insurer_grand_total",
-          "value": 28500
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "patient_total",
-          "value": 122200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "prepaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "due",
-          "value": 122200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "paid_card",
-          "value": 122200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "paid_cash_receipt",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "paid_cash",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "paid_total",
-          "value": 122200
-        },
-        {
-          "file_name": "case_17_doc1_receipt",
-          "key": "unpaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "patient_name",
-          "value": "홍지호"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "provider_name",
-          "value": "가상정형외과의원"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "insurance_type",
-          "value": "건강보험"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "issue_date",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "issue_no",
-          "value": "20261024-001"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "disease_code",
-          "value": "M54"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "valid_days",
-          "value": 3
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "drug:0:name",
-          "value": "가상의약품정"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "drug:0:code",
-          "value": "V900"
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "drug:0:dose",
-          "value": 1
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "drug:0:daily",
-          "value": 3
-        },
-        {
-          "file_name": "case_17_doc2_prescription",
-          "key": "drug:0:days",
-          "value": 3
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "patient_name",
-          "value": "홍지호"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "provider_name",
-          "value": "가상정형외과의원"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "disease_name",
-          "value": "가상 진단명"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "disease_code",
-          "value": "Z00"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "visit_start",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc3_visit_cert",
-          "key": "visit_end",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "patient_name",
-          "value": "홍지호"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "provider_name",
-          "value": "가상정형외과의원"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "visit_start",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "visit_end",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:item",
-          "value": "진찰료"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:date",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:code",
-          "value": "V001"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:name",
-          "value": "가상 진찰료"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:count",
-          "value": 1
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:days",
-          "value": 1
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:total",
-          "value": 14000
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:copay",
-          "value": 4200
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:insurer",
-          "value": 9800
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:0:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:item",
-          "value": "재활 및 물리치료료"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:date",
-          "value": "2026-10-24"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:code",
-          "value": "V002"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:name",
-          "value": "가상 재활 및 물리치료료"
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:count",
-          "value": 1
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:days",
-          "value": 1
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:total",
-          "value": 136700
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:copay",
-          "value": 8000
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:insurer",
-          "value": 18700
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "line:1:noncovered",
-          "value": 110000
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "subtotal.copay",
-          "value": 12200
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "subtotal.insurer",
-          "value": 28500
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "subtotal.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "subtotal.noncovered",
-          "value": 110000
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "subtotal.total",
-          "value": 150700
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "adjustment.copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "adjustment.insurer",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "adjustment.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "adjustment.noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "adjustment.total",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "grand_total.copay",
-          "value": 12200
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "grand_total.insurer",
-          "value": 28500
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "grand_total.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "grand_total.noncovered",
-          "value": 110000
-        },
-        {
-          "file_name": "case_17_doc4_itemized_bill",
-          "key": "grand_total.total",
-          "value": 150700
-        }
+      "answer": {
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout01_rotated",
+      "file": "시험_홀드아웃_01_rotated.pdf",
+      "documents": [
+        "진료비 영수증"
       ],
-      "issues": []
+      "answer": {
+        "patient_name": "박나래",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout02",
+      "file": "시험_홀드아웃_02.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "홍지호",
+        "provider_name": "가상정형외과의원",
+        "decision": "검토 필요",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout02_rotated",
+      "file": "시험_홀드아웃_02_rotated.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "홍지호",
+        "provider_name": "가상정형외과의원",
+        "decision": "검토 필요",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout03",
+      "file": "시험_홀드아웃_03.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout03_lowres",
+      "file": "시험_홀드아웃_03_lowres.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "고은우",
+        "provider_name": "가상내과의원",
+        "decision": "보완 요청",
+        "cause": "서류 누락",
+        "reason": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+        "missing_documents": [
+          "처방전"
+        ],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout04",
+      "file": "시험_홀드아웃_04.pdf",
+      "documents": [
+        "진료비 영수증",
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "구하람",
+        "provider_name": "가상의원",
+        "decision": "보완 요청",
+        "cause": "중복 제출",
+        "reason": "요양기관과 영수증 번호(2611-00128)가 같은 영수증이 두 장 제출됨",
+        "missing_documents": [],
+        "mismatches": []
+      }
     },
     {
       "case_id": "holdout05",
-      "category": "trap",
-      "source_type": "synthetic_holdout",
-      "draft": false,
-      "purpose": "홀드아웃: 헷갈리지만 정상: 상한액 초과금이 있어 환자부담 총액이 작음",
-      "claim_type": "inpatient",
-      "capture": "깨끗한 이미지",
-      "note": "⑧ = (① − ⑤) + ③ + ④. 오탐하면 안 됨",
-      "conclusion": "proceed",
+      "file": "시험_홀드아웃_05.pdf",
       "documents": [
-        {
-          "file_name": "case_29_doc1_receipt",
-          "type": "receipt",
-          "form_no": "6"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "type": "itemized_bill",
-          "form_no": "itemized"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "type": "diagnosis",
-          "form_no": "md-5-2"
-        }
+        "진료비 영수증"
       ],
-      "fields": [
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "department",
-          "value": "내과"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "patient_name",
-          "value": "민서준"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "provider_name",
-          "value": "가상병원"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "visit_type",
-          "value": "입원"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "visit_start",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "visit_end",
-          "value": "2026-09-25"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "receipt_no",
-          "value": "2609-00129"
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:입원료 4인실 이상:copay",
-          "value": 400000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:입원료 4인실 이상:insurer",
-          "value": 1600000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:입원료 4인실 이상:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:입원료 4인실 이상:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:처치 및 수술료:copay",
-          "value": 200000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:처치 및 수술료:insurer",
-          "value": 800000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:처치 및 수술료:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "row:처치 및 수술료:noncovered",
-          "value": 100000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "copay_total",
-          "value": 600000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "insurer_total",
-          "value": 2400000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "full_copay_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "noncovered_total",
-          "value": 100000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "bill_total",
-          "value": 3100000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "cap_excess",
-          "value": 200000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "insurer_grand_total",
-          "value": 2600000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "patient_total",
-          "value": 500000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "prepaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "due",
-          "value": 500000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "paid_card",
-          "value": 500000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "paid_cash_receipt",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "paid_cash",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "paid_total",
-          "value": 500000
-        },
-        {
-          "file_name": "case_29_doc1_receipt",
-          "key": "unpaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "patient_name",
-          "value": "민서준"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "provider_name",
-          "value": "가상병원"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "visit_start",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "visit_end",
-          "value": "2026-09-25"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:item",
-          "value": "입원료 4인실 이상"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:date",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:code",
-          "value": "V001"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:name",
-          "value": "가상 입원료 4인실 이상"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:count",
-          "value": 1
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:days",
-          "value": 1
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:total",
-          "value": 2000000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:copay",
-          "value": 400000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:insurer",
-          "value": 1600000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:0:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:item",
-          "value": "처치 및 수술료"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:date",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:code",
-          "value": "V002"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:name",
-          "value": "가상 처치 및 수술료"
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:count",
-          "value": 1
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:days",
-          "value": 1
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:total",
-          "value": 1100000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:copay",
-          "value": 200000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:insurer",
-          "value": 800000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "line:1:noncovered",
-          "value": 100000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "subtotal.copay",
-          "value": 600000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "subtotal.insurer",
-          "value": 2400000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "subtotal.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "subtotal.noncovered",
-          "value": 100000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "subtotal.total",
-          "value": 3100000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "adjustment.copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "adjustment.insurer",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "adjustment.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "adjustment.noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "adjustment.total",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "grand_total.copay",
-          "value": 600000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "grand_total.insurer",
-          "value": 2400000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "grand_total.full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "grand_total.noncovered",
-          "value": 100000
-        },
-        {
-          "file_name": "case_29_doc2_itemized_bill",
-          "key": "grand_total.total",
-          "value": 3100000
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "patient_name",
-          "value": "민서준"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "provider_name",
-          "value": "가상병원"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "disease_name",
-          "value": "가상 진단명"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "disease_code",
-          "value": "Z00"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "diagnosis_type",
-          "value": "최종 진단"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "diagnosis_date",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "admission_date",
-          "value": "2026-09-10"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "discharge_date",
-          "value": "2026-09-25"
-        },
-        {
-          "file_name": "case_29_doc3_diagnosis",
-          "key": "issue_date",
-          "value": "2026-09-25"
-        }
-      ],
-      "issues": []
+      "answer": {
+        "patient_name": "김가온",
+        "provider_name": "가상내과의원",
+        "decision": "심사 진행",
+        "cause": "없음",
+        "reason": "영수증 검산이 맞고 환자부담 4,200원이 3만 원 이하라 영수증만으로 충분함. 둘째 쪽은 빈 페이지",
+        "missing_documents": [],
+        "mismatches": []
+      }
     },
     {
       "case_id": "holdout06",
-      "category": "combined",
-      "source_type": "synthetic_holdout",
-      "draft": false,
-      "purpose": "홀드아웃: 같은 날 병원 + 약국, 처방전 조제일 일치",
-      "claim_type": "outpatient",
-      "capture": "깨끗한 이미지",
-      "note": null,
-      "conclusion": "proceed",
+      "file": "시험_홀드아웃_06.pdf",
       "documents": [
-        {
-          "file_name": "case_14_doc1_receipt",
-          "type": "receipt",
-          "form_no": "6"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "type": "prescription",
-          "form_no": "md-9"
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "type": "pharmacy_receipt",
-          "form_no": "10"
-        }
+        "진료비 영수증",
+        "처방전",
+        "통원확인서",
+        "세부내역서"
       ],
-      "fields": [
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "department",
-          "value": "내과"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "patient_name",
-          "value": "조은별"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "provider_name",
-          "value": "가상내과의원"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "visit_type",
-          "value": "외래"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "visit_start",
-          "value": "2026-10-20"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "visit_end",
-          "value": "2026-10-20"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "receipt_no",
-          "value": "2610-00113"
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:진찰료:copay",
-          "value": 4200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:진찰료:insurer",
-          "value": 9800
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:진찰료:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:진찰료:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:검사료:copay",
-          "value": 3000
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:검사료:insurer",
-          "value": 7000
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:검사료:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "row:검사료:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "copay_total",
-          "value": 7200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "insurer_total",
-          "value": 16800
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "full_copay_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "noncovered_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "bill_total",
-          "value": 24000
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "cap_excess",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "insurer_grand_total",
-          "value": 16800
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "patient_total",
-          "value": 7200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "prepaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "due",
-          "value": 7200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "paid_card",
-          "value": 7200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "paid_cash_receipt",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "paid_cash",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "paid_total",
-          "value": 7200
-        },
-        {
-          "file_name": "case_14_doc1_receipt",
-          "key": "unpaid",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "patient_name",
-          "value": "조은별"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "provider_name",
-          "value": "가상내과의원"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "insurance_type",
-          "value": "건강보험"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "issue_date",
-          "value": "2026-10-20"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "issue_no",
-          "value": "20261020-001"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "disease_code",
-          "value": "J00"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "valid_days",
-          "value": 3
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "drug:0:name",
-          "value": "가상의약품정"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "drug:0:code",
-          "value": "V900"
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "drug:0:dose",
-          "value": 1
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "drug:0:daily",
-          "value": 3
-        },
-        {
-          "file_name": "case_14_doc2_prescription",
-          "key": "drug:0:days",
-          "value": 3
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "patient_name",
-          "value": "조은별"
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "provider_name",
-          "value": "가상약국"
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "issue_date",
-          "value": "2026-10-20"
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "receipt_no",
-          "value": "2610-00114"
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "row:약품비:copay",
-          "value": 2700
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "row:약품비:insurer",
-          "value": 6300
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "row:약품비:full_copay",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "row:약품비:noncovered",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "copay_total",
-          "value": 2700
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "insurer_total",
-          "value": 6300
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "full_copay_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "noncovered_total",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "bill_total",
-          "value": 9000
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "patient_total",
-          "value": 2700
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "due",
-          "value": 2700
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "paid_card",
-          "value": 2700
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "paid_cash_receipt",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "paid_cash",
-          "value": 0
-        },
-        {
-          "file_name": "case_14_doc3_pharmacy_receipt",
-          "key": "paid_total",
-          "value": 2700
-        }
-      ],
-      "issues": []
+      "answer": {
+        "patient_name": "황도현",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 불일치",
+        "reason": "영수증 총액 250,000원, 비급여 150,000원인데 세부내역서는 합계 208,000원, 비급여 108,000원으로 다름",
+        "missing_documents": [],
+        "mismatches": [
+          "비급여 합계",
+          "진료비 총액"
+        ]
+      }
     }
   ]
 }

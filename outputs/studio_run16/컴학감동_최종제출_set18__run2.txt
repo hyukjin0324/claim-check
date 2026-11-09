@@ -1,0 +1,8 @@
+patient_name: 
+provider_name: 
+reason: 영수증(receipt) 추출 결과가 확인되지 않습니다. 제출된 문서는 신용카드 매출전표 1건과 본인부담금 수납대장 서식 1건이며, 둘 다 영수증으로 볼 수 있는 추출 결과가 없습니다. 따라서 1~3단계를 건너뛰고 서류 누락으로 판단하며, missing_documents는 진료비 영수증입니다.
+decision: 보완 요청
+cause: 서류 누락
+missing_documents: ["진료비 영수증"]
+mismatches: []
+보완 요청
