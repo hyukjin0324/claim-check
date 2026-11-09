@@ -1,0 +1,1460 @@
+{
+  "title": "Studio 실행 결과와 정답지 키별 비교",
+  "note": "공식 점수가 아니라 이 폴더의 결과와 정답지를 비교한 건수다.",
+  "by_key": {
+    "patient_name": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": "박나래",
+          "actual": "박나래",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": "박나래",
+          "actual": "박나래",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": "박나래",
+          "actual": "박나래",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": "박나래",
+          "actual": "박나래",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": "홍지호",
+          "actual": "홍지호",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": "홍지호",
+          "actual": "홍지호",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": "홍지호",
+          "actual": "홍지호",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": "홍지호",
+          "actual": "홍지호",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": "고은우",
+          "actual": "고은우",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": "고은우",
+          "actual": "고은우",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": "고은우",
+          "actual": "고은우",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": "고은우",
+          "actual": "고은우",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": "구하람",
+          "actual": "구하람",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": "구하람",
+          "actual": "구하람",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": "김가온",
+          "actual": "김가온",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": "김가온",
+          "actual": "김가온",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": "황도현",
+          "actual": "황도현",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": "황도현",
+          "actual": "황도현",
+          "match": true,
+          "note": null
+        }
+      ]
+    },
+    "provider_name": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": "가상의원",
+          "actual": "가상의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": "가상의원",
+          "actual": "가상의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": "가상내과의원",
+          "actual": "가상내과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": "가상정형외과의원",
+          "actual": "가상정형외과의원",
+          "match": true,
+          "note": null
+        }
+      ]
+    },
+    "decision": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": "검토 필요",
+          "actual": "검토 필요",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": "검토 필요",
+          "actual": "검토 필요",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": "검토 필요",
+          "actual": "검토 필요",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": "검토 필요",
+          "actual": "검토 필요",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": "심사 진행",
+          "actual": "심사 진행",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": "심사 진행",
+          "actual": "심사 진행",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": "보완 요청",
+          "actual": "보완 요청",
+          "match": true,
+          "note": null
+        }
+      ]
+    },
+    "cause": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": "서류 누락",
+          "actual": "서류 누락",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": "중복 제출",
+          "actual": "중복 제출",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": "중복 제출",
+          "actual": "중복 제출",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": "없음",
+          "actual": "없음",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": "없음",
+          "actual": "없음",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": "서류 불일치",
+          "actual": "서류 불일치",
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": "서류 불일치",
+          "actual": "서류 불일치",
+          "match": true,
+          "note": null
+        }
+      ]
+    },
+    "reason": {
+      "scored": false,
+      "note": "일치율에서 제외, 사람이 근거를 확인",
+      "filled": 18,
+      "total": 18,
+      "amount_checked": 16,
+      "amount_present": 16,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=10000+23300=33300, 33300+0=33300, 33300+40000=73300, bill_total 73300, 같음 B=10000-0=10000, 10000+0=10000, 10000+40000=50000, patient_total 50000, 같음 중복 여부: 영수증 1건만 확인되어 중복 아님 서류 비교 결과: 비교 대상 서류 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 아님 환자부담 합계와 금액 기준 비교: 50000 > 30000 예, 50000 > 100000 아니오 처방전 조건 안 맞음 증빙 조건 안 맞음 적용한 단계와 줄: 1단계 통과, 2단계 해당 없음, 3단계 비교 대상 없음, 4단계 통원 기준 3번 적용 환자부담 합계 50000원으로 30000원을 넘고, 처방전 조건과 증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=10000+23300=33300, 33300+0=33300, 33300+40000=73300, bill_total 73300, 같음 B=10000-0=10000, 10000+0=10000, 10000+40000=50000, patient_total 50000, 같음 중복 여부: 영수증 1건만 확인되어 중복 아님 서류 비교 결과: 비교 대상 서류 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 아님 환자부담 합계와 금액 기준 비교: 50000 > 30000 예, 50000 > 100000 아니오 처방전 조건 안 맞음 증빙 조건 안 맞음 적용한 단계와 줄: 1단계 통과, 2단계 해당 없음, 3단계 비교 대상 없음, 4단계 통원 기준 3번 적용 환자부담 합계 50000원으로 30000원을 넘고, 처방전 조건과 증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "10000+23300=33300, 33300+0=33300, 33300+40000=73300, bill_total 73300, 같음; 10000-0=10000, 10000+0=10000, 10000+40000=50000, patient_total 50000, 같음; 중복 여부 확인 불가가 아니라 영수증 1건만 추출됨; 서류 비교 대상인 세부내역서 추출 결과 없음; 통원(외래), 진료과 정형외과로 통원 1번 진료과 예외(산부인과, 항문외과, 비뇨기과, 비뇨의학과, 피부과) 해당 없음; 환자부담 합계 50000 > 30000 예, 50000 > 100000 아니오; 처방전 조건 안 맞음, 증빙 조건 안 맞음; 적용한 단계는 4단계 통원 기준 3번. 영수증의 읽기 점검은 통과했고, 통원이며 환자부담 합계가 30,000원을 넘고 처방전·증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": "①+②+③+④=73,300원이 총액과 같고, 환자부담 50,000원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "10000+23300=33300, 33300+0=33300, 33300+40000=73300, bill_total 73300, 같음; 10000-0=10000, 10000+0=10000, 10000+40000=50000, patient_total 50000, 같음; 중복 여부 확인 불가가 아니라 영수증 1건만 추출됨; 서류 비교 대상인 세부내역서 추출 결과 없음; 통원(외래), 진료과 정형외과로 통원 1번 진료과 예외(산부인과, 항문외과, 비뇨기과, 비뇨의학과, 피부과) 해당 없음; 환자부담 합계 50000 > 30000 예, 50000 > 100000 아니오; 처방전 조건 안 맞음, 증빙 조건 안 맞음; 적용한 단계는 4단계 통원 기준 3번. 영수증의 읽기 점검은 통과했고, 통원이며 환자부담 합계가 30,000원을 넘고 처방전·증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+          "actual": "A=12200+28500=40700, 40700+0=40700, 40700+110000=150700, bill_total 150700 같음 B=12200-0=12200, 12200+0=12200, 12200+110000=122200, patient_total 122200 같음 중복 여부: 영수증 1건으로 중복 아님 서류 비교 결과: 비교할 다른 서류 추출 결과 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 아님 환자부담 합계와 금액 기준 비교: 122200 > 30000 예, 122200 > 100000 예 처방전 조건 안 맞음 증빙 조건 안 맞음 적용한 단계와 줄: 4단계 통원 2번 영수증의 읽기 점검은 통과했고 통원이며 환자부담 합계 122200원이 100000원을 초과하지만 증빙과 처방전 추출 결과가 없어 서류 누락 기준에 해당합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+          "actual": "A=12200+28500=40700, 40700+0=40700, 40700+110000=150700, bill_total 150700 같음 B=12200-0=12200, 12200+0=12200, 12200+110000=122200, patient_total 122200 같음 중복 여부: 영수증 1건으로 중복 아님 서류 비교 결과: 비교할 다른 서류 추출 결과 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 아님 환자부담 합계와 금액 기준 비교: 122200 > 30000 예, 122200 > 100000 예 처방전 조건 안 맞음 증빙 조건 안 맞음 적용한 단계와 줄: 4단계 통원 2번 영수증의 읽기 점검은 통과했고 통원이며 환자부담 합계 122200원이 100000원을 초과하지만 증빙과 처방전 추출 결과가 없어 서류 누락 기준에 해당합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+          "actual": "A=12200+28500=40700, 40700+0=40700, 40700+110000=150700, bill_total 150700 같음 B=12200-0=12200, 12200+0=12200, 12200+110000=122200, patient_total 122200 같음 중복 여부: 영수증 1건만 확인됨 서류 비교 결과: 비교할 다른 서류 추출 결과 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 해당 없음 환자부담 합계와 금액 기준 비교: 122200 > 30000 예, 122200 > 100000 예 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 4단계 통원 기준 2번 환자부담 합계가 100,000원을 초과하고 증빙 조건이 충족되지 않았습니다. 또한 처방전 조건도 충족되지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": "①+②+③+④=150,700원이 총액과 같고, 환자부담 122,200원이 10만 원을 넘는데 진단명이 있는 증빙도 처방전도 없음",
+          "actual": "A=12200+28500=40700, 40700+0=40700, 40700+110000=150700, bill_total 150700 같음 B=12200-0=12200, 12200+0=12200, 12200+110000=122200, patient_total 122200 같음 중복 여부: 영수증 1건만 확인됨 서류 비교 결과: 비교할 다른 서류 추출 결과 없음 통원 또는 입원: 통원(외래) 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 정형외과로 예외 해당 없음 환자부담 합계와 금액 기준 비교: 122200 > 30000 예, 122200 > 100000 예 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 4단계 통원 기준 2번 환자부담 합계가 100,000원을 초과하고 증빙 조건이 충족되지 않았습니다. 또한 처방전 조건도 충족되지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+50000=64000, bill_total=64000, 같음. B=4200-0=4200, 4200+0=4200, 4200+50000=54200, patient_total=54200, 같음. 중복 여부: 영수증 1건으로 중복 아님. 서류 비교 결과: 비교 대상 서류 정보 없음. 통원 또는 입원: 통원(외래). 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 내과로 예외 해당 없음. 환자부담 합계와 금액 기준 비교: 54200 > 30000 예, 54200 > 100000 아니오. 처방전 조건 안 맞음, 증빙 조건 안 맞음. 적용한 단계와 줄: 4단계 통원 기준 3번 적용. 환자부담 합계가 54,200원으로 30,000원을 넘고, 처방전과 증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+50000=64000, bill_total=64000, 같음. B=4200-0=4200, 4200+0=4200, 4200+50000=54200, patient_total=54200, 같음. 중복 여부: 영수증 1건으로 중복 아님. 서류 비교 결과: 비교 대상 서류 정보 없음. 통원 또는 입원: 통원(외래). 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 내과로 예외 해당 없음. 환자부담 합계와 금액 기준 비교: 54200 > 30000 예, 54200 > 100000 아니오. 처방전 조건 안 맞음, 증빙 조건 안 맞음. 적용한 단계와 줄: 4단계 통원 기준 3번 적용. 환자부담 합계가 54,200원으로 30,000원을 넘고, 처방전과 증빙 조건이 모두 맞지 않아 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+50000=64000, bill_total=64000, 같음; B=4200-0=4200, 4200+0=4200, 4200+50000=54200, patient_total=54200, 같음; 중복 여부 확인 불가한 단일 영수증 1건으로 중복 아님; 서류 비교 대상 없음; 통원(외래), 진료과 내과로 통원 1번 진료과 예외 비해당; 환자부담 합계 54200 > 30000 예, 54200 > 100000 아니오; 처방전 조건 안 맞음, 증빙 조건 안 맞음; 4단계 통원 기준 3번 적용. 영수증만 있고 처방전·증빙이 제출되지 않은 것으로 보며, 환자부담 합계가 30,000원을 초과하므로 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": "①+②+③+④=64,000원이 총액과 같고, 환자부담 54,200원이 3만 원을 넘는데 처방전·증빙이 없음",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+50000=64000, bill_total=64000, 같음; B=4200-0=4200, 4200+0=4200, 4200+50000=54200, patient_total=54200, 같음; 중복 여부 확인 불가한 단일 영수증 1건으로 중복 아님; 서류 비교 대상 없음; 통원(외래), 진료과 내과로 통원 1번 진료과 예외 비해당; 환자부담 합계 54200 > 30000 예, 54200 > 100000 아니오; 처방전 조건 안 맞음, 증빙 조건 안 맞음; 4단계 통원 기준 3번 적용. 영수증만 있고 처방전·증빙이 제출되지 않은 것으로 보며, 환자부담 합계가 30,000원을 초과하므로 처방전 보완이 필요합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": "요양기관과 영수증 번호(2611-00128)가 같은 영수증이 두 장 제출됨",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+0=14000, bill_total 14000, 같음 B=4200-0=4200, 4200+0=4200, 4200+0=4200, patient_total 4200, 같음 중복 여부: 요양기관 가상의원, receipt_no 2611-00128인 영수증이 2장으로 중복 제출 해당 서류 비교 결과: 중복 단계에서 판정되어 추가 비교 없음 통원 또는 입원: 외래 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 내과로 예외 아님 환자부담 합계와 금액 기준 비교: 중복 단계에서 이후 금액 판단 미적용 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 2단계 중복 동일한 요양기관과 영수증번호의 영수증이 2장 확인되어 중복 제출로 판단합니다. 따라서 2단계에서 보완 요청으로 판정합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": "요양기관과 영수증 번호(2611-00128)가 같은 영수증이 두 장 제출됨",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+0=14000, bill_total 14000, 같음 B=4200-0=4200, 4200+0=4200, 4200+0=4200, patient_total 4200, 같음 중복 여부: 요양기관 가상의원, receipt_no 2611-00128인 영수증이 2장으로 중복 제출 해당 서류 비교 결과: 중복 단계에서 판정되어 추가 비교 없음 통원 또는 입원: 외래 영수증 진료과와 통원 1번 진료과 예외 해당 여부: 내과로 예외 아님 환자부담 합계와 금액 기준 비교: 중복 단계에서 이후 금액 판단 미적용 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 2단계 중복 동일한 요양기관과 영수증번호의 영수증이 2장 확인되어 중복 제출로 판단합니다. 따라서 2단계에서 보완 요청으로 판정합니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": "영수증 검산이 맞고 환자부담 4,200원이 3만 원 이하라 영수증만으로 충분함. 둘째 쪽은 빈 페이지",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+0=14000, bill_total 14000, 같음 B=4200-0=4200, 4200+0=4200, 4200+0=4200, patient_total 4200, 같음 중복 여부: 영수증 1건으로 중복 아님 서류 비교 결과: 비교 대상 서류 없음 통원 또는 입원: 통원(외래) 영수증 진료과 내과, 통원 1번 진료과 예외 해당 없음 환자부담 합계 4200 > 30000 아니오, 4200 > 100000 아니오 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 1단계 통과, 2단계 중복 없음, 3단계 비교 대상 없음, 4단계 통원 기준 4번 적용 환자부담 합계가 30,000원 이하인 통원이며 진료과 예외 대상이 아니어서 영수증만으로 1차 점검상 추가 제출 필요가 없습니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": "영수증 검산이 맞고 환자부담 4,200원이 3만 원 이하라 영수증만으로 충분함. 둘째 쪽은 빈 페이지",
+          "actual": "A=4200+9800=14000, 14000+0=14000, 14000+0=14000, bill_total 14000, 같음 B=4200-0=4200, 4200+0=4200, 4200+0=4200, patient_total 4200, 같음 중복 여부: 영수증 1건으로 중복 아님 서류 비교 결과: 비교 대상 서류 없음 통원 또는 입원: 통원(외래) 영수증 진료과 내과, 통원 1번 진료과 예외 해당 없음 환자부담 합계 4200 > 30000 아니오, 4200 > 100000 아니오 처방전 조건 안 맞음, 증빙 조건 안 맞음 적용한 단계와 줄: 1단계 통과, 2단계 중복 없음, 3단계 비교 대상 없음, 4단계 통원 기준 4번 적용 환자부담 합계가 30,000원 이하인 통원이며 진료과 예외 대상이 아니어서 영수증만으로 1차 점검상 추가 제출 필요가 없습니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": "영수증 총액 250,000원, 비급여 150,000원인데 세부내역서는 합계 208,000원, 비급여 108,000원으로 다름",
+          "actual": "A=35000+65000=100000, 100000+0=100000, 100000+150000=250000, bill_total 250000, 같음. B=35000-0=35000, 35000+0=35000, 35000+150000=185000, patient_total 185000, 같음. 중복 여부: 동일 요양기관 가상정형외과의원 및 receipt_no 2611-00125 영수증은 1건으로 중복 아님. 서류 비교 결과: 세부내역서 있음, 환자 이름 황도현 일치, 요양기관 가상정형외과의원 일치, 본인부담금 합계 35000 일치, 공단부담금 합계 65000 일치, 전액본인부담 합계 0 일치, 비급여 합계는 영수증 150000, 세부내역서 108000으로 다름, 진료비 총액은 영수증 250000, 세부내역서 208000으로 다름. 통원, 진료과 정형외과로 예외 진료과 해당 없음. 환자부담 합계 185000 > 30000 예, 185000 > 100000 예. 처방전 조건 맞음: disease_code M54 있음. 증빙 조건 맞음: disease_name 가상 진단명 있음. 적용 단계: 3단계 서류 비교. 영수증과 세부내역서 사이에 비급여 합계와 진료비 총액이 서로 달라 서류 불일치로 판단합니다. 4단계는 보지 않습니다.",
+          "absent_amounts": []
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": "영수증 총액 250,000원, 비급여 150,000원인데 세부내역서는 합계 208,000원, 비급여 108,000원으로 다름",
+          "actual": "A=35000+65000=100000, 100000+0=100000, 100000+150000=250000, bill_total 250000, 같음. B=35000-0=35000, 35000+0=35000, 35000+150000=185000, patient_total 185000, 같음. 중복 여부: 동일 요양기관 가상정형외과의원 및 receipt_no 2611-00125 영수증은 1건으로 중복 아님. 서류 비교 결과: 세부내역서 있음, 환자 이름 황도현 일치, 요양기관 가상정형외과의원 일치, 본인부담금 합계 35000 일치, 공단부담금 합계 65000 일치, 전액본인부담 합계 0 일치, 비급여 합계는 영수증 150000, 세부내역서 108000으로 다름, 진료비 총액은 영수증 250000, 세부내역서 208000으로 다름. 통원, 진료과 정형외과로 예외 진료과 해당 없음. 환자부담 합계 185000 > 30000 예, 185000 > 100000 예. 처방전 조건 맞음: disease_code M54 있음. 증빙 조건 맞음: disease_name 가상 진단명 있음. 적용 단계: 3단계 서류 비교. 영수증과 세부내역서 사이에 비급여 합계와 진료비 총액이 서로 달라 서류 불일치로 판단합니다. 4단계는 보지 않습니다.",
+          "absent_amounts": []
+        }
+      ]
+    },
+    "missing_documents": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "unordered_match": 18,
+      "unordered_match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": [
+            "처방전"
+          ],
+          "actual": [
+            "처방전"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        }
+      ]
+    },
+    "mismatches": {
+      "scored": true,
+      "match": 18,
+      "total": 18,
+      "match_rate": 1.0,
+      "unordered_match": 18,
+      "unordered_match_rate": 1.0,
+      "comparisons": [
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01",
+          "file": "시험_홀드아웃_01.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_01_rotated__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout01_rotated",
+          "file": "시험_홀드아웃_01_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_01_rotated__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02",
+          "file": "시험_홀드아웃_02.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_02_rotated__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout02_rotated",
+          "file": "시험_홀드아웃_02_rotated.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_02_rotated__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03",
+          "file": "시험_홀드아웃_03.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_03_lowres__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout03_lowres",
+          "file": "시험_홀드아웃_03_lowres.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_03_lowres__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_04__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout04",
+          "file": "시험_홀드아웃_04.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_04__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_05__run2.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout05",
+          "file": "시험_홀드아웃_05.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_05__run3.txt",
+          "expected": [],
+          "actual": [],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run2",
+          "source": "시험_홀드아웃_06__run2.txt",
+          "expected": [
+            "비급여 합계",
+            "진료비 총액"
+          ],
+          "actual": [
+            "비급여 합계",
+            "진료비 총액"
+          ],
+          "match": true,
+          "note": null
+        },
+        {
+          "case_id": "holdout06",
+          "file": "시험_홀드아웃_06.pdf",
+          "run": "run3",
+          "source": "시험_홀드아웃_06__run3.txt",
+          "expected": [
+            "비급여 합계",
+            "진료비 총액"
+          ],
+          "actual": [
+            "비급여 합계",
+            "진료비 총액"
+          ],
+          "match": true,
+          "note": null
+        }
+      ]
+    }
+  },
+  "summary": {
+    "case_total": 9,
+    "cases_run": 9,
+    "run_total": 18,
+    "run_all_match": 18,
+    "run_all_match_rate": 1.0,
+    "key_match": 108,
+    "key_total": 108,
+    "key_match_rate": 1.0
+  },
+  "stability": [
+    {
+      "case_id": "holdout01",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout01_rotated",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout02",
+      "runs": 2,
+      "decisions": {
+        "검토 필요": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout02_rotated",
+      "runs": 2,
+      "decisions": {
+        "검토 필요": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout03",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout03_lowres",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout04",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout05",
+      "runs": 2,
+      "decisions": {
+        "심사 진행": 2
+      },
+      "changed_keys": []
+    },
+    {
+      "case_id": "holdout06",
+      "runs": 2,
+      "decisions": {
+        "보완 요청": 2
+      },
+      "changed_keys": []
+    }
+  ],
+  "problems": {
+    "cases_not_run": [],
+    "unmatched_files": [],
+    "failed_runs": [],
+    "format_warnings": []
+  }
+}

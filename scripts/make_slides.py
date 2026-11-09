@@ -3,7 +3,7 @@
 필요: pip install pymupdf
 실행: python3 scripts/make_slides.py
 
-숫자는 submission/final/의 채점 결과(score_studio_16.json, score_holdout_16.json)에서 읽는다.
+숫자는 submission/final/의 채점 결과(score_studio_17.json, score_holdout_17.json)에서 읽는다.
 """
 import json
 from pathlib import Path
@@ -41,7 +41,7 @@ class Deck:
         if kicker:
             self.text(page, 48, 30, kicker, 13, ACCENT)
         self.text(page, 48, 48 if kicker else 36, title, 28, INK)
-        self.text(page, 48, H - 30, "컴학감동 · 최종 제출 · 설정 #16", 10, MUTED)
+        self.text(page, 48, H - 30, "컴학감동 · 최종 제출 · 설정 #17", 10, MUTED)
         self.text(page, W - 70, H - 30, f"{self.number:02d}", 10, MUTED)
         return page
 
@@ -81,14 +81,14 @@ class Deck:
 
 
 def main():
-    final, holdout = score("score_studio_16.json"), score("score_holdout_16.json")
+    final, holdout = score("score_studio_17.json"), score("score_holdout_17.json")
     deck = Deck()
 
     p = deck.page("실손보험 청구 서류 1차 검증 워크플로우", "컴학감동 · 최종 제출")
     deck.box(p, (48, 130, 900, 260), "보상 담당자가 받은 청구 서류 묶음을 읽고, 영수증 금액을 검산하고, 서류 누락·불일치·중복을 찾아 심사 진행 / 보완 요청 / 검토 필요 중 하나로 1차 분류합니다.", 20)
-    deck.box(p, (48, 300, 420, 420), "Upstage Studio 설정 #16\nParse → Classify → Extract → 판정", 17, fill=SOFT, border=LINE)
+    deck.box(p, (48, 300, 420, 420), "Upstage Studio 설정 #17\nParse → Classify → Extract → 판정", 17, fill=SOFT, border=LINE)
     if final:
-        deck.box(p, (450, 300, 900, 420), f"최종 데이터셋 32개 × 2회\n키 일치 {final[1]}/{final[2]}", 17, fill=SOFT, border=LINE)
+        deck.box(p, (450, 300, 900, 420), f"최종 데이터셋 36개 × 3회\n키 일치 {final[1]}/{final[2]}", 17, fill=SOFT, border=LINE)
 
     p = deck.page("문제와 사용자")
     deck.bullets(p, 48, 110, [
@@ -98,7 +98,7 @@ def main():
         "범위 밖: 보험금 지급 여부, 의학적 판단, 보험사기 판단.",
     ], size=20, gap=18)
 
-    p = deck.page("워크플로우 (설정 #16)")
+    p = deck.page("워크플로우 (설정 #17)")
     p.insert_image(fitz.Rect(40, 95, 920, 375), filename=str(FINAL / "workflow_diagram.png"), keep_proportion=True)
     deck.bullets(p, 48, 390, [
         "판정_근거: 규칙대로 판단한다. 문서를 참조해 인용 표시가 붙는다.",
@@ -119,14 +119,14 @@ def main():
 
     p = deck.page("신뢰성 설계: 왜 흔들리지 않게 만들었나")
     deck.box(p, (48, 100, 330, 420), "검산을 가장 먼저\n\nA와 B를 두 수씩 더해 적게 한다. 하나라도 다르면 바로 검토 필요 / 읽기 오류로 끝내고 뒤 단계로 원인을 바꾸지 않는다.\n\n효과: 계산 흔들림이 사라져 #8에서 85회 모두 일치", 18, fill=SOFT, border=LINE)
-    deck.box(p, (345, 100, 625, 420), "판정과 정리를 분리\n\n프롬프트로 금지해도 인용 표시가 24회 중 9회 남았다. 판정_근거와 청구_판정(정리)으로 나눠, 채점하는 7개 키에 인용 표시가 붙지 않게 했다.\n\n효과: 청구_판정 인용 표시 76회 중 0회", 18, fill=SOFT, border=LINE)
+    deck.box(p, (345, 100, 625, 420), "판정과 정리를 분리\n\n프롬프트로 금지해도 인용 표시가 24회 중 9회 남았다. 판정_근거와 청구_판정(정리)으로 나눠, 채점하는 7개 키에 인용 표시가 붙지 않게 했다.\n\n효과: 청구_판정 인용 표시 126회 중 0회", 18, fill=SOFT, border=LINE)
     deck.box(p, (640, 100, 920, 420), "실패를 막는 분류\n\n빈 페이지는 blank로 보내 청구 전체가 실패하지 않게 하고, 카드 전표 같은 기타 문서는 판정 근거로 쓰지 않는다.\n\n효과: 빈 페이지가 섞인 청구도 판정이 나옴", 18, fill=SOFT, border=LINE)
 
     p = deck.page("개선 과정")
     history = [("#4", 7, 13, "통원 규칙 충돌"), ("#5", 38, 39, "판정 순서 고정"), ("#8", 85, 85, "두 수씩 검산"),
                ("#10", 38, 38, "blank 추가")]
     if final:
-        history.append(("#16", final[1], final[2], "판정·정리 분리"))
+        history.append(("#17", final[1], final[2], "증빙 읽기 보강"))
     base, top, bar = 380, 120, 100
     for i, (name, ok, total, note) in enumerate(history):
         x = 70 + i * 140
@@ -135,10 +135,10 @@ def main():
         deck.text(p, x + 8, base - h - 24, f"{ok}/{total}", 14)
         deck.text(p, x + 30, base + 8, name, 15)
         deck.box(p, (x - 10, base + 30, x + bar + 20, base + 70), note, 11, MUTED)
-    deck.text(p, 48, 470, "설정별 일치 건수. #4~#10은 그때 시험 파일의 판정 4개 키 기준 실행 횟수, #16은 최종 데이터셋 32개 × 2회의 6개 키 기준", 12, MUTED)
+    deck.text(p, 48, 470, "설정별 일치 건수. #4~#10은 그때 시험 파일의 판정 4개 키 기준 실행 횟수, #17은 최종 데이터셋 36개 × 3회의 6개 키 기준", 12, MUTED)
 
     p = deck.page("데이터셋")
-    deck.table(p, 48, 105, [260, 160], [["구분", "건수"], ["전체 세트", "32개"], ["문서", "63건"], ["심사 진행", "20"], ["보완 요청", "8"], ["검토 필요", "4"]], size=15, height=40)
+    deck.table(p, 48, 105, [260, 160], [["구분", "건수"], ["전체 세트", "36개"], ["문서", "73건"], ["심사 진행", "21"], ["보완 요청", "11"], ["검토 필요", "4"]], size=15, height=40)
     deck.bullets(p, 500, 110, [
         "① 단순 ② 양식 다양성 ③ 문서 결합 ④ 저품질 ⑤ 예외·함정 모두 포함",
         "cause 5종(없음, 서류 누락, 서류 불일치, 중복 제출, 읽기 오류) 모두 포함",
@@ -149,10 +149,10 @@ def main():
     p = deck.page("실행 정확도")
     y = 100
     if final:
-        y = deck.table(p, 48, y, [240, 200], [["키 (최종 데이터셋 32개 × 2회)", "일치"]] + [[k, f"{m}/{t}"] for k, m, t in final[0]] + [["전체", f"{final[1]}/{final[2]}"]], size=14, height=34)
+        y = deck.table(p, 48, y, [240, 200], [["키 (최종 데이터셋 36개 × 3회)", "일치"]] + [[k, f"{m}/{t}"] for k, m, t in final[0]] + [["전체", f"{final[1]}/{final[2]}"]], size=14, height=34)
     if holdout:
-        deck.table(p, 510, 100, [240, 160], [["키 (홀드아웃 6개 × 2회)", "일치"]] + [[k, f"{m}/{t}"] for k, m, t in holdout[0]] + [["전체", f"{holdout[1]}/{holdout[2]}"]], size=14, height=34)
-        deck.box(p, (510, 420, 920, 500), "홀드아웃: 규칙을 고칠 때 보지 않은 새 가상 영수증 3장과 그 회전·저해상도 변형", 12, MUTED)
+        deck.table(p, 510, 100, [240, 160], [["키 (홀드아웃 9개 × 2회)", "일치"]] + [[k, f"{m}/{t}"] for k, m, t in holdout[0]] + [["전체", f"{holdout[1]}/{holdout[2]}"]], size=14, height=34)
+        deck.box(p, (510, 420, 920, 500), "홀드아웃: 규칙을 고칠 때 보지 않은 새 가상 문서 9개(중복·빈 페이지·서류 불일치 포함)", 12, MUTED)
     deck.box(p, (48, 420, 480, 500), "청구_판정 content를 정답지와 키별로 비교(scripts/score_studio.py). reason은 문장이 달라도 되는 값이라 제외", 12, MUTED)
 
     p = deck.page("출력 예시 (보완 요청)")

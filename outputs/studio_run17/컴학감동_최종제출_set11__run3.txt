@@ -1,0 +1,8 @@
+patient_name: 홍지호
+provider_name: 가상정형외과의원
+reason: A=12200+28500=40700, 40700+0=40700, 40700+110000=150700, bill_total=150700, 같음. B=12200-0=12200, 12200+0=12200, 12200+110000=122200, patient_total=122200, 같음. 중복 여부: 같은 요양기관 가상정형외과의원 과 receipt_no 2610-00118 영수증은 1장으로 중복 아님. 서류 비교 결과: 세부내역서의 grand_copay 12200, grand_insurer 28500, grand_full_copay 0, grand_noncovered 110000, grand_total 150700 이 영수증의 copay_total 12200, insurer_total 28500, full_copay_total 0, noncovered_total 110000, bill_total 150700 과 각각 같고, 환자 이름 홍지호 와 요양기관 가상정형외과의원 도 서류끼리 같음. 통원 또는 입원: 외래. 영수증 진료과 정형외과, 통원 1번 진료과 예외(산부인과, 항문외과, 비뇨기과, 비뇨의학과, 피부과) 해당 없음. 환자부담 합계 122200 > 30000 예, 122200 > 100000 예. 처방전 조건 맞음: disease_code M54 값 있는 prescription 문서 있음. 증빙 조건 맞음: disease_name 가상 진단명 값 있는 evidence 문서 있음. 적용한 단계와 줄: 4단계 통원 기준 2번은 증빙 조건이 맞아 미적용, 3번은 처방전 조건 또는 증빙 조건 중 하나 이상 맞아 미적용, 4번 적용. 따라서 제출 서류만으로 1~4단계 점검상 보완 또는 검토 사유가 없어서 심사 진행이다. 실제 환자부담 합계는 122200원이다.
+decision: 심사 진행
+cause: 없음
+missing_documents: []
+mismatches: []
+심사 진행

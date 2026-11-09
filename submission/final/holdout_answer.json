@@ -123,6 +123,61 @@
         ],
         "mismatches": []
       }
+    },
+    {
+      "case_id": "holdout04",
+      "file": "시험_홀드아웃_04.pdf",
+      "documents": [
+        "진료비 영수증",
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "구하람",
+        "provider_name": "가상의원",
+        "decision": "보완 요청",
+        "cause": "중복 제출",
+        "reason": "요양기관과 영수증 번호(2611-00128)가 같은 영수증이 두 장 제출됨",
+        "missing_documents": [],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout05",
+      "file": "시험_홀드아웃_05.pdf",
+      "documents": [
+        "진료비 영수증"
+      ],
+      "answer": {
+        "patient_name": "김가온",
+        "provider_name": "가상내과의원",
+        "decision": "심사 진행",
+        "cause": "없음",
+        "reason": "영수증 검산이 맞고 환자부담 4,200원이 3만 원 이하라 영수증만으로 충분함. 둘째 쪽은 빈 페이지",
+        "missing_documents": [],
+        "mismatches": []
+      }
+    },
+    {
+      "case_id": "holdout06",
+      "file": "시험_홀드아웃_06.pdf",
+      "documents": [
+        "진료비 영수증",
+        "처방전",
+        "통원확인서",
+        "세부내역서"
+      ],
+      "answer": {
+        "patient_name": "황도현",
+        "provider_name": "가상정형외과의원",
+        "decision": "보완 요청",
+        "cause": "서류 불일치",
+        "reason": "영수증 총액 250,000원, 비급여 150,000원인데 세부내역서는 합계 208,000원, 비급여 108,000원으로 다름",
+        "missing_documents": [],
+        "mismatches": [
+          "비급여 합계",
+          "진료비 총액"
+        ]
+      }
     }
   ]
 }
